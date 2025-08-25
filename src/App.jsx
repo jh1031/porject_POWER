@@ -13,6 +13,7 @@ import {
   AdminPage,
   InquiryWritePage,
 } from './components/pages';
+import { Header } from './components/common';
 
 import './App.css';
 
