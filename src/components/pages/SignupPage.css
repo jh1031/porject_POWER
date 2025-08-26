@@ -1,0 +1,93 @@
+#SignupPage {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+#SignupPage p {
+  font-size: 22px;
+}
+#SignupPage input {
+  width: 296px;
+  height: 30px;
+  border-radius: 8px;
+}
+#SignupPage .sign-name {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+#SignupPage .sign-email {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+#SignupPage .sign-email .check {
+  width: 50px;
+  height: 26px;
+  margin-top: 4px;
+  margin-left: 8px;
+  font-size: 12px;
+  color: white;
+  background-color: #121212;
+  border: 1px solid #121212;
+  border-radius: 6px;
+}
+
+#SignupPage .sign-password {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+#SignupPage .sign-passwordCheck {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+#SignupPage .sign-nickname {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+#SignupPage .sign-nickname .check {
+  width: 50px;
+  height: 26px;
+  margin-top: 4px;
+  margin-left: 8px;
+  font-size: 12px;
+  color: white;
+  background-color: #121212;
+  border: 1px solid #121212;
+  border-radius: 6px;
+}
+#SignupPage .sign-gender {
+  margin-left: 150px;
+  margin-bottom: 12px;
+}
+#SignupPage .sign-gender button {
+  width: 140px;
+  height: 50px;
+  font-size: 18px;
+  border: 1px solid #121212;
+  border-radius: 8px;
+}
+#SignupPage .sign-gender .woman {
+  margin-left: 20px;
+}
+#SignupPage .sign-gender .active {
+  background-color: #ddd;
+}
+#SignupPage .sign-birthdate {
+  margin-left: 150px;
+  margin-bottom: 50px;
+}
+#SignupPage .sign-birthdate input {
+  width: 205px;
+  font-size: 18px;
+  padding-left: 20%;
+}
+#SignupPage .signup {
+  width: 300px;
+  height: 50px;
+  margin-left: 150px;
+  font-size: 18px;
+  color: white;
+  background-color: #121212;
+  border: 1px solid #121212;
+  border-radius: 8px;
+}
