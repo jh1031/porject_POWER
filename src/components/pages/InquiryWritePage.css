@@ -1,0 +1,149 @@
+/* InquiryWritePage.css */
+
+#InquiryWritePage {
+    font-family: 'Noto Sans KR', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- 공통 --- */
+#InquiryWritePage h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* --- 문의 유형 버튼 그룹 --- */
+#InquiryWritePage .Help {
+    display: flex;
+    gap: 12px;
+}
+
+#InquiryWritePage .categoryGroup {
+    flex: 1;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    padding: 12px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+#InquiryWritePage .categoryGroup:hover {
+    border-color: #333;
+}
+
+#InquiryWritePage .categoryGroup.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* --- 제목 / 내용 입력 박스 --- */
+#InquiryWritePage .title input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    /* placeholder 포함 가운데 정렬 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#InquiryWritePage .title-inquirywr01,
+.content-inquirywr01 {
+    margin-top: 20px;
+}
+
+#InquiryWritePage .title input,
+.content input {
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+#InquiryWritePage .title input:focus,
+.content input:focus {
+    border-color: #333;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 글자수 카운터 (제목 입력창 하단 우측) --- */
+#InquiryWritePage .title {
+    position: relative;
+}
+
+#InquiryWritePage .title::after {
+    content: "30byte";
+    /* JS로 업데이트 예정 */
+    position: absolute;
+    right: -20px;
+    bottom: -18px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* --- 내용 입력창은 크게 --- */
+#InquiryWritePage .content input {
+    height: 120px;
+}
+
+#InquiryWritePage .content {
+    position: relative;
+}
+
+#InquiryWritePage .content input {
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;  /* placeholder 포함 가운데 정렬 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#InquiryWritePage .content::after {
+    content: "300byte";  /* JS로 업데이트 예정 */
+    position: absolute;
+    right: -20px;
+    bottom: -18px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* --- 사진 업로드 / 버튼 영역 --- */
+#InquiryWritePage .picture-inquirywr01 {
+    margin-top: 20px;
+}
+
+#InquiryWritePage .photo-upload {
+    margin-top: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 50px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+/* --- 문의하기 버튼 영역 --- */
+#InquiryWritePage .click-inquirywr01 {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#InquiryWritePage .click-button {
+    padding: 12px 100px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;  /* 마우스 모양 */
+}
