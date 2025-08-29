@@ -1,8 +1,14 @@
 const AdminPage = () => {
-    return(
+    return (
         <div id="AdminPage">
-
-        </div>
+            <h2>관리자</h2>
+            <div className="container">
+                <div>영화 관리</div>
+                <div>배우 관리</div>
+                <div>회원 관리</div>
+                <div>문의 관리</div>
+            </div>
+        </div >
     )
 }
 
