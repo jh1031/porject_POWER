@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import LoginPage from '../pages/LoginPage';
 import './Header.css';
 
 // 재사용 가능한 드롭다운 메뉴 컴포넌트
@@ -47,6 +48,15 @@ const Header = () => {
     { path: '/events/goods', name: '굿즈' },
   ];
 
+  const [isModal, setIsModal] = useState(false);
+  const handleClickIsMdal = () => {
+    setIsModal(!isModal);
+  };
+
+  const modalClose = () => {
+    setIsModal(!isModal);
+  };
+
   return (
     <header id="site-header">
       <div className="logo-area">
@@ -56,7 +66,7 @@ const Header = () => {
       </div>
 
       <nav className="main-nav">
-        <ul>
+        <ul className="main-nav-ul">
           {/* 분리된 DropdownMenu 컴포넌트 사용 */}
           <DropdownMenu
             title="장르"
@@ -79,8 +89,11 @@ const Header = () => {
       </nav>
 
       <div className="user-menu">
-        <Link to="/login">로그인</Link>
+        <button onClick={handleClickIsMdal}>로그인</button>
         <Link to="/signup">회원가입</Link>
+      </div>
+      <div className="isModal">
+        {<LoginPage isModal={isModal} modalClose={modalClose} />}
       </div>
     </header>
   );
