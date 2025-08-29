@@ -78,7 +78,7 @@ const InquiryWritePage = () => {
                         maxLength={MAX_CONTENT}
                     />
                     <div className='counter'>
-                        {content.length}/{MAX_CONTENT} byte
+                        {content.length}/{MAX_CONTENT} byte!
                     </div>
                 </div>
             </div>
