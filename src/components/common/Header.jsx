@@ -60,7 +60,6 @@ const Header = () => {
           {/* 분리된 DropdownMenu 컴포넌트 사용 */}
           <DropdownMenu
             title="장르"
-            to="/movielist"
             items={genreItems}
             dropdownClassName="genre-dropdown"
           />
