@@ -91,7 +91,7 @@
 /* 입력 필드 포커스 시 스타일 (왓챠피디아 핑크 색상) */
 .login-form input:focus {
   outline: none;
-  border-color: #ff0558;
+  border-color: #606060;
   box-shadow: 0 0 0 2px rgba(255, 5, 88, 0.2);
 }
 
