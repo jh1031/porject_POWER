@@ -8,8 +8,8 @@ const RecommendDirector = () => {
         <div id="RecommendDirector">
             <MovieItem />
             <div className="recommend-more">
-                <img src="../data/img/plus_128px" />
-                <p>{director.name}감독 작품 더보기</p>
+                <button><img src="../public/data/img/plus_128px" alt='해당 감독 더보기'/>
+                <p>{director.name}감독 작품 더보기</p></button>
             </div>
         </div>
     );

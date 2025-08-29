@@ -1,9 +1,9 @@
 import MovieItem from "./MovieItem";
 
-const SortedMovieList = () => {
+const SortedMovieList = ({movie}) => {
     return(
         <div id="SortedMovieList">
-            <MovieItem/>
+            {movie.map(item=><MovieItem key={item.id} movie={item}/>)}
         </div>
     )
 }

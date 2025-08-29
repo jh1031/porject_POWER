@@ -8,8 +8,8 @@ const RecommendGenre = () => {
         <div id="RecommendGenre">
             <MovieItem/>
             <div className="recommend-more">
-                <img src="../data/img/plus_128px" />
-                <p>{movie.genre}장르 더보기</p>
+                <button><img src=".../public/data/img/plus_128px" alt="해당 장르 더보기"/>
+                <p>{movie.genre}장르 더보기</p></button>
             </div>
         </div>
     )
