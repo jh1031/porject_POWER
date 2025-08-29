@@ -21,6 +21,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   padding: 15px 30px;
   background-color: #f8f8f8;
   border-bottom: 1px solid #e7e7e7;
@@ -32,7 +33,7 @@ li {
   color: #000;
 }
 
-.main-nav ul {
+.main-nav .main-nav-ul {
   display: flex;
   gap: 40px;
   align-items: center;
@@ -62,7 +63,8 @@ li {
 }
 
 .nav-dropdown li a {
-  display: block;
+  /* display: block; */
+  height: 15px;
   /* 위아래, 좌우 패딩을 추가하여 클릭 영역을 넓히고 보기 좋게 만듭니다. */
   white-space: nowrap;
   border-radius: 4px;
@@ -78,6 +80,7 @@ li {
 .event-dropdown {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   /* 항목 간의 세로 간격을 줄입니다. */
 }
 
@@ -106,7 +109,7 @@ li {
 }
 
 .tooltip-text::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -125,8 +128,17 @@ li {
   font-size: 14px;
   color: #555;
 }
+.user-menu button {
+  padding-top: 3px;
+  font-size: 14px;
+  color: #555;
+}
 
-.user-menu a:first-child::after {
-  content: ' / ';
+.user-menu a::before {
+  content: " / ";
   margin: 0 5px;
+}
+
+.isModal {
+  position: absolute;
 }

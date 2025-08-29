@@ -1,0 +1,133 @@
+#SignupPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  background-color: #212121;
+}
+#SignupPage > div {
+  margin-bottom: 15px;
+}
+#SignupPage .noti {
+  display: none;
+  font-size: 16px;
+  color: red;
+}
+
+#SignupPage h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+#SignupPage p {
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+}
+#SignupPage input {
+  width: 350px;
+  padding: 14px 16px;
+  color: #606060;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+}
+
+#SignupPage input::placeholder {
+  color: #9b9b9b;
+}
+#SignupPage input:focus {
+  outline: none;
+  border-color: #9b9b9b;
+}
+
+#SignupPage .sign-email input {
+  width: 280px;
+}
+#SignupPage .sign-email .check {
+  width: 60px;
+  height: 40px;
+  margin-top: 3px;
+  margin-left: 8px;
+  font-size: 12px;
+  color: #121212;
+  background-color: #dbdbdb;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+}
+
+#SignupPage .eye {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../public/icon/hidden.png");
+  text-indent: -99999px;
+}
+#SignupPage .eye.active {
+  background-image: url("../../../public/icon/visible.png");
+}
+
+#SignupPage .sign-password {
+  position: relative;
+}
+#SignupPage .sign-password .eye {
+  position: absolute;
+  top: 48px;
+  right: 16px;
+}
+#SignupPage .sign-passwordCheck {
+  position: relative;
+}
+#SignupPage .sign-passwordCheck .eye {
+  position: absolute;
+  top: 48px;
+  right: 16px;
+}
+#SignupPage .sign-nickname input {
+  width: 290px;
+}
+#SignupPage .sign-nickname .check {
+  width: 50px;
+  height: 40px;
+  margin-top: 3px;
+  margin-left: 8px;
+  font-size: 12px;
+  color: #121212;
+  background-color: #dbdbdb;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+}
+#SignupPage .sign-gender button {
+  width: 165px;
+  height: 50px;
+  font-size: 25px;
+  background-color: #dbdbdb;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+}
+#SignupPage .sign-gender button:hover {
+  color: #fff;
+  background-color: #9b9b9b;
+}
+#SignupPage .sign-gender .woman {
+  margin-left: 20px;
+}
+#SignupPage .sign-gender .active {
+  color: #fff;
+  background-color: #606060;
+}
+#SignupPage .sign-birthdate {
+  margin-bottom: 50px;
+}
+#SignupPage .signup {
+  width: 350px;
+  height: 70px;
+  font-size: 25px;
+  color: #121212;
+  background-color: #dbdbdb;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+}
