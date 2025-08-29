@@ -99,4 +99,4 @@ const InquiryWritePage = () => {
     )
 }
 
-export default InquiryWritePage;git 
+export default InquiryWritePage;
