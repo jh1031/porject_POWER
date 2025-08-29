@@ -92,7 +92,8 @@ const InquiryWritePage = () => {
                 </div>
             </div>
             <div className="click-inquirywr01">
-                <button className='click-button' onClick={() => handleClickk('문의 작성 완료하시겠습니까?')}>문의하기</button>
+                <button
+                    className='click-button' onClick={() => handleClickk('문의 작성 완료하시겠습니까?')}>문의하기</button>
             </div>
         </div>
     )
