@@ -1,6 +1,6 @@
 import MovieItem from "./MovieItem";
 const MovieListTop3 = ({movie}) => {
-    const movieRanking = movie.slice(0,3); 
+        const movieRanking = movie.slice(0,3); 
     return(
         <div id="MovieListTop3">
             {movieRanking.map((item,idx)=><div key={item.id} className="rank">

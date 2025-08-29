@@ -1,4 +1,4 @@
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { MovieListTop3, SortedMovieList } from '../common/MovieListPage';
 import { useEffect, useState } from 'react';
 import baseApi from '../../../public/data/api/api';
@@ -26,29 +26,31 @@ const movieGenre = [
 ];
 const MovieListPage = () => {
     const nav = useNavigate();
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const genre = searchParams.get('genre');
-    const page = searchParams.get('page');
+    const currentPage = searchParams.get('page') || '1';
     const numGenre = Number(genre);
-    const [movieSort, setMovieSort] = useState('like');
+    const [movieSort, setMovieSort] = useState('vote_average.desc'); 
     const [isReady, setIsReady] = useState(false);
     const [movie, setMovie] = useState([]);
-    const [pages, setPages] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
     const filteredGenreId = movieGenre.filter((gen) => gen.id === numGenre);
 
     useEffect(() => {
+        if (!searchParams.has('page')) {
+            setSearchParams({ genre, page: '1' });
+        }
         fetchMovie();
-    }, [pages, genre]);
+    }, [currentPage, genre, movieSort]); 
 
     const fetchMovie = async () => {
+        setIsReady(false);
         try {
             const res = await baseApi.get(
-                `/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_average.desc&with_genres=${genre}&vote_count.gte=200`
+                `/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=${currentPage}&sort_by=${movieSort}&with_genres=${genre}&vote_count.gte=200`
             );
-            console.log(res);
             const data = await res.data.results;
-            const total = res.data.total_pages;
+            const total = res.data.total_pages > 500 ? 500 : res.data.total_pages;
             setMovie(data);
             setTotalPage(total);
         } catch (e) {
@@ -58,46 +60,56 @@ const MovieListPage = () => {
         }
     };
 
+    // 페이지 이동 핸들러
+    const handlePageChange = (newPage) => {
+        nav(`/movielist?genre=${genre}&page=${newPage}`);
+    };
+
+    // 정렬 변경 핸들러
+    const handleSortChange = (e) => {
+        setMovieSort(e.target.value);
+    };
+
     if (!isReady) {
         return <div>데이터 로딩 중 ...</div>;
     }
     return (
         <div id="MovieListPage">
             <div className="movielist-top">
-                <h2>{filteredGenreId[0].name}영화</h2>
+                <h2>{filteredGenreId.length > 0 && `${filteredGenreId[0].name}영화`}</h2>
 
                 <div className="nav">
                     <p>장르</p>
                     <p> &gt; </p>
-                    <p>{filteredGenreId[0].name}</p>
+                    <p>{filteredGenreId.length > 0 && filteredGenreId[0].name}</p>
                 </div>
             </div>
             <MovieListTop3 movie={movie} />
-            <select name="sort" id="sort">
-                <option value="like">인기순</option>
-                <option value="new">최신순</option>
+            <select name="sort" id="sort" onChange={handleSortChange} value={movieSort}>
+                <option value="vote_average.desc">인기순</option>
+                <option value="primary_release_date.desc">최신순</option>
             </select>
             <SortedMovieList movie={movie} />
             <div className="pagination">
-                {pages > 1 && (
-                    <button onClick={() => setPages(pages - 1)}>이전</button>
+                {Number(currentPage) > 1 && (
+                    <button onClick={() => handlePageChange(Number(currentPage) - 1)}>이전</button>
                 )}
                 {Array.from({ length: totalPage }, (_, i) => i + 1).map(
                     (pageNum) => (
                         <button
                             key={pageNum}
-                            onClick={() => setPages(pageNum)}
+                            onClick={() => handlePageChange(pageNum)}
                             style={{
                                 fontWeight:
-                                    pageNum === pages ? 'bold' : 'normal',
+                                    pageNum === Number(currentPage) ? 'bold' : 'normal',
                             }}
                         >
                             {pageNum}
                         </button>
                     )
                 )}
-                {pages < totalPage && (
-                    <button onClick={() => setPages(pages + 1)}>다음</button>
+                {Number(currentPage) < totalPage && (
+                    <button onClick={() => handlePageChange(Number(currentPage) + 1)}>다음</button>
                 )}
             </div>
         </div>
