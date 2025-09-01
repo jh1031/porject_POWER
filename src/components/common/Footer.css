@@ -1,0 +1,74 @@
+#Footer {
+  width: 100%;
+  height: auto;
+  color: #000;
+  background-color: #3b3b3b;
+}
+#Footer .footer-content {
+  width: 1200px;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#Footer .logo {
+  display: flex;
+  gap: 5px;
+  margin: 20px 0 5px 0;
+  margin-top: 20px;
+}
+.logo .logo1 {
+  color: #6b0101;
+}
+
+.logo .logo2 {
+  color: #000;
+}
+.logo .logo1,
+.logo .logo2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 1px 5px 3px #1e1e1e;
+}
+#Footer h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 5px 0;
+}
+#Footer .left-right {
+  display: flex;
+  justify-content: space-between;
+}
+
+#Footer .sns .social-links {
+  display: flex;
+  gap: 100px;
+}
+#Footer .social-links .face {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-size: 24px auto;
+  text-indent: 30px;
+  background-image: url('/public/img/facebook.png');
+}
+#Footer .social-links .twi {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-size: 24px auto;
+  text-indent: 30px;
+  background-image: url('/public/img/twitter.png');
+}
+#Footer .social-links .ins {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-size: 24px auto;
+  text-indent: 30px;
+  background-image: url('/public/img/instagram.png');
+}
+#Footer .footer-bottom {
+  margin-bottom: 2px;
+  margin-top: 10px;
+}

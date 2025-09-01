@@ -1,52 +1,52 @@
-import { useState, useRef, useEffect, use } from "react";
-import { useNavigate } from "react-router-dom";
-import "./SignupPage.css";
+import { useState, useRef, useEffect, use } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './SignupPage.css';
 
 const members = [
   {
     id: 1724750000001,
-    name: "김철수",
-    email: "chulsoo@example.com",
-    password: "Chulsoo!23",
-    nickName: "철이",
-    gender: "male",
-    birthDate: "1995-03-15",
+    name: '김철수',
+    email: 'chulsoo@example.com',
+    password: 'Chulsoo!23',
+    nickName: '철이',
+    gender: 'male',
+    birthDate: '1995-03-15',
   },
   {
     id: 1724750000002,
-    name: "이영희",
-    email: "younghee@example.com",
-    password: "Younghee#45",
-    nickName: "희희",
-    gender: "female",
-    birthDate: "1998-07-22",
+    name: '이영희',
+    email: 'younghee@example.com',
+    password: 'Younghee#45',
+    nickName: '희희',
+    gender: 'female',
+    birthDate: '1998-07-22',
   },
   {
     id: 1724750000003,
-    name: "박민수",
-    email: "minsoo@example.com",
-    password: "Minsoo$78",
-    nickName: "수박",
-    gender: "male",
-    birthDate: "1992-11-05",
+    name: '박민수',
+    email: 'minsoo@example.com',
+    password: 'Minsoo$78',
+    nickName: '수박',
+    gender: 'male',
+    birthDate: '1992-11-05',
   },
   {
     id: 1724750000004,
-    name: "최지은",
-    email: "jieun@example.com",
-    password: "Jieun@90!",
-    nickName: "지니",
-    gender: "female",
-    birthDate: "2000-01-10",
+    name: '최지은',
+    email: 'jieun@example.com',
+    password: 'Jieun@90!',
+    nickName: '지니',
+    gender: 'female',
+    birthDate: '2000-01-10',
   },
   {
     id: 1724750000005,
-    name: "정우성",
-    email: "woosung@example.com",
-    password: "WooSung*34",
-    nickName: "우성짱",
-    gender: "male",
-    birthDate: "1994-09-30",
+    name: '정우성',
+    email: 'woosung@example.com',
+    password: 'WooSung*34',
+    nickName: '우성짱',
+    gender: 'male',
+    birthDate: '1994-09-30',
   },
 ];
 
@@ -70,17 +70,17 @@ const SignupPage = () => {
   const birthDateFocusRef = useRef();
 
   // 회원정보 입력
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordCheck, setPasswordCheck] = useState("");
-  const [nickName, setNickName] = useState("");
-  const [gender, setGender] = useState("man");
-  const [birthDate, setBirthDate] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordCheck, setPasswordCheck] = useState('');
+  const [nickName, setNickName] = useState('');
+  const [gender, setGender] = useState('man');
+  const [birthDate, setBirthDate] = useState('');
 
   // 비밀번호 비밀번호 확인 타입
-  const [passwordType, setPasswordType] = useState("password");
-  const [passwordCheckType, setPasswordCheckType] = useState("password");
+  const [passwordType, setPasswordType] = useState('password');
+  const [passwordCheckType, setPasswordCheckType] = useState('password');
   const [isPassType, setIsPassType] = useState(false);
   const [isPassCheckType, setIsPassCheckType] = useState(false);
 
@@ -98,35 +98,35 @@ const SignupPage = () => {
   const [isPassword, setIsPassword] = useState(true);
   const [isPasswordCheck, setIsPasswordCheck] = useState(true);
 
-  const [passwordMessage, setPasswordMessage] = useState("");
-  const [passwordCheckMessage, setPasswordCheckMessage] = useState("");
+  const [passwordMessage, setPasswordMessage] = useState('');
+  const [passwordCheckMessage, setPasswordCheckMessage] = useState('');
 
   // 비밀형식 확인
   const [isSignupPass, setIsSignupPass] = useState(false);
   const handleChangeName = (e) => {
-    nameRef.current.style.display = "none";
+    nameRef.current.style.display = 'none';
     setName(e.target.value);
   };
   const handleChangeEmail = (e) => {
-    emailRef.current.style.display = "none";
+    emailRef.current.style.display = 'none';
     setEmail(e.target.value);
   };
   const handleChangePassword = (e) => {
-    passwordRef.current.style.display = "none";
+    passwordRef.current.style.display = 'none';
     setPassword(e.target.value);
   };
 
   const handleChangePasswordCheck = (e) => {
-    passwordCheckRef.current.style.display = "none";
+    passwordCheckRef.current.style.display = 'none';
     setPasswordCheck(e.target.value);
   };
   const handleChangeNickName = (e) => {
-    nickNameRef.current.style.display = "none";
+    nickNameRef.current.style.display = 'none';
     setNickName(e.target.value);
   };
 
   const handleChangeBirthDate = (e) => {
-    birthDateRef.current.style.display = "none";
+    birthDateRef.current.style.display = 'none';
     setBirthDate(e.target.value);
   };
 
@@ -135,20 +135,20 @@ const SignupPage = () => {
       /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
 
     if (!emailRegExp.test(email)) {
-      alert("이메일의 형식이 올바르지 않습니다!");
+      alert('이메일의 형식이 올바르지 않습니다!');
       setIsEmail(false);
     } else {
-      alert("사용가능한 이메일입니다.");
+      alert('사용가능한 이메일입니다.');
       setIsEmail(true);
     }
   };
 
   const handleClickIsNickName = () => {
     if (!users.some((user) => user.nickName === nickName)) {
-      alert("사용가능한 닉네임입니다.");
+      alert('사용가능한 닉네임입니다.');
       setIsNickName(true);
     } else {
-      alert("이미 사용중인 닉네임입니다.");
+      alert('이미 사용중인 닉네임입니다.');
       setIsNickName(false);
     }
   };
@@ -156,9 +156,9 @@ const SignupPage = () => {
   const handleClickIsCheck = () => {
     setIsCheck(!isCheck);
     if (!isCheck) {
-      setGender("man");
+      setGender('man');
     } else {
-      setGender("woman");
+      setGender('woman');
     }
   };
 
@@ -172,58 +172,58 @@ const SignupPage = () => {
     // 비밀번호
     if (!password) {
       // 비어있을 때는 안내 숨기기
-      passwordRef.current.style.display = "none";
-      setPasswordMessage("");
+      passwordRef.current.style.display = 'none';
+      setPasswordMessage('');
       return;
     }
 
-    passwordRef.current.style.display = "block";
+    passwordRef.current.style.display = 'block';
     if (!passwordRegExp.test(password)) {
-      passwordRef.current.style.color = "red";
-      setPasswordMessage("비밀번호 형식이 올바르지 않습니다.");
+      passwordRef.current.style.color = 'red';
+      setPasswordMessage('비밀번호 형식이 올바르지 않습니다.');
       setIsPassword(true);
       setIsSignupPass(false);
     } else {
-      passwordRef.current.style.color = "green";
-      setPasswordMessage("사용 가능한 비밀번호입니다.");
+      passwordRef.current.style.color = 'green';
+      setPasswordMessage('사용 가능한 비밀번호입니다.');
       setIsPassword(true);
       setIsSignupPass(true);
     }
 
     // 비밀번호 확인
     if (!passwordCheck) {
-      passwordCheckRef.current.style.display = "none";
-      setPasswordCheckMessage("");
+      passwordCheckRef.current.style.display = 'none';
+      setPasswordCheckMessage('');
       return;
     }
 
-    passwordCheckRef.current.style.display = "block";
+    passwordCheckRef.current.style.display = 'block';
     if (password !== passwordCheck) {
-      passwordCheckRef.current.style.color = "red";
-      setPasswordCheckMessage("비밀번호가 일치하지 않습니다.");
+      passwordCheckRef.current.style.color = 'red';
+      setPasswordCheckMessage('비밀번호가 일치하지 않습니다.');
       setIsPasswordCheck(true);
     } else {
-      passwordCheckRef.current.style.color = "green";
-      setPasswordCheckMessage("비밀번호가 일치합니다.");
+      passwordCheckRef.current.style.color = 'green';
+      setPasswordCheckMessage('비밀번호가 일치합니다.');
       setIsPasswordCheck(true);
     }
   }, [password, passwordCheck]);
 
   const handleClickPassType = () => {
-    if ("password" === passwordType) {
-      setPasswordType("text");
+    if ('password' === passwordType) {
+      setPasswordType('text');
       setIsPassType(true);
     } else {
-      setPasswordType("password");
+      setPasswordType('password');
       setIsPassType(false);
     }
   };
   const handleClickPassCheckType = () => {
-    if ("password" === passwordCheckType) {
-      setPasswordCheckType("text");
+    if ('password' === passwordCheckType) {
+      setPasswordCheckType('text');
       setIsPassCheckType(true);
     } else {
-      setPasswordCheckType("password");
+      setPasswordCheckType('password');
       setIsPassCheckType(false);
     }
   };
@@ -237,31 +237,31 @@ const SignupPage = () => {
     const birthDateValue = birthDate.trim();
 
     if (!nameValue) {
-      nameRef.current.style.display = "block";
+      nameRef.current.style.display = 'block';
       nameFocusRef.current.focus();
       return;
     } else if (!emailValue) {
-      emailRef.current.style.display = "block";
+      emailRef.current.style.display = 'block';
       emailFocusRef.current.focus();
       return;
     } else if (!passwordValue) {
-      passwordRef.current.style.color = "red";
-      passwordRef.current.style.display = "block";
+      passwordRef.current.style.color = 'red';
+      passwordRef.current.style.display = 'block';
       passwordFocusRef.current.focus();
       setIsPassword(false);
       return;
     } else if (!passwordCheckValue) {
-      passwordCheckRef.current.style.color = "red";
-      passwordCheckRef.current.style.display = "block";
+      passwordCheckRef.current.style.color = 'red';
+      passwordCheckRef.current.style.display = 'block';
       passwordCheckFocusRef.current.focus();
       setIsPasswordCheck(false);
       return;
     } else if (!nickNameValue) {
-      nickNameRef.current.style.display = "block";
+      nickNameRef.current.style.display = 'block';
       nickNameFocusRef.current.focus();
       return;
     } else if (!birthDateValue) {
-      birthDateRef.current.style.display = "block";
+      birthDateRef.current.style.display = 'block';
       birthDateFocusRef.current.focus();
       return;
     }
@@ -281,17 +281,17 @@ const SignupPage = () => {
         },
       ]);
     } else if (isEmail && isNickName && !isSignupPass) {
-      alert("비밀번호 형식이 확인해주세요.");
+      alert('비밀번호 형식이 확인해주세요.');
       return;
     } else if (isEmail && isNickName && password !== passwordCheck) {
-      alert("비밀번호가 일치하지 않습니다");
+      alert('비밀번호가 일치하지 않습니다');
       return;
     } else {
-      alert("이메일, 닉네임 확인을 해주세요.");
+      alert('이메일, 닉네임 확인을 해주세요.');
       return;
     }
 
-    navigate("/");
+    navigate('/');
   };
   return (
     <div id="SignupPage">
@@ -333,13 +333,13 @@ const SignupPage = () => {
           ref={passwordFocusRef}
         />
         <button
-          className={`eye ${isPassType ? "active" : ""}`}
+          className={`eye ${isPassType ? 'active' : ''}`}
           onClick={handleClickPassType}
         >
           비밀번호보기
         </button>
         <p className="noti" ref={passwordRef}>
-          {isPassword ? passwordMessage : "비밀번호를 입력해주세요."}
+          {isPassword ? passwordMessage : '비밀번호를 입력해주세요.'}
         </p>
       </div>
       <div className="sign-passwordCheck">
@@ -351,13 +351,13 @@ const SignupPage = () => {
           ref={passwordCheckFocusRef}
         />
         <button
-          className={`eye ${isPassCheckType ? "active" : ""}`}
+          className={`eye ${isPassCheckType ? 'active' : ''}`}
           onClick={handleClickPassCheckType}
         >
           비밀번호보기
         </button>
         <p className="noti" ref={passwordCheckRef}>
-          {isPasswordCheck ? passwordCheckMessage : "비밀번호 확인을 해주세요."}
+          {isPasswordCheck ? passwordCheckMessage : '비밀번호 확인을 해주세요.'}
         </p>
       </div>
       <div className="sign-nickname">
@@ -378,13 +378,13 @@ const SignupPage = () => {
       <div className="sign-gender">
         <p>성별</p>
         <button
-          className={`man ${isCheck ? "active" : ""}`}
+          className={`man ${isCheck ? 'active' : ''}`}
           onClick={handleClickIsCheck}
         >
           남성
         </button>
         <button
-          className={`woman ${isCheck ? "" : "active"}`}
+          className={`woman ${isCheck ? '' : 'active'}`}
           onClick={handleClickIsCheck}
         >
           여성
