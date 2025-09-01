@@ -1,7 +1,9 @@
+import './EventListPage.css'
+
 const EventListPage = () => {
     return(
         <div id="EventListPage">
-
+            
         </div>
     )
 }
