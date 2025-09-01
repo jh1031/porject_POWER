@@ -6,6 +6,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
   background-color: #fff; /* 배경색 흰색 */
   margin: 10px; /* 다른 카드와의 간격 */
+  position: relative;
 }
 
 /* 카드 상단 부분 (프로필, 별점) */
@@ -83,6 +84,11 @@
 }
 
 /* 좋아요 버튼 */
+.card-like{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
 .card-like .like-button {
   display: inline-block;
   width: 40px;
