@@ -7,8 +7,15 @@ const ReviewCard = ({ review }) => {
     const [isActive, setIsActive] = useState(false);
 
     const handleLikeBtn = () => {
-        setLikeCount(likeCount + 1);
-        setIsActive(true);
+        if(isActive){
+            
+            setLikeCount(likeCount - 1);
+            setIsActive(false);
+        }else{
+            setLikeCount(likeCount + 1);
+            setIsActive(true);
+        }
+        
     };
 
     return (
@@ -22,7 +29,14 @@ const ReviewCard = ({ review }) => {
                 </div>
                 <div className="card-stars">
                     {Array.from({ length: review.star }).map((_, index) => (
-                        <span key={index}>★</span>
+                        <span key={`filled-${index}`} className="filled-star">
+                            ★
+                        </span>
+                    ))}
+                    {Array.from({ length: 5 - review.star }).map((_, index) => (
+                        <span key={`empty-${index}`} className="empty-star">
+                            ☆
+                        </span>
                     ))}
                 </div>
             </div>
@@ -41,7 +55,6 @@ const ReviewCard = ({ review }) => {
                 <button
                     className={`like-button ${isActive ? 'active' : ''}`}
                     onClick={handleLikeBtn}
-                    disabled={isActive}
                 >
                     좋아요
                 </button>

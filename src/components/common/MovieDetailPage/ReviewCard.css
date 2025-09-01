@@ -43,6 +43,7 @@
     color: gold; /* 별 색상 노란색 */
     font-size: 1.5em; /* 별 크기 조절 */
     letter-spacing: -2px; /* 별 사이 간격 조절 (너무 넓지 않게) */
+
 }
 
 /* 개별 별 스타일 (span 태그에 적용) */
