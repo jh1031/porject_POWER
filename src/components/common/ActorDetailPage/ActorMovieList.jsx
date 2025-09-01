@@ -1,4 +1,5 @@
 import ActorMoiveItem from "./ActorMovieItem";
+import "./ActorMovieList.css";
 const ActorMovieList = ({ sortMovies }) => {
   return (
     <div id="ActorMovieList">
