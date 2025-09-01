@@ -61,7 +61,8 @@ const Header = () => {
     <header id="site-header">
       <div className="logo-area">
         <Link to="/" className="logo-link">
-          <h1 className="logo">LOGO</h1>
+          <span className="logo1">MOVIE</span>
+          <span className="logo2">RANGER</span>
         </Link>
       </div>
 
