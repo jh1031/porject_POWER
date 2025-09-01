@@ -13,7 +13,7 @@ import {
   AdminPage,
   InquiryWritePage,
 } from './components/pages';
-import { Header } from './components/common';
+import { Header, Footer } from './components/common';
 import Header2 from './components/common/Header2';
 
 import './App.css';
@@ -21,9 +21,12 @@ import './App.css';
 const Layout = () => {
   return (
     <div id="wrapper">
-      <Header2/>
+      <Header2 />
       <Header />
-      <Outlet />
+      <div className="content">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   );
 };
