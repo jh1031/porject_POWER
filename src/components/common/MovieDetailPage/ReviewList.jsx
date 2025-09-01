@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
 import axios from "axios";
+import './ReviewList.css';
 
 const ReviewList = () => {
     const [isReady, setIsReady] = useState(false);
