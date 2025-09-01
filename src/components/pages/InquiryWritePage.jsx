@@ -5,6 +5,9 @@ const InquiryWritePage = () => {
     const [completion, setCompletion] = useState(""); // 문의하기
     const [title, setTitle] = useState(""); // 제목 글자수 카운팅
     const [content, setContent] = useState(""); // 내용 글자수 카운팅
+    const [titleError, setTitleError] = useState("");
+    const [contentError, setContentError] = useState("");
+    const [error, setError] = useState("");
 
     const handleClickk = (categorys) => {
         setCompletion(categorys);
@@ -38,6 +41,23 @@ const InquiryWritePage = () => {
         }
     }
 
+    //제목,내용 입력창,문의하기 띄우기
+    const handleButtonClick = () => {
+        let valid = true;
+        if (title.trim() === "") {
+            setTitleError("제목을 입력해주세요!");
+            valid = false;
+        }
+        if (content.trim() === "") {
+            setContentError("내용을 입력해주세요!");
+            valid = false;
+        }
+        if (!valid) return; // 제목/내용 둘 중 하나라도 없으면 종료
+        // 둘 다 입력 완료 시 confirm 실행
+        handleClickk("문의 작성 완료하시겠습니까?");
+    };
+
+
     return (
         <div id="InquiryWritePage">
             <div className="Help-inquirywr01">
@@ -65,6 +85,7 @@ const InquiryWritePage = () => {
                     <div className='count'>
                         {title.length}/{MAX_LENGTH} byte
                     </div>
+                    {titleError && <p className='error-message'>{titleError}</p>}
                 </div>
             </div>
             <div className="content-inquirywr01">
@@ -80,6 +101,7 @@ const InquiryWritePage = () => {
                     <div className='counter'>
                         {content.length}/{MAX_CONTENT} byte!
                     </div>
+                    {contentError && <p className='error-message'>{contentError}</p>}
                 </div>
             </div>
             <div className="picture-inquirywr01">
@@ -93,7 +115,10 @@ const InquiryWritePage = () => {
             </div>
             <div className="click-inquirywr01">
                 <button
-                    className='click-button' onClick={() => handleClickk('문의 작성 완료하시겠습니까?')}>문의하기</button>
+                    className='click-button'
+                    onClick={handleButtonClick}
+                >문의하기
+                </button>
             </div>
         </div>
     )
