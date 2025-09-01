@@ -109,7 +109,7 @@ const InquiryWritePage = () => {
                 <div className='photo-upload'>
                     <input
                         type="file"
-                        placeholder='클릭하여 사진 추가하기'
+                        placeholder='클릭하여 사진 추가하기!'
                     />
                 </div>
             </div>
