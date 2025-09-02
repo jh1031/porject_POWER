@@ -10,6 +10,7 @@ import ActorListPage from './ActorListPage';
 import ActorDetailPage from './ActorDetailPage';
 import AdminPage from './AdminPage';
 import InquiryWritePage from './InquiryWritePage';
+import SearchResultPage from './SearchResultPage';
 
 export {
   MainPage,
@@ -23,5 +24,6 @@ export {
   ActorListPage,
   ActorDetailPage,
   AdminPage,
-  InquiryWritePage
+  InquiryWritePage,
+  SearchResultPage,
 };
