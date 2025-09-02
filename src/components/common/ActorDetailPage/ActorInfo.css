@@ -8,7 +8,14 @@
   gap: 12px;
   align-items: end;
 }
+#ActorInfo .actorProfile img {
+  border-radius: 15px;
+}
 
-#ActorInfo p {
+#ActorInfo .actorInfo p {
   color: #fff;
+}
+#ActorInfo .actorInfo .actorName {
+  font-weight: 500;
+  font-size: 16px;
 }

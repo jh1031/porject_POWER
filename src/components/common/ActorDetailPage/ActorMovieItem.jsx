@@ -1,3 +1,4 @@
+import "./ActorMovieItem.css";
 const ActorMoiveItem = ({ movie }) => {
   return (
     <li id="ActorMoiveItem">
