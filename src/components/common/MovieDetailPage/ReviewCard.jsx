@@ -58,7 +58,7 @@ const ReviewCard = ({ review }) => {
                 >
                     좋아요
                 </button>
-                <p>{likeCount}</p>
+                <p>{review.like+likeCount}</p>
             </div>
         </li>
     );
