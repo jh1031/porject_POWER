@@ -1,3 +1,4 @@
+import "./ActorInfo.css";
 const ActorInfo = ({ actor }) => {
   return (
     <div id="ActorInfo">

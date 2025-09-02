@@ -5,6 +5,9 @@ const InquiryWritePage = () => {
   const [completion, setCompletion] = useState(""); // 문의하기
   const [title, setTitle] = useState(""); // 제목 글자수 카운팅
   const [content, setContent] = useState(""); // 내용 글자수 카운팅
+  const [titleError, setTitleError] = useState("");
+  const [contentError, setContentError] = useState("");
+  const [error, setError] = useState("");
 
   const handleClickk = (categorys) => {
     setCompletion(categorys);
