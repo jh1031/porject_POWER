@@ -1,0 +1,22 @@
+#ActorDetailPage .actorWork p {
+  margin-left: 30px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+#ActorDetailPage .actorWork select {
+  margin-left: 30px;
+  margin-bottom: 18px;
+}
+#ActorDetailPage .btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#ActorDetailPage .moreBtn {
+  width: 300px;
+  height: 100px;
+  margin-bottom: 120px;
+  background-color: #dbdbdb;
+  border-radius: 150px;
+}
