@@ -1,0 +1,4 @@
+#ReviewList ul{
+    display: flex;
+    flex-wrap: wrap;
+}
