@@ -1,43 +1,97 @@
+/* AdminPage.css 전체 */
 #AdminPage {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    width: 80%;
+    margin: 20px auto;
+    font-family: "Arial", sans-serif;
+    color: #fff;
 }
 
+/* 공통 버튼 스타일 */
+#AdminPage table button {
+    background-color: #6b0101;
+    /* 메인 포인트 색상 */
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#AdminPage table button:hover {
+    background-color: #8c1a1a;
+    /* hover 시 조금 더 밝은 색 */
+}
+
+/* 삭제 버튼 강조 */
+#AdminPage table button.delete-btn {
+    background-color: #b22222;
+}
+
+#AdminPage table button.delete-btn:hover {
+    background-color: #cc3333;
+}
+
+/* 수정 버튼
+#AdminPage table button.edit-btn {
+    background-color: #1e3a8a;
+}
+
+#AdminPage table button.edit-btn:hover {
+    background-color: #2c4fb0;
+} */
+
+/* 제목 */
+#AdminPage h2 {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-left: 4px solid #6b0101;
+    padding-left: 10px;
+}
+
+/* 메뉴 컨테이너 */
 #AdminPage .container {
     display: flex;
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-#AdminPage .container>div {
+/* 메뉴 버튼 */
+#AdminPage .container div {
+    color: #212121;
     padding: 10px 20px;
     background-color: #f0f0f0;
-    cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-#AdminPage .container>div:hover {
-    background-color: #d0d0d0;
+#AdminPage .container div:hover {
+    background-color: #d34d4d;
 }
 
-#AdminPage .movie-table {
+/* 테이블 */
+#AdminPage table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#AdminPage .movie-table th,
-#AdminPage .movie-table td {
+#AdminPage th,
+#AdminPage td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
 }
 
-#AdminPage .movie-table th {
-    background-color: #606060;
+#AdminPage th {
+    color: #212121;
+    background-color: #f5f5f5;
+    font-weight: bold;
 }
 
-#AdminPage .movie-table button {
-    padding: 5px 10px;
-    cursor: pointer;
+#AdminPage tr:nth-child(even) {
+    background-color: #212121;
 }
