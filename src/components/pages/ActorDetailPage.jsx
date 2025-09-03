@@ -1,3 +1,5 @@
+// ActorDetailPage.jsx
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import baseApi from "../../../public/data/api/api";
