@@ -17,6 +17,7 @@ const gnbMap = [
   { path: "/actordetail/:id", label: "Actordetail" },
   { path: "/admin", label: "Admin" },
   { path: "/inguirywrite", label: "Inguirywrite" },
+  { path: "/search", label: "SeachPage" },
 ];
 
 const Header2 = () => {
