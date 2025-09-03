@@ -1,8 +1,6 @@
 /* AdminPage.jsx */
 
 import './AdminPage.css';
-
-import './AdminPage.css';
 import React, { useState } from "react";
 
 const AdminPage = () => {
