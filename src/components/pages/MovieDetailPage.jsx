@@ -7,15 +7,16 @@ import {
 } from '../common/MovieDetailPage';
 import baseApi from '../../../public/data/api/api';
 import { useParams } from 'react-router-dom';
+import "./MovieDetailPage.css";
 
 const MovieDetailPage = () => {
-    const [sorted, setSorted] = useState('star');
+    
     const [isReady, setIsReady] = useState(false);
     const [movie, setMovie] = useState([]);
     const { id } = useParams();
     useEffect(() => {
         fetchMovie();
-    }, [id,sorted]);
+    }, [id]);
 
     const fetchMovie = async () => {
         setIsReady(false);
@@ -95,11 +96,6 @@ const MovieDetailPage = () => {
                     </div>
                 </div>
             </div>
-            <select name="sort" id="sort" onChange={(e) => setSorted(e.target.value)} value={sorted}>
-                <option value="like">인기순</option>
-                <option value="createdDate">최신순</option>
-                <option value="star">평점순</option>
-            </select>
             <ReviewList />
             <h2>같은 장르 추천 영화</h2>
             <RecommendGenre movie={movie} />
