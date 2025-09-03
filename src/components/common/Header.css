@@ -32,11 +32,11 @@ li {
 }
 
 .logo-area .logo1 {
-  color: #6b0101;
+  color: #c40505;
 }
 
 .logo-area .logo2 {
-  color: #000;
+  color: #8d8b8b;
 }
 .logo-area .logo1,
 .logo-area .logo2 {
@@ -58,14 +58,9 @@ li {
   position: relative; /* 밑줄의 기준점이 됨 */
   padding-bottom: 8px; /* 밑줄이 생길 공간 확보 */
   font-size: 18px; /* 폰트 크기를 살짝 키워 가독성 향상 */
-  color: #9b9b9b;
+  color: #c9c7c7;
   font-weight: 600;
   transition: color 0.3s ease; /* 색상 변경에 부드러운 전환 효과 */
-}
-
-/* 메인 메뉴 링크에 마우스 올렸을 때 텍스트 색상 변경 */
-.main-nav ul li:hover > a {
-  color: #fff; /* 흰색으로 변경하여 활성화된 느낌을 줌 */
 }
 
 /* 밑줄 애니메이션을 위한 가상 요소(::after) */
@@ -76,7 +71,7 @@ li {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #fff; /* 밑줄 색상 */
+  background-color: #212121; /* 밑줄 색상 */
   transform: scaleX(0); /* 처음에는 밑줄이 보이지 않도록 너비를 0으로 설정 */
   transform-origin: center; /* 중앙에서부터 확대/축소되도록 설정 */
   transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* 부드러운 애니메이션 효과 */
@@ -162,8 +157,8 @@ li {
   padding: 5px 10px;
   position: absolute;
   z-index: 1;
-  top: 90%;
-  left: 0;
+  top: 80%;
+  left: 1070px;
   transform: none;
   margin-left: 10px;
   transition: opacity 0.3s;
@@ -187,13 +182,13 @@ li {
 }
 
 .user-menu {
-  font-size: 14px;
-  color: #9b9b9b;
+  font-size: 15px;
+  color: #c9c7c7;
 }
 .user-menu button {
   padding-top: 3px;
-  font-size: 14px;
-  color: #9b9b9b;
+  font-size: 15px;
+  color: #c9c7c7;
 }
 
 .user-menu a::before {

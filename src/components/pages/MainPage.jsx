@@ -68,9 +68,6 @@ function MainPage() {
       alert('검색어를 입력해주세요.');
       return;
     }
-    // 실제 검색 로직을 여기에 구현합니다.
-    // 예: alert(`'${searchTerm}' 검색 실행`);
-    console.log('검색어:', searchTerm);
   };
 
   // Enter 키 입력 처리 함수
