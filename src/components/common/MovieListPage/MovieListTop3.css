@@ -1,0 +1,31 @@
+#MovieListTop3{
+    display: flex; /* 그리드 레이아웃을 사용합니다. */
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 화면 크기에 따라 열의 개수가 자동으로 조절됩니다. */
+    gap: 100px; /* 영화 카드 사이의 간격을 줍니다. */
+    margin-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    padding-left: 80px;
+}
+#MovieListTop3>div{
+    width: 350px;
+}
+#MovieListTop3>div:first-child{
+    width: 420px;
+}
+#MovieListTop3 .rank{
+    display: flex;
+    align-items: end;
+    position: relative;
+}
+#MovieListTop3 .rank span{
+    position: absolute;
+    font-size: 300px;
+    font-weight: 800;
+    line-height: 1;
+    bottom: 0;
+    left: -80px;
+    color: black;
+   -webkit-text-stroke: 3px #fff; /* 텍스트 외곽선 */
+   cursor: default;
+}

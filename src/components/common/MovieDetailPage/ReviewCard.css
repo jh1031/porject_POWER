@@ -1,5 +1,5 @@
 .ReviewCard {
-  width: 300px; /* 카드의 너비 설정 */
+  width: 350px; /* 카드의 너비 설정 */
   border: 1px solid #ddd; /* 회색 테두리 */
   border-radius: 10px; /* 둥근 모서리 */
   padding: 20px; /* 내부 여백 */
@@ -10,7 +10,7 @@
 }
 
 /* 카드 상단 부분 (프로필, 별점) */
-.card-top {
+.ReviewCard .card-top {
   display: flex; /* 가로로 요소를 나란히 정렬 */
   justify-content: space-between; /* 요소들을 양 끝으로 정렬 */
   align-items: center; /* 세로 중앙 정렬 */
@@ -18,13 +18,13 @@
 }
 
 /* 프로필 영역 */
-.card-profile {
+.ReviewCard .card-profile {
   display: flex;
   align-items: center;
 }
 
 /* 프로필 이미지 (사진의 검은 사람 아이콘) */
-.profile-img {
+.ReviewCard .profile-img {
   width: 40px; /* 아이콘 너비 */
   height: 40px; /* 아이콘 높이 */
   background-color: #000; /* 검은색 배경 */
@@ -34,13 +34,13 @@
 }
 
 /* 닉네임 */
-.info-nick {
+.ReviewCard .info-nick {
   font-weight: bold; /* 글씨 굵게 */
   color: #333; /* 글씨색 */
 }
 
 /* 별점 컨테이너 */
-.card-stars {
+.ReviewCard .card-stars {
     color: gold; /* 별 색상 노란색 */
     font-size: 1.5em; /* 별 크기 조절 */
     letter-spacing: -2px; /* 별 사이 간격 조절 (너무 넓지 않게) */
@@ -48,13 +48,13 @@
 }
 
 /* 개별 별 스타일 (span 태그에 적용) */
-.card-stars span {
+.ReviewCard .card-stars span {
     display: inline-block;
     padding-right: 2px; /* 별과 별 사이의 여백 */
 }
 
 /* 카드 중간 부분 (관람일, 함께 간 사람) */
-.card-mid {
+.ReviewCard .card-mid {
   display: flex;
   justify-content: space-around; /* 양 옆으로 넓게 분산 */
   border-bottom: 1px dashed #ddd;
@@ -64,12 +64,12 @@
   font-size: 0.9em;
   text-align: center; /* 텍스트 가운데 정렬 */
 }
-.info-viewingdate p, .info-accompany p {
+.ReviewCard .info-viewingdate p, .info-accompany p {
     margin: 0; /* 기본 마진 제거 */
 }
 
 /* 리뷰 내용 */
-.card-content {
+.ReviewCard .card-content {
   line-height: 1.6; /* 줄 간격 */
   margin-bottom: 15px; /* 하단 여백 */
   color: #555; /* 글씨색 */
@@ -77,19 +77,19 @@
 }
 
 /* 좋아요 버튼 영역 */
-.card-like {
+.ReviewCard .card-like {
   display: flex;
   justify-content: flex-end; /* 오른쪽 끝으로 정렬 */
   align-items: center;
 }
 
 /* 좋아요 버튼 */
-.card-like{
+.ReviewCard .card-like{
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-.card-like .like-button {
+.ReviewCard .card-like .like-button {
   display: inline-block;
   width: 40px;
   border: none; /* 테두리 없음 */
@@ -104,12 +104,12 @@
   background-repeat: no-repeat;
   text-indent: -99999999999999px;
 }
-.card-like .like-button.active {
+.ReviewCard .card-like .like-button.active {
   background-image: url(../../../../public/icon/after_like.png);
 }
 
 /* 좋아요 숫자 */
-.card-like p {
+.ReviewCard .card-like p {
   color: #888;
   font-size: 0.9em;
   margin-top: 10px; /* 기본 마진 제거 */

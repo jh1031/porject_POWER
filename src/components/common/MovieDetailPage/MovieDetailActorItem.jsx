@@ -1,10 +1,15 @@
-const MovieDetailActorItem = () => {
-    return(
+import { Link } from 'react-router-dom';
+import "./MovieDetailActorItem.css";
+
+const MovieDetailActorItem = ({cast}) => {
+    return (
         <div id="MovieDetailActorItem">
-            <img src="../img/4018_2_1714908657.jpg" alt="배우사진"/>
-            <span>감독</span>
-            <span>백승원</span>
+            <Link to={`/actordetail/${cast.id}`}>
+                <img src={`https://image.tmdb.org/t/p/w45${cast.profile_path}`} alt="배우사진" />
+                <p>배우/성우</p>
+                <p>{cast.name}</p>
+            </Link>
         </div>
-    )
-}
+    );
+};
 export default MovieDetailActorItem;
