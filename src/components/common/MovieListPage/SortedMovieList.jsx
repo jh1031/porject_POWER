@@ -1,4 +1,5 @@
 import MovieItem from "./MovieItem";
+import "./SortedMovieList.css";
 
 const SortedMovieList = ({movie}) => {
     return(
