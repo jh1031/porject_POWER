@@ -1,7 +1,8 @@
-/* InquiryWritePage.jsx */ 
+/* InquiryWritePage.jsx */
 
 import "./InquiryWritePage.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const InquiryWritePage = () => {
     const [completion, setCompletion] = useState(""); // 문의하기
@@ -10,6 +11,11 @@ const InquiryWritePage = () => {
     const [titleError, setTitleError] = useState("");
     const [contentError, setContentError] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate(); //문의하기 홈링크
+
+
+    const categories = ["회원정보", "영화 추천", "수정 요청", "서비스"];
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
     const handleClickk = (categorys) => {
         setCompletion(categorys);
@@ -18,14 +24,11 @@ const InquiryWritePage = () => {
 
     const buttons = document.querySelectorAll(".categoryGroup");
 
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            // 모든 버튼에서 active 제거
-            buttons.forEach((b) => b.classList.remove("active"));
-            // 클릭한 버튼만 active 추가
-            btn.classList.add("active");
-        });
-    });
+    // 클릭 시 실행할 함수 예시
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        // console.log(`${category} 선택됨`); // 필요하면 여기서 원하는 로직 실행
+    };
 
     //글자 수
     const MAX_LENGTH = 30;
@@ -54,21 +57,28 @@ const InquiryWritePage = () => {
             setContentError("내용을 입력해주세요!");
             valid = false;
         }
-        if (!valid) return; // 제목/내용 둘 중 하나라도 없으면 종료
-        // 둘 다 입력 완료 시 confirm 실행
-        handleClickk("문의 작성 완료하시겠습니까?");
-    };
+        if (!valid) return;
 
+        const confirmed = window.confirm("문의 작성 완료하시겠습니까?");
+        if (confirmed) {
+            navigate("/"); // react-router-dom 사용 시 navigate로 이동
+        }
+    };
 
     return (
         <div id="InquiryWritePage">
             <div className="Help-inquirywr01">
                 <h2>문의 유형 선택</h2>
                 <div className="Help">
-                    <button className="categoryGroup">회원정보</button>
-                    <button className="categoryGroup">영화 추천</button>
-                    <button className="categoryGroup">수정 요청</button>
-                    <button className="categoryGroup">서비스</button>
+                    {categories.map((category) => (
+                        <button
+                            key={category}
+                            className={`categoryGroup ${selectedCategory === category ? "active" : ""}`}
+                            onClick={() => setSelectedCategory(category)}
+                        >
+                            {category}
+                        </button>
+                    ))}
                 </div>
             </div>
             <div className="title-inquirywr01">
@@ -110,10 +120,7 @@ const InquiryWritePage = () => {
                 </div>
             </div>
             <div className="click-inquirywr01">
-                <button
-                    className="click-button"
-                    onClick={handleButtonClick}
-                >
+                <button className="click-button" onClick={handleButtonClick}>
                     문의하기
                 </button>
             </div>
