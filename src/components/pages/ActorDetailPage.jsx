@@ -1,35 +1,57 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import baseApi from "../../../public/data/api/api";
-import { ActorInfo, ActorMovieList } from "../common/ActorDetailPage";
+import {
+  ActorInfo,
+  ActorMovieList,
+  ActorCrewMovieList,
+} from "../common/ActorDetailPage";
 import "./ActorDetailPage.css";
+
+const DEPT_KO = {
+  Acting: "배우",
+  Directing: "감독",
+  Writing: "각본",
+  Production: "제작",
+  Editing: "편집",
+  Camera: "촬영",
+  Art: "미술",
+  Sound: "사운드",
+  Lighting: "조명",
+  "Visual Effects": "시각효과",
+  "Costume & Make-Up": "의상·분장",
+  Crew: "스태프",
+};
 
 const ActorDetailPage = () => {
   const { id } = useParams();
-  const numId = Number(id);
 
   const [isLoding, setIsLoding] = useState(false);
   const [actor, setActor] = useState({});
-  const [movies, setMovies] = useState([]);
+  const [castMovies, setCastMovies] = useState([]);
+  const [crewMovies, setCrewMovies] = useState([]);
 
-  const [select, setSelect] = useState("best");
-  const [visibleCount, setVisibleCount] = useState(4);
+  const tDept = (dept) => (dept && DEPT_KO[dept]) || dept || "";
 
   useEffect(() => {
     fahctData();
   }, [id]);
-
   const fahctData = async () => {
     try {
-      const res = await baseApi.get(`/person/${numId}?language=ko-KR`);
+      const res = await baseApi.get(`/person/${id}?language=ko-KR`);
       const data = res.data;
-      console.log(data);
       setActor(data);
 
-      const respones = await baseApi.get(`/person/${numId}/movie_credits`);
-      const movieData = respones.data.cast;
-      console.log(movieData);
-      setMovies(movieData);
+      const respones = await baseApi.get(`/person/${id}/movie_credits`);
+      if (respones.data.cast.length !== 0) {
+        const castMovieData = respones.data.cast;
+        const crewMovieData = respones.data.crew;
+        setCastMovies(castMovieData);
+        setCrewMovies(crewMovieData);
+      } else {
+        const crewMovieData = respones.data.crew;
+        setCrewMovies(crewMovieData);
+      }
     } catch (e) {
       console.error("데이터 로딩 실패 : ", e);
     } finally {
@@ -37,59 +59,17 @@ const ActorDetailPage = () => {
     }
   };
 
-  const handleChangeSelect = (e) => {
-    setSelect(e.target.value);
-    setVisibleCount(4);
-  };
-  // 정렬은 state를 mutate하지 않도록 "복사 후 정렬" + useMemo
-  const sortedMovies = useMemo(() => {
-    const arr = [...movies];
-    const dateVal = (d) => (d ? new Date(d).getTime() : 0);
-
-    if (select === "best") {
-      return arr.sort((a, b) => (b.vote_average ?? 0) - (a.vote_average ?? 0));
-    }
-    if (select === "latest") {
-      return arr.sort(
-        (a, b) => dateVal(b.release_date) - dateVal(a.release_date)
-      );
-    }
-    // oldest
-    return arr.sort(
-      (a, b) => dateVal(a.release_date) - dateVal(b.release_date)
-    );
-  }, [movies, select]);
-
-  // 화면에 보여줄 4개 단위 슬라이스
-  const visibleMovies = useMemo(
-    () => sortedMovies.slice(0, visibleCount),
-    [sortedMovies, visibleCount]
-  );
-
-  const handleMore = () => {
-    setVisibleCount((c) => Math.min(c + 4, sortedMovies.length));
-  };
-
   if (!isLoding) return <div>데이터 로딩중...</div>;
   return (
     <div id="ActorDetailPage">
-      <ActorInfo actor={actor} />
+      <ActorInfo actor={actor} tDept={tDept} filterbio={filterbio} />
       <div className="actorWork">
-        <p>
-          {actor.name}
-          {actor.known_for_department}의 작품
-        </p>
-        <select value={select} onChange={handleChangeSelect}>
-          <option value="best">인기순</option>
-          <option value="latest">최신순</option>
-          <option value="oldest">오래된순</option>
-        </select>
-        <ActorMovieList sortMovies={visibleMovies} />
-      </div>
-      <div className="btn">
-        <button className="moreBtn" onClick={handleMore}>
-          더보기
-        </button>
+        {castMovies.length && (
+          <ActorMovieList actor={actor} movies={castMovies} />
+        )}
+        {crewMovies.length && (
+          <ActorCrewMovieList actor={actor} movies={crewMovies} />
+        )}
       </div>
     </div>
   );

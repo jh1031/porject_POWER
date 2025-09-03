@@ -1,0 +1,16 @@
+.actor-moive-item .movie-poster {
+  width: 345px;
+  height: 500px;
+  border-radius: 25px;
+  margin-bottom: 12px;
+}
+.actor-moive-item .movie-title {
+  width: 300px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+}
+.actor-moive-item .movie-date {
+  font-size: 14px;
+  color: #fff;
+}
