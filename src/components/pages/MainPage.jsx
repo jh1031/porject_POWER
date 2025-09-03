@@ -134,7 +134,7 @@ function MainPage() {
           <div className="remaining-top-movies">
             <Swiper
               modules={[Virtual]}
-              spaceBetween={150}
+              spaceBetween={100}
               slidesPerView={4}
               virtual
             >

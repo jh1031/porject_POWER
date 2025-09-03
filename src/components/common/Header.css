@@ -5,8 +5,7 @@ ul,
 h1,
 p {
   margin: 0;
-  padding: 0; 
-  
+  padding: 0;
 }
 
 a {
@@ -39,7 +38,8 @@ li {
 .logo-area .logo2 {
   color: #000;
 }
-.logo-area .logo1, .logo-area .logo2{
+.logo-area .logo1,
+.logo-area .logo2 {
   margin: 0;
   text-align: center;
   font-size: 22px;
@@ -53,21 +53,63 @@ li {
   align-items: center;
 }
 
-/* 드롭다운과 툴팁의 부모 li 공통 스타일 */
-.dropdown-menu-item,
-.tooltip-item {
-  position: relative;
-  padding-bottom: 15px;
-  margin-bottom: -15px;
+/* --- 1. 메인 메뉴 링크 스타일 --- */
+.main-nav ul li > a {
+  position: relative; /* 밑줄의 기준점이 됨 */
+  padding-bottom: 8px; /* 밑줄이 생길 공간 확보 */
+  font-size: 18px; /* 폰트 크기를 살짝 키워 가독성 향상 */
+  color: #9b9b9b;
+  font-weight: 600;
+  transition: color 0.3s ease; /* 색상 변경에 부드러운 전환 효과 */
 }
 
-/* 드롭다운 메뉴 공통 스타일 */
+/* 메인 메뉴 링크에 마우스 올렸을 때 텍스트 색상 변경 */
+.main-nav ul li:hover > a {
+  color: #fff; /* 흰색으로 변경하여 활성화된 느낌을 줌 */
+}
+
+/* 밑줄 애니메이션을 위한 가상 요소(::after) */
+.main-nav ul li > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff; /* 밑줄 색상 */
+  transform: scaleX(0); /* 처음에는 밑줄이 보이지 않도록 너비를 0으로 설정 */
+  transform-origin: center; /* 중앙에서부터 확대/축소되도록 설정 */
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* 부드러운 애니메이션 효과 */
+}
+
+/* 메인 메뉴 링크에 마우스 올렸을 때 밑줄 나타나기 */
+.main-nav ul li:hover > a::after {
+  transform: scaleX(1); /* 너비를 100%로 만들어 밑줄을 표시 */
+}
+
+/* 
+  [핵심 수정 1]
+  드롭다운 메뉴를 가진 li에 position: relative를 추가하여
+  위치의 기준점을 명확히 하고, 호버 영역을 만듭니다.
+*/
+.dropdown-menu-item {
+  position: relative; /* << 가장 중요한 부분! 이것이 기준점이 됩니다. */
+  padding-bottom: 15px; /* 호버 영역을 아래로 15px 확장 (다리 역할) */
+  margin-bottom: -15px; /* 패딩으로 인해 다른 요소가 밀리는 것을 방지 */
+}
+
+/* 
+  [핵심 수정 2]
+  드롭다운 메뉴의 margin-top을 제거하여
+  메뉴와 드롭다운 사이의 실제 빈 공간을 없앱니다.
+*/
 .nav-dropdown {
   position: absolute;
-  top: 100%;
+  top: 100%; /* 부모(li)의 바로 아래에 위치 */
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px; /* 전체적인 내부 여백을 살짝 줄여 더 타이트하게 만듭니다. */
+  /* margin-top: 15px; */ /* << 이 부분을 반드시 제거하거나 주석 처리해야 합니다. */
+  padding: 10px;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -76,16 +118,22 @@ li {
   width: max-content;
 }
 
+/* --- 2. 드롭다운 메뉴 아이템 스타일 --- */
 .nav-dropdown li a {
-  height: 15px;
-  /* 위아래, 좌우 패딩을 추가하여 클릭 영역을 넓히고 보기 좋게 만듭니다. */
+  display: block;
+  padding: 8px 16px; /* 좌우 여백을 늘려 보기 좋게 만듦 */
   white-space: nowrap;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  border-radius: 6px; /* 둥근 모서리를 살짝 더 줌 */
+  color: #333;
+  font-weight: 500;
+  /* 배경색과 글자색 변경에 전환 효과 추가 */
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* 드롭다운 메뉴 아이템에 마우스 올렸을 때 효과 */
 .nav-dropdown li a:hover {
-  background-color: #fff;
+  background-color: #f0f0f0; /* 살짝 진한 회색 배경 */
+  color: #000; /* 검은색으로 텍스트 강조 */
 }
 
 /* 장르와 이벤트 드롭다운 스타일을 통합하고 간격을 조정합니다. */
@@ -97,11 +145,11 @@ li {
   /* 항목 간의 세로 간격을 줄입니다. */
 }
 
-.main-nav ul li a {
-  font-size: 16px;
-  color: #9b9b9b;
-  font-weight: 500;
-}
+/* 
+  [삭제] 이전에 중복 정의되었던 규칙을 정리합니다.
+  .main-nav ul li a { ... } 부분은 이미 상단에서
+  .main-nav ul li > a 로 더 명확하게 정의되었으므로 삭제해도 좋습니다.
+*/
 
 .tooltip-text {
   visibility: hidden;
@@ -123,7 +171,7 @@ li {
 }
 
 .tooltip-text::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -5px;
   left: 10px;
@@ -149,7 +197,7 @@ li {
 }
 
 .user-menu a::before {
-  content: " / ";
+  content: ' / ';
   margin: 0 5px;
 }
 
