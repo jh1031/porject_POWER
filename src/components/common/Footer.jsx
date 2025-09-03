@@ -74,7 +74,7 @@ const Footer = () => {
               </div>
               <div className="team-members">
                 <h3>Team</h3>
-                <p>이지현 박세혁 이지안 백승원 궘병규</p>
+                <p>이지현 박세혁 이지안 백승원 권병규</p>
               </div>
               <div className="footer-bottom">
                 <p>&copy; 2025 My Movie Site. All rights reserved.</p>
