@@ -1,3 +1,5 @@
+/*MainPage.jsx*/
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './MainPage.css';
@@ -132,8 +134,8 @@ function MainPage() {
           <div className="remaining-top-movies">
             <Swiper
               modules={[Virtual]}
-              spaceBetween={20}
-              slidesPerView={4.5}
+              spaceBetween={150}
+              slidesPerView={4}
               virtual
             >
               {remainingMovies.map((movie, index) => (
