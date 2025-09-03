@@ -4,7 +4,7 @@
   align-items: center;
   width: 600px;
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 60px;
   margin-bottom: 120px;
   background-color: #212121;
 }
@@ -24,12 +24,13 @@
   color: #fff;
 }
 #SignupPage p {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
 }
 #SignupPage input {
   width: 350px;
+  height: 40px;
   padding: 14px 16px;
   color: #606060;
   border: 1px solid #e0e0e0;
@@ -51,13 +52,14 @@
 #SignupPage .sign-email .check {
   width: 60px;
   height: 40px;
-  margin-top: 3px;
   margin-left: 8px;
   font-size: 12px;
   color: #121212;
   background-color: #dbdbdb;
-  border: 1px solid #dbdbdb;
   border-radius: 6px;
+}
+#SignupPage .sign-email .check:hover {
+  background-color: #9b9b9b;
 }
 
 #SignupPage .eye {
@@ -75,7 +77,7 @@
 }
 #SignupPage .sign-password .eye {
   position: absolute;
-  top: 48px;
+  top: 40px;
   right: 16px;
 }
 #SignupPage .sign-passwordCheck {
@@ -83,7 +85,7 @@
 }
 #SignupPage .sign-passwordCheck .eye {
   position: absolute;
-  top: 48px;
+  top: 40px;
   right: 16px;
 }
 #SignupPage .sign-nickname input {
@@ -92,13 +94,14 @@
 #SignupPage .sign-nickname .check {
   width: 50px;
   height: 40px;
-  margin-top: 3px;
   margin-left: 8px;
   font-size: 12px;
   color: #121212;
   background-color: #dbdbdb;
-  border: 1px solid #dbdbdb;
   border-radius: 6px;
+}
+#SignupPage .sign-nickname .check:hover {
+  background-color: #9b9b9b;
 }
 #SignupPage .sign-gender button {
   width: 165px;
@@ -120,7 +123,7 @@
   background-color: #606060;
 }
 #SignupPage .sign-birthdate {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 #SignupPage .signup {
   width: 350px;
@@ -128,6 +131,8 @@
   font-size: 25px;
   color: #121212;
   background-color: #dbdbdb;
-  border: 1px solid #dbdbdb;
   border-radius: 8px;
+}
+#SignupPage .signup:hover {
+  background-color: #9b9b9b;
 }
