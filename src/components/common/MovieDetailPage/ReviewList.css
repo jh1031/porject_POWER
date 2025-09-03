@@ -1,4 +1,32 @@
+/* ReviewList.css */
 #ReviewList ul{
     display: flex;
     flex-wrap: wrap;
+    gap :20px;
+}
+#ReviewList .review-btn {
+  display: flex;
+  justify-content: center; /* flex 항목들을 가로 방향으로 가운데 정렬 */
+  align-items: center; /* flex 항목들을 세로 방향으로 가운데 정렬 (필요시) */
+  width: 100%; /* 부모 요소의 너비를 100%로 설정 */
+  position: relative; /* 자식 요소의 위치 지정을 위한 기준 설정 */
+}
+
+#ReviewList .more-btn {
+  /* .container의 justify-content: center; 속성에 의해 자동으로 가운데 정렬됩니다. */
+  /* 추가 스타일은 여기에 작성하세요. */
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#ReviewList .fold-btn {
+  position: absolute; /* .container를 기준으로 절대 위치 지정 */
+  right: 0; /* 오른쪽 끝으로 이동 */
+  /* 추가 스타일은 여기에 작성하세요. */
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
 }
