@@ -24,7 +24,7 @@
     /* hover 시 조금 더 밝은 색 */
 }
 
-/* 삭제 버튼 강조 (빨간 느낌 추가) */
+/* 삭제 버튼 강조 */
 #AdminPage table button.delete-btn {
     background-color: #b22222;
 }
@@ -33,16 +33,14 @@
     background-color: #cc3333;
 }
 
-/* 수정 버튼 강조 (파란 느낌 추가) */
+/* 수정 버튼
 #AdminPage table button.edit-btn {
     background-color: #1e3a8a;
 }
 
 #AdminPage table button.edit-btn:hover {
     background-color: #2c4fb0;
-}
-
-/* 선택 버튼은 기본 색 유지 */
+} */
 
 /* 제목 */
 #AdminPage h2 {
@@ -95,5 +93,5 @@
 }
 
 #AdminPage tr:nth-child(even) {
-    background-color: #fafafa;
+    background-color: #212121;
 }
