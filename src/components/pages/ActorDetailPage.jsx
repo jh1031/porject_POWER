@@ -64,7 +64,7 @@ const ActorDetailPage = () => {
   if (!isLoding) return <div>데이터 로딩중...</div>;
   return (
     <div id="ActorDetailPage">
-      <ActorInfo actor={actor} tDept={tDept} filterbio={filterbio} />
+      <ActorInfo actor={actor} tDept={tDept} />
       <div className="actorWork">
         {castMovies.length && (
           <ActorMovieList actor={actor} movies={castMovies} />
