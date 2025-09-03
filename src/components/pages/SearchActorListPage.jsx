@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import baseApi from "../../../public/data/api/api";
-const ActorListPage = () => {
+import "./SearchActorListPage.css";
+const SearchActorListPage = () => {
   const [searchParams] = useSearchParams();
   const person = (searchParams.get("person") || "").trim();
 
@@ -15,32 +16,30 @@ const ActorListPage = () => {
 
   const fetchdata = async () => {
     try {
-      for (let i = 1; i <= 500; i++) {
-        const respones = await baseApi.get(
-          `/person/popular?language=ko-KR&page=${i}`
-        );
-        const data = respones.data.results;
-        console.log(data);
-        setActors((prev) => [...prev, ...data]);
-      }
+      const respones = await baseApi.get(
+        `/search/person?query=${person}&include_adult=false&language=ko-KR&page=1`
+      );
+      const data = respones.data.results;
+      console.log(respones.data);
+      setActors(data);
     } catch (e) {
       console.error("데이터 로딩 실패 : ", e);
     }
   };
-
-  const searchActor = actors.filter((item) => item.name.includes(person));
-
+  console.log(actors);
   return (
     <div id="ActorListPage">
       <ul>
-        {searchActor.map((actor, idx) => (
+        {actors.map((actor, idx) => (
           <li key={idx}>
             <img
-              src={`http://image.tmdb.org/t/p/w185/${actor.profile_path}`}
+              src={`http://image.tmdb.org/t/p/w342/${actor.profile_path}`}
               alt={actor.name}
             />
-            <p>{actor.name}</p>
-            <p>{actor.known_for_department}</p>
+            <div>
+              <p>{actor.name}</p>
+              <p>{actor.known_for_department}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -48,4 +47,4 @@ const ActorListPage = () => {
   );
 };
 
-export default ActorListPage;
+export default SearchActorListPage;

@@ -1,3 +1,5 @@
+// ActorMovieItem.jsx
+
 import { Link } from "react-router-dom";
 import "./ActorMovieItem.css";
 const ActorMoiveItem = ({ movie }) => {
