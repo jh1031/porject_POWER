@@ -1,3 +1,5 @@
+// ActorInfo.jsx
+
 import "./ActorInfo.css";
 const ActorInfo = ({ actor, tDept, filterbio }) => {
   return (
