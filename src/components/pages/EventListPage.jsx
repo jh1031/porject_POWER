@@ -18,6 +18,7 @@ const EventListPage = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  // 나중에 지워
 
   const fetchData = async () => {
     try {
