@@ -31,8 +31,8 @@ const EventMovieList = ({ evMovie, text }) => {
         <div className="Event-filter">
             <select value={filter} onChange={handleFilterChange}>
             <option value="all">전체</option>
-            <option value="done">완료</option>
-            <option value="undone">미완료</option>
+            <option value="startFastest">다가오는 이벤트</option>
+            <option value="endFastest"></option>
           </select>
         </div>
       </div>

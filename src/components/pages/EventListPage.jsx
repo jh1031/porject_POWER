@@ -11,6 +11,7 @@ const EventListPage = () => {
   const [evMovie, setEvMovie] = useState([]);
   const [evMd, setEvMd] = useState([]);
   const [text, setText] = useState('');
+  const [today, setToday] = useState(new Date());
 
   const handleChangeText = (e) => setText(e.target.value);
 
@@ -44,7 +45,9 @@ const EventListPage = () => {
           onChange={handleChangeText}
         />
       </div>
+      <h3>시사회 이벤트</h3>
       <EventMovieList evMovie={evMovie} text={text} />
+      <h3>굿즈 이벤트</h3>
       <EventMdList evMd={evMd} text={text} />
     </div>
   );
