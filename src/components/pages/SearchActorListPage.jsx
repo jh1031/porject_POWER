@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import baseApi from "../../../public/data/api/api";
+import { SearchActorList } from "../common/SearchListPage";
 import "./SearchActorListPage.css";
 const SearchActorListPage = () => {
   const [searchParams] = useSearchParams();
-  const person = (searchParams.get("person") || "").trim();
+  const person = (searchParams.get("keyword") || "").trim();
 
   const [actors, setActors] = useState([]);
+  const [current, setCurrent] = useState(1);
 
   useEffect(() => {
     fetchdata();
@@ -17,7 +19,7 @@ const SearchActorListPage = () => {
   const fetchdata = async () => {
     try {
       const respones = await baseApi.get(
-        `/search/person?query=${person}&include_adult=false&language=ko-KR&page=1`
+        `/search/person?query=${person}&include_adult=false&language=ko-KR&page=${current}`
       );
       const data = respones.data.results;
       console.log(respones.data);
@@ -29,20 +31,7 @@ const SearchActorListPage = () => {
   console.log(actors);
   return (
     <div id="ActorListPage">
-      <ul>
-        {actors.map((actor, idx) => (
-          <li key={idx}>
-            <img
-              src={`http://image.tmdb.org/t/p/w342/${actor.profile_path}`}
-              alt={actor.name}
-            />
-            <div>
-              <p>{actor.name}</p>
-              <p>{actor.known_for_department}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <SearchActorList actors={actors} />
     </div>
   );
 };

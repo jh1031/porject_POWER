@@ -1,25 +1,6 @@
 /* ActorListPage.css */
 
 #ActorListPage {
+  margin: 0 auto;
   margin-top: 60px;
-  margin-left: 30px;
-}
-
-#ActorListPage ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-#ActorListPage ul li img {
-  width: 300px;
-  height: 400px;
-  border-radius: 25px;
-}
-#ActorListPage ul li div {
-  display: flex;
-  justify-content: space-between;
-}
-#ActorListPage ul li p {
-  color: #fff;
-  font-size: 18px;
 }
