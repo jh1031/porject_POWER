@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
-import ActorMoiveItem from "./ActorMovieItem";
-import "./ActorMovieList.css";
-const ActorMovieList = ({ actor, movies }) => {
+import ActorCrewMovieItem from "./ActorCrewMovieItem";
+import "./ActorCrewMovieList.css";
+const ActorCrewMovieList = ({ actor, movies }) => {
   const [select, setSelect] = useState("best");
   const [visibleCount, setVisibleCount] = useState(4);
 
@@ -38,8 +38,8 @@ const ActorMovieList = ({ actor, movies }) => {
     setVisibleCount((c) => Math.min(c + 4, sortedMovies.length));
   };
   return (
-    <div id="ActorMovieList">
-      <p className="actor-movie">{actor.name} 출연 작품</p>
+    <div id="ActorCrewMovieList">
+      <p className="actor-movie">{actor.name} 제작 작품</p>
       <select value={select} onChange={handleChangeSelect}>
         <option value="best">인기순</option>
         <option value="latest">최신순</option>
@@ -47,7 +47,7 @@ const ActorMovieList = ({ actor, movies }) => {
       </select>
       <ul>
         {visibleMovies.map((movie) => (
-          <ActorMoiveItem key={movie.id} movie={movie} />
+          <ActorCrewMovieItem key={movie.id} movie={movie} />
         ))}
       </ul>
       <div className="btn">
@@ -61,4 +61,4 @@ const ActorMovieList = ({ actor, movies }) => {
   );
 };
 
-export default ActorMovieList;
+export default ActorCrewMovieList;

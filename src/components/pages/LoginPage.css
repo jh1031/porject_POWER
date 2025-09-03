@@ -131,15 +131,20 @@
 
 /* 로그인 버튼 (메인 버튼) */
 .sign-btn .login {
-  background-color: #606060; /* 왓챠피디아 시그니처 핑크 */
+  background-color: #606060;
   color: white;
   border: none;
 }
-
+.sign-btn .login:hover {
+  background-color: #9b9b9b;
+}
 /* 회원가입 버튼 (보조 버튼) */
 .sign-btn .signup {
   background-color: transparent;
   color: #121212;
   border: 1px solid #dbdbdb;
   background-color: #dbdbdb;
+}
+.sign-btn .signup:hover {
+  background-color: #9b9b9b;
 }
