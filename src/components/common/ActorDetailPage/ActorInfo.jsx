@@ -1,5 +1,5 @@
 import "./ActorInfo.css";
-const ActorInfo = ({ actor }) => {
+const ActorInfo = ({ actor, tDept, filterbio }) => {
   return (
     <div id="ActorInfo">
       <div className="actorProfile">
@@ -8,8 +8,10 @@ const ActorInfo = ({ actor }) => {
           alt={actor.name}
         />
         <div className="actorInfo">
-          <p className="actorName">{actor.name}</p>
-          <p className="job">{actor.known_for_department}</p>
+          <div className="actor-name-job">
+            <p className="actorName">{actor.name}</p>
+            <p className="job">{tDept(actor.known_for_department)}</p>
+          </div>
         </div>
       </div>
     </div>
