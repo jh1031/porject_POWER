@@ -6,14 +6,16 @@ import {
     ReviewList,
 } from '../common/MovieDetailPage';
 import baseApi from '../../../public/data/api/api';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import "./MovieDetailPage.css";
 
 const MovieDetailPage = () => {
-    
+    const nav = useNavigate();
     const [isReady, setIsReady] = useState(false);
     const [movie, setMovie] = useState([]);
     const { id } = useParams();
+    const [genreMovie, setGenreMovie] = useState([]);
+
     useEffect(() => {
         fetchMovie();
     }, [id]);
@@ -23,14 +25,24 @@ const MovieDetailPage = () => {
         try {
             const res1 = await baseApi.get(`/movie/${id}?language=ko-KR`);
             const data = await res1.data;
+            const res2 = await baseApi.get(
+                `/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=vote_average.desc&with_genres=${data.genres[0].id}&vote_count.gte=200`
+            );
+            const genreData = await res2.data.results;
             setMovie(data);
+            setGenreMovie(genreData)
         } catch (e) {
             console.error('데이터 로딩 실패 :', e);
         } finally {
             setIsReady(true);
         }
     };
-
+    // 중복빼기
+    const filteredGenreMovie = genreMovie.filter(item => item.id !== movie.id)
+    
+    const handleClickGenre = ()=>{
+        nav(`/movielist?genre=${movie.genres[0].id}&page=1`)
+    }
     if (!isReady) {
         return <div>데이터 로딩 중 ...</div>;
     }
@@ -98,7 +110,7 @@ const MovieDetailPage = () => {
             </div>
             <ReviewList />
             <h2>같은 장르 추천 영화</h2>
-            <RecommendGenre movie={movie} />
+            <RecommendGenre movie={filteredGenreMovie} handleClickGenre={handleClickGenre}/>
             <h2>같은 감독의 다른 영화</h2>
             <RecommendDirector movie={movie} />
         </div>

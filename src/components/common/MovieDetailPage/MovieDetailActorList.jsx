@@ -3,7 +3,7 @@ import MovieDetailActorItem from "./MovieDetailActorItem";
 const MovieDetailActorList = () => {
     return(
         <div id="MovieDetailActorList">
-            <MovieDetailActorItem/>
+            <MovieDetailActorItem />
         </div>
     )
 }
