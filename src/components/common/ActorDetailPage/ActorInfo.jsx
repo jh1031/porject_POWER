@@ -1,7 +1,7 @@
 // ActorInfo.jsx
 
 import "./ActorInfo.css";
-const ActorInfo = ({ actor, tDept, filterbio }) => {
+const ActorInfo = ({ actor, tDept }) => {
   return (
     <div id="ActorInfo">
       <div className="actorProfile">

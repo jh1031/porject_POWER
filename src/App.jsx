@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import {
   MainPage,
   LoginPage,
@@ -8,15 +8,16 @@ import {
   ReviewWritePage,
   EventDetailPage,
   EventListPage,
-  ActorListPage,
+  SearchActorListPage,
   ActorDetailPage,
   AdminPage,
   InquiryWritePage,
-} from './components/pages';
-import { Header, Footer } from './components/common';
-import Header2 from './components/common/Header2';
+  SearchResultPage,
+} from "./components/pages";
+import { Header, Footer } from "./components/common";
+import Header2 from "./components/common/Header2";
 
-import './App.css';
+import "./App.css";
 
 const Layout = () => {
   return (
@@ -45,10 +46,11 @@ function App() {
             <Route element={<ReviewWritePage />} path="/reviewwrite" />
             <Route element={<EventListPage />} path="/eventlist" />
             <Route element={<EventDetailPage />} path="/eventdetail/:id" />
-            <Route element={<ActorListPage />} path="/actorlist" />
+            <Route element={<SearchActorListPage />} path="/actorlist" />
             <Route element={<ActorDetailPage />} path="/actordetail/:id" />
             <Route element={<AdminPage />} path="/admin" />
             <Route element={<InquiryWritePage />} path="/inguirywrite" />
+            <Route element={<SearchResultPage />} path="/search" />
           </Route>
         </Routes>
       </BrowserRouter>
