@@ -1,3 +1,5 @@
+/*MainPage.jsx*/
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './MainPage.css';
@@ -66,9 +68,6 @@ function MainPage() {
       alert('검색어를 입력해주세요.');
       return;
     }
-    // 실제 검색 로직을 여기에 구현합니다.
-    // 예: alert(`'${searchTerm}' 검색 실행`);
-    console.log('검색어:', searchTerm);
   };
 
   // Enter 키 입력 처리 함수
@@ -132,8 +131,8 @@ function MainPage() {
           <div className="remaining-top-movies">
             <Swiper
               modules={[Virtual]}
-              spaceBetween={20}
-              slidesPerView={4.5}
+              spaceBetween={100}
+              slidesPerView={4}
               virtual
             >
               {remainingMovies.map((movie, index) => (

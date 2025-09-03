@@ -1,40 +1,39 @@
+/*MainPage.css*/
+
 @charset "utf-8";
 
-/* --- Global & Container --- */
 #MainPage {
-  background-color: #212121;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #0e0d0d;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .container {
-  max-width: 1440px; /* 콘텐츠 최대 너비 설정 */
-  margin: 0 auto; /* 페이지 중앙 정렬 */
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* --- 링크 기본 스타일 제거 --- */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* --- 검색창 --- */
 .search-bar {
-  position: relative; /* 아이콘 위치의 기준점 */
+  position: relative;
   width: 60%;
-  margin: 30px auto 50px auto; /* text-align 대신 margin으로 중앙 정렬 */
+  margin: 30px auto 50px auto;
   margin-top: 300px;
   margin-bottom: 300px;
 }
 
 .search-bar input {
   width: 100%;
-  padding: 12px 45px 12px 20px; /* 아이콘 공간 확보를 위해 오른쪽 패딩 추가 */
+  padding: 12px 45px 12px 20px;
   border: 1px solid #ccc;
-  border-radius: 25px; /* 둥근 모서리 */
+  border-radius: 25px;
   font-size: 16px;
   outline: none;
-  box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+  box-sizing: border-box;
 }
 
 .search-bar input:focus {
@@ -51,14 +50,13 @@ a {
   color: #555;
 }
 
-/* --- 섹션 공통 스타일 --- */
 .top-movies-section,
 .event-section {
   margin-bottom: 60px;
 }
 
-/* --- 섹션 헤더 (제목 + 시간) --- */
 .section-header {
+  width: 1600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,7 +65,7 @@ a {
 
 .section-header h2 {
   font-size: 28px;
-  font-weight: 800; /* 더 굵은 글꼴 */
+  font-weight: 800;
   color: #fff;
 }
 
@@ -76,11 +74,11 @@ a {
   color: #dbdbdb;
 }
 
-/* --- TOP 1-3 영화 목록 --- */
 .top-three-movies {
+  width: 1600px;
   display: flex;
   justify-content: space-between;
-  gap: 30px; /* 이미지 사이의 간격 */
+  gap: 150px;
   margin-bottom: 40px;
 }
 
@@ -90,7 +88,7 @@ a {
 }
 
 .top-three-movies .movie-item img {
-  width: 100%;
+  width: 435px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -98,42 +96,55 @@ a {
 .top-three-movies .movie-item .movie-rank {
   position: absolute;
   bottom: -20px;
-  left: -15px;
-  font-size: 100px;
+  left: -110px;
+  font-size: 300px;
   font-weight: 900;
-  color: #fff;
-  -webkit-text-stroke: 3px #000; /* 텍스트 외곽선 */
-  z-index: 10;
+  color: #212121;
+  -webkit-text-stroke: 4px #fff;
+  z-index: 1;
+  line-height: 1;
 }
 
-/* --- TOP 4-10 캐러셀 슬라이드 --- */
 .remaining-top-movies {
-  gap: 20px; /* 이미지 사이의 간격 */
-  padding-bottom: 20px; /* 스크롤바가 콘텐츠를 가리지 않도록 여백 추가 */
+  padding-bottom: 20px;
+  padding-left: 100px;
+  margin-left: -300px;
+}
+.remaining-top-movies .swiper {
+  overflow: visible;
 }
 
 .remaining-top-movies .movie-item {
   position: relative;
-  flex: 0 0 22%; /* 각 항목이 차지하는 너비 (100% / 4.5개 정도 보이게) */
-  min-width: 180px; /* 최소 너비 지정 */
+  width: 250px;
+  height: 375px;
+  box-sizing: border-box;
 }
 
 .remaining-top-movies .movie-item img {
-  width: 100%;
+  height: 100%;
   border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  padding-left: 50px;
 }
 
 .remaining-top-movies .movie-item .movie-rank {
   position: absolute;
   bottom: -10px;
-  left: 5px;
-  font-size: 50px;
+  right: 150px;
+  width: auto;
+  text-align: right;
+  font-size: 200px;
   font-weight: 900;
-  color: #fff;
-  -webkit-text-stroke: 2px #000;
+  color: #212121;
+  -webkit-text-stroke: 4px #fff;
+  line-height: 0.9;
+  z-index: 0;
+  letter-spacing: -10px;
 }
 
-/* --- 인기있는 이벤트 섹션 --- */
 .event-list {
   display: flex;
   justify-content: space-between;
