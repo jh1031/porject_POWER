@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import "./ActorMovieItem.css";
-const ActorMoiveItem = ({ movie }) => {
+import "./ActorCrewMovieItem.css";
+const ActorCrewMovieItem = ({ movie }) => {
   const movieDate = new Date(movie.release_date);
   const moveieYear = movieDate.getFullYear();
   return (
-    <li className="actor-moive-item">
+    <li className="actor-crew-moive-item">
       <Link to={`/moviedetail/${movie.id}`}>
         <img
           className="movie-poster"
@@ -18,4 +18,4 @@ const ActorMoiveItem = ({ movie }) => {
   );
 };
 
-export default ActorMoiveItem;
+export default ActorCrewMovieItem;
