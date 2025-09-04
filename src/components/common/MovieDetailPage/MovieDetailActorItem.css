@@ -1,3 +1,55 @@
-#MovieDetailActorItem{
-    display: flex;
+/* MovieDetailActorItem.css */
+#MovieDetailActorItem {
+    /* 카드 자체의 크기를 고정 */
+    width: 100px;
+    /* 카드 내 텍스트 중앙 정렬 */
+    text-align: center;
+    /* 모서리를 둥글게 */
+    border-radius: 8px;
+    /* 그림자 효과로 입체감 부여 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 내용이 넘치지 않도록 숨김 */
+    overflow: hidden;
+    /* 배경색을 흰색으로 설정 */
+    background-color: white;
+    /* a 태그의 크기를 카드와 동일하게 맞춤 */
+    display: block;
+}
+#MovieDetailActorItem a {
+    /* 텍스트 밑줄 제거 */
+    text-decoration: none;
+    /* 글자 색상을 부모 요소에서 상속받도록 설정 */
+    color: inherit;
+    /* 블록 요소로 만들어 너비와 높이 설정이 가능하게 함 */
+    display: block;
+    /* 패딩을 조절하여 내용과 카드 경계 사이의 간격 조절 */
+}
+#MovieDetailActorItem .detail-actor-img {
+    /* 이미지의 너비를 부모 요소(카드)에 맞춤 */
+    width: 100%;
+    /* 높이는 비율에 맞춰 자동 조절 */
+    height: auto;
+    /* 이미지를 블록 요소로 설정 */
+    display: block;
+    /* 이미지 상단 모서리만 둥글게 */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#MovieDetailActorItem .detail-actor-name {
+    /* 글씨 크기 및 폰트 굵기 */
+    font-size: 14px;
+    font-weight: bold;
+    /* 글씨 색상 */
+    color: black;
+    /* 상하 여백 조절 */
+    margin: 10px;
+    /* 줄 간격 조절 */
+    height: 35px;
+}
+#MovieDetailActorItem .detail-actor-job {
+    /* 글씨 크기 및 색상 */
+    font-size: 12px;
+    color: #888;
+    /* 상하 여백 조절 */
+    margin-bottom: 10px;
 }

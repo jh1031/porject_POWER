@@ -1,3 +1,4 @@
+// MovieDetailPage.jsx
 import { useEffect, useState } from 'react';
 import {
     MovieDetailActorList,
@@ -102,7 +103,8 @@ const MovieDetailPage = () => {
                 </div>
                 <div className="md-right">
                     <h1>{movie.title}</h1>
-                    <MovieDetailActorList cast={cast} director={director}/>
+                    <MovieDetailActorList cast={cast} director={director}
+                    genre={movie.genres[0]}/>
                     <div className="right-info">
                         <div>
                             <h4>장르</h4>
