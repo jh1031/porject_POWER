@@ -2,15 +2,20 @@
 
 import { useSearchParams } from "react-router-dom";
 import SearchMovieListPage from "./SearchMovieListPage";
+import SearchActorListPage from "./SearchActorListPage";
 
 const SearchResultPage = () => {
   const [searchParams] = useSearchParams();
-  const keyword = searchParams.get("keyword");
+  const query = searchParams.get("query");
   return (
     <div id="SearchResult">
       <div className="search-movie">
         <h2>영화 검색 결과</h2>
-        <SearchMovieListPage keyword={keyword} />
+        <SearchMovieListPage query={query} />
+      </div>
+      <div className="search-actor">
+        <h2>인물 검색 결과</h2>
+        <SearchActorListPage query={query} />
       </div>
     </div>
   );

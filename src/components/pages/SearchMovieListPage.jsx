@@ -3,18 +3,18 @@
 import { useState, useEffect } from "react";
 import baseApi from "../../../public/data/api/api";
 import { SearchMovieList } from "../common/SearchListPage";
-const SearchMovieListPage = ({ keyword }) => {
+const SearchMovieListPage = ({ query }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchMovies, setSearchMovies] = useState([]);
 
   useEffect(() => {
     fatchData();
-  }, [keyword]);
+  }, [query]);
 
   const fatchData = async () => {
     try {
       const respones = await baseApi.get(
-        `/search/movie?query=${keyword}&include_adult=false&language=ko-KR&page=1`
+        `/search/movie?query=${query}&include_adult=false&language=ko-KR&page=1`
       );
       const data = respones.data.results;
       console.log(data);

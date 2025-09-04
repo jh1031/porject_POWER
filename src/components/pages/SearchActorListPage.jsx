@@ -1,14 +1,10 @@
 // SearchActorListPage.jsx
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import baseApi from "../../../public/data/api/api";
 import { SearchActorList } from "../common/SearchListPage";
 import "./SearchActorListPage.css";
-const SearchActorListPage = () => {
-  const [searchParams] = useSearchParams();
-  const keyword = (searchParams.get("keyword") || "").trim();
-
+const SearchActorListPage = ({ query }) => {
   const [loading, setLoading] = useState(false);
   const [actors, setActors] = useState([]);
   const [current, setCurrent] = useState(1);
@@ -16,15 +12,15 @@ const SearchActorListPage = () => {
 
   useEffect(() => {
     setCurrent(1);
-  }, [keyword]);
+  }, [query]);
 
   useEffect(() => {
     fetchData();
-  }, [keyword, current]);
+  }, [query, current]);
 
   const fetchData = async () => {
     try {
-      if (!keyword) {
+      if (!query) {
         setActors([]);
         setTotalPage(0);
         return;
@@ -32,7 +28,7 @@ const SearchActorListPage = () => {
       setLoading(true);
 
       const respones = await baseApi.get(
-        `/search/person?query=${keyword}&include_adult=false&language=ko-KR&page=${current}`
+        `/search/person?query=${query}&include_adult=false&language=ko-KR&page=${current}`
       );
       const data = respones.data.results;
       const totalPages = Math.min(respones.data.total_pages ?? 0, 500);
