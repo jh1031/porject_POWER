@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./MovieItem.css";
 
 const MovieItem = ({movie}) => {
     return(
