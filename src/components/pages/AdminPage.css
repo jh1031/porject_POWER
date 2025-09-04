@@ -8,23 +8,21 @@
 
 /* 공통 버튼 스타일 */
 #AdminPage table button {
-    background-color: #6b0101;
-    /* 메인 포인트 색상 */
-    color: #fff;
-    border: none;
+    background-color: #6b0101; /* 메인 색상 */
+    color: #fff; /* 글 색상 */
+    border: none; 
     padding: 6px 12px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 14px; 
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 #AdminPage table button:hover {
     background-color: #8c1a1a;
-    /* hover 시 조금 더 밝은 색 */
 }
 
-/* 삭제 버튼 강조 */
+/* 삭제 버튼 강조색상 */
 #AdminPage table button.delete-btn {
     background-color: #b22222;
 }
@@ -33,21 +31,12 @@
     background-color: #cc3333;
 }
 
-/* 수정 버튼
-#AdminPage table button.edit-btn {
-    background-color: #1e3a8a;
-}
-
-#AdminPage table button.edit-btn:hover {
-    background-color: #2c4fb0;
-} */
-
 /* 제목 */
 #AdminPage h2 {
     margin: 20px 0;
     font-size: 20px;
     font-weight: bold;
-    border-left: 4px solid #6b0101;
+    border-left: 4px solid #6b0101; /* 왼쪽 테두리 설정 */
     padding-left: 10px;
 }
 
@@ -64,8 +53,8 @@
     padding: 10px 20px;
     background-color: #f0f0f0;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s ease;
+    cursor: pointer; /* 마우스 손가락 모양 */
+    transition: background 0.2s ease; /* 배경 부드럽게 전환디도록 애니메이선 */
 }
 
 #AdminPage .container div:hover {
@@ -83,7 +72,7 @@
 #AdminPage td {
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: center;
+    text-align: center; /* 텍스트 인라인 요쇼의 정렬 위치 : 가운데 정렬 */
 }
 
 #AdminPage th {

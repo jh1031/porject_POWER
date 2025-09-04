@@ -17,11 +17,11 @@ const AdminPage = () => {
         { id: 2, name: "니콜라스 홀트", birth: "1989-12-07" }
     ]);
     const [members, setMembers] = useState([
-        { id: 1, username: "testUser", email: "[test@example.com](mailto:test@example.com)" },
-        { id: 2, username: "helloUser", email: "[hello@example.com](mailto:hello@example.com)" }
+        { id: 1, username: "testUser", email: "test@gmail.com(mailto:test@gmail.com)" },
+        { id: 2, username: "helloUser", email: "hello@naver.com(mailto:hello@naver.com)" }
     ]);
     const [inquiries, setInquiries] = useState([
-        { id: 1, title: "문의 제목 예시", writer: "도라에몽" },
+        { id: 1, title: "영화 포스터 문의", writer: "도라에몽" },
         { id: 2, title: "로그인 오류", writer: "짱구" }
     ]);
 
