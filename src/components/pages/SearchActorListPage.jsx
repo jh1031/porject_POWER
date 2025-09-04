@@ -1,48 +1,126 @@
-// ActorListPage.jsx
+// SearchActorListPage.jsx
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import baseApi from "../../../public/data/api/api";
+import { SearchActorList } from "../common/SearchListPage";
 import "./SearchActorListPage.css";
-const SearchActorListPage = () => {
-  const [searchParams] = useSearchParams();
-  const person = (searchParams.get("person") || "").trim();
-
+const SearchActorListPage = ({ query }) => {
+  const [loading, setLoading] = useState(false);
   const [actors, setActors] = useState([]);
+  const [current, setCurrent] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
 
   useEffect(() => {
-    fetchdata();
-  }, [person]);
+    setCurrent(1);
+  }, [query]);
 
-  const fetchdata = async () => {
+  useEffect(() => {
+    fetchData();
+  }, [query, current]);
+
+  const fetchData = async () => {
     try {
+      if (!query) {
+        setActors([]);
+        setTotalPage(0);
+        return;
+      }
+      setLoading(true);
+
       const respones = await baseApi.get(
-        `/search/person?query=${person}&include_adult=false&language=ko-KR&page=1`
+        `/search/person?query=${query}&include_adult=false&language=ko-KR&page=${current}`
       );
       const data = respones.data.results;
-      console.log(respones.data);
+      const totalPages = Math.min(respones.data.total_pages ?? 0, 500);
       setActors(data);
+      setTotalPage(totalPages);
     } catch (e) {
       console.error("데이터 로딩 실패 : ", e);
+    } finally {
+      setLoading(false);
     }
   };
-  console.log(actors);
+
+  const handleClickPage = (page) => {
+    // 혹시 문자열이 들어와도 숫자로 보정
+    const next = Number(page) || 1;
+    if (next !== current) setCurrent(next);
+  };
+
+  const getPaginationPages = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 10;
+    const currentNum = Number(current);
+
+    // 첫 페이지와 생략 기호
+    if (currentNum > 5) {
+      pageNumbers.push(1);
+      if (currentNum > 6) {
+        pageNumbers.push("...");
+      }
+    }
+
+    // 현재 페이지 주변의 페이지들
+    let startPage = Math.max(1, currentNum - 4);
+    let endPage = Math.min(totalPage, currentNum + 5);
+
+    // 만약 끝 페이지가 총 페이지 수와 너무 가깝다면
+    if (
+      endPage - startPage < maxPagesToShow - 1 &&
+      totalPage > maxPagesToShow
+    ) {
+      startPage = Math.max(1, endPage - maxPagesToShow + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(i);
+    }
+
+    // 마지막 페이지와 생략 기호
+    if (currentNum < totalPage - 5) {
+      if (currentNum < totalPage - 6) {
+        pageNumbers.push("...");
+      }
+      if (!pageNumbers.includes(totalPage)) {
+        pageNumbers.push(totalPage);
+      }
+    }
+
+    return pageNumbers;
+  };
+
+  if (loading) return <div>불러오는 중…</div>;
   return (
     <div id="ActorListPage">
-      <ul>
-        {actors.map((actor, idx) => (
-          <li key={idx}>
-            <img
-              src={`http://image.tmdb.org/t/p/w342/${actor.profile_path}`}
-              alt={actor.name}
-            />
-            <div>
-              <p>{actor.name}</p>
-              <p>{actor.known_for_department}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <SearchActorList actors={actors} />
+      <div className="pagination">
+        {current > 1 && (
+          <button onClick={() => handleClickPage(current - 1)}>이전</button>
+        )}
+
+        {getPaginationPages().map((pageNum) =>
+          pageNum === "..." ? (
+            <span key={pageNum} className="pagination-ellipsis">
+              ...
+            </span>
+          ) : (
+            <button
+              key={pageNum}
+              onClick={() => handleClickPage(pageNum)}
+              style={{
+                fontWeight: pageNum === Number(current) ? "bold" : "normal",
+              }}
+            >
+              {" "}
+              {pageNum}
+            </button>
+          )
+        )}
+
+        {current < totalPage && (
+          <button onClick={() => handleClickPage(current + 1)}>다음</button>
+        )}
+      </div>
     </div>
   );
 };
