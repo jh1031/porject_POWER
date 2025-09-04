@@ -11,6 +11,7 @@ import ActorDetailPage from "./ActorDetailPage";
 import AdminPage from "./AdminPage";
 import InquiryWritePage from "./InquiryWritePage";
 import SearchResultPage from "./SearchResultPage";
+import SearchMovieListPage from "./SearchMovieListPage";
 
 export {
   MainPage,
@@ -26,4 +27,5 @@ export {
   AdminPage,
   InquiryWritePage,
   SearchResultPage,
+  SearchMovieListPage,
 };

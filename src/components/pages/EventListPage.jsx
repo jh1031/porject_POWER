@@ -19,6 +19,7 @@ const EventListPage = () => {
     fetchData();
   }, []);
   // 나중에 지워
+  // commit 용 나중에 지워~
 
   const fetchData = async () => {
     try {
