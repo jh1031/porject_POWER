@@ -1,7 +1,7 @@
 /*MainPage.jsx*/
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // useNavigate 임포트
 import './MainPage.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual } from 'swiper/modules';
@@ -16,6 +16,7 @@ function MainPage() {
   const [topMovies, setTopMovies] = useState([]); // 영화 데이터를 저장할 상태
   const [loading, setLoading] = useState(true); // 로딩 상태 추가
   const [error, setError] = useState(null); // 에러 상태 추가
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   useEffect(() => {
     // 시간 업데이트 로직
@@ -68,6 +69,8 @@ function MainPage() {
       alert('검색어를 입력해주세요.');
       return;
     }
+    // [핵심] 검색어를 URL 쿼리 파라미터로 넘겨주며 검색 결과 페이지로 이동합니다.
+    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
   };
 
   // Enter 키 입력 처리 함수
