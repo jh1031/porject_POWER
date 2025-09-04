@@ -1,7 +1,7 @@
 /* MovieDetailActorItem.css */
 #MovieDetailActorItem {
     /* 카드 자체의 크기를 고정 */
-    width: 100px;
+    width: 150px;
     /* 카드 내 텍스트 중앙 정렬 */
     text-align: center;
     /* 모서리를 둥글게 */
@@ -44,7 +44,7 @@
     /* 상하 여백 조절 */
     margin: 10px;
     /* 줄 간격 조절 */
-    height: 35px;
+    line-height: 1.5;
 }
 #MovieDetailActorItem .detail-actor-job {
     /* 글씨 크기 및 색상 */
@@ -52,4 +52,5 @@
     color: #888;
     /* 상하 여백 조절 */
     margin-bottom: 10px;
+        font-weight: 700;
 }
