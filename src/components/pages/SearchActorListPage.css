@@ -4,3 +4,23 @@
   margin: 0 auto;
   margin-top: 60px;
 }
+#ActorListPage .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+#ActorListPage .pagination button {
+  background-color: #3b3b3b;
+  color: #fff;
+  border: 1px solid #606060;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#ActorListPage .pagination button:hover {
+  background-color: #606060;
+}
