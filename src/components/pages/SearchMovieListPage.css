@@ -1,22 +1,24 @@
-/* SearchActorListPage.css */
+/* SearchMovieListPage.css */
 
-#SearchActorListPage {
+#SearchMovieListPage {
   margin: 0 auto;
   margin-top: 60px;
 }
-#SearchActorListPage h1 {
+
+#SearchMovieListPage h1 {
   display: flex;
   justify-content: center;
   color: #fff;
 }
-#SearchActorListPage .pagination {
+
+#SearchMovieListPage .pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 40px;
 }
 
-#SearchActorListPage .pagination button {
+#SearchMovieListPage .pagination button {
   background-color: #3b3b3b;
   color: #fff;
   border: 1px solid #606060;
@@ -26,6 +28,6 @@
   transition: background-color 0.2s ease;
 }
 
-#SearchActorListPage .pagination button:hover {
+#SearchMovieListPage .pagination button:hover {
   background-color: #606060;
 }

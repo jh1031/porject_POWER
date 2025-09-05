@@ -1,0 +1,19 @@
+/* SearchMovieItem.css */
+.search-movie-item {
+  width: 250px;
+}
+.search-movie-item a {
+  margin-left: 25px;
+}
+.search-movie-item img {
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+}
+.search-movie-item p {
+  color: #fff;
+}
+.search-movie-item .movie-info {
+  margin: 0 auto;
+  width: 200px;
+}

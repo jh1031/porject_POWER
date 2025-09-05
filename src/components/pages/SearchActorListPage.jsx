@@ -89,10 +89,14 @@ const SearchActorListPage = ({ query }) => {
     return pageNumbers;
   };
 
-  if (loading) return <div>불러오는 중…</div>;
+  if (loading) return <div>데이터 로딩중...</div>;
   return (
-    <div id="ActorListPage">
-      <SearchActorList actors={actors} />
+    <div id="SearchActorListPage">
+      {actors.length !== 0 ? (
+        <SearchActorList actors={actors} />
+      ) : (
+        <h1>검색 결과가 없습니다.</h1>
+      )}
       <div className="pagination">
         {current > 1 && (
           <button onClick={() => handleClickPage(current - 1)}>이전</button>
