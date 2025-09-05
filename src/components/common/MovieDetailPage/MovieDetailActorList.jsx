@@ -1,24 +1,36 @@
 // MovieDetailActorList.jsx
+
+import { Virtual } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/virtual';
+
 import MovieDetailActorItem from './MovieDetailActorItem';
-import MovieDetailDirectorItem from './MovieDetailDirectorItem';
 
 import './MovieDetailActorList.css';
 
-
 const MovieDetailActorList = ({ genre, cast, director }) => {
     const cutCast = cast.slice(0, 20);
+    const people = [...director, ...cutCast];
+    
     return (
         <div id="MovieDetailActorList">
-                {director.map(item => (
-                    
-                        <MovieDetailDirectorItem key={director.id} director={item} />
+            <Swiper
+                modules={[Virtual]}
+                spaceBetween={10}
+                slidesPerView={5}
+                virtual
+            >
+                {people.map((item, idx) => (
+                    <SwiperSlide key={idx}>
+                        <MovieDetailActorItem genre={genre} people={item} />
+                    </SwiperSlide>
                 ))}
-                {cutCast.map(item => (
-                    
-                        <MovieDetailActorItem key={item.id} genre={genre} cast={item} />
-                ))}
+            </Swiper>
         </div>
     );
 };
-export default MovieDetailActorList;
 
+export default MovieDetailActorList;

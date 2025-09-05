@@ -1,12 +1,9 @@
 /* MovieDetailActorList.css */
 #MovieDetailActorList{
-  display: flex;
-  /* 카드들이 넘칠 경우 다음 줄로 넘어갈 수 있도록 설정 */
-  flex-wrap: nowrap;
-  /* 카드 사이의 간격을 균등하게 배분 */
-  gap: 10px;
-  /* 전체 리스트를 중앙에 배치하거나, 왼쪽 정렬을 원할 경우 조절 가능 */
-  justify-content: flex-start;
-  align-items: end;
-  overflow-x: auto;
+  width: 900px;
+  position: relative;
 }
+
+
+
+

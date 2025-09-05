@@ -28,14 +28,14 @@
 
 
 /* 페이지네이션(이전/다음 버튼) 스타일입니다. */
-.pagination {
+#MovieListPage .pagination {
     display: flex; /* 버튼들을 가로로 나열합니다. */
     justify-content: center; /* 버튼들을 중앙에 배치합니다. */
     gap: 10px; /* 버튼 사이의 간격을 줍니다. */
     margin-top: 40px; /* 위쪽 여백을 줍니다. */
 }
 
-.pagination button {
+#MovieListPage .pagination button {
     background-color: #333; /* 버튼 배경색을 어둡게 합니다. */
     color: #fff; /* 글자색을 흰색으로 합니다. */
     border: 1px solid #555; /* 테두리를 만듭니다. */
@@ -45,6 +45,6 @@
     transition: background-color 0.2s ease;
 }
 
-.pagination button:hover {
+#MovieListPage .pagination button:hover {
     background-color: #555; /* 마우스를 올리면 배경색이 살짝 변합니다. */
 }

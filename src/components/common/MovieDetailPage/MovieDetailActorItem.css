@@ -14,6 +14,10 @@
     background-color: white;
     /* a 태그의 크기를 카드와 동일하게 맞춤 */
     display: block;
+    transition: transform 0.2s ease-in-out;
+}
+#MovieDetailActorItem:hover{
+transform: scale(1.05);
 }
 #MovieDetailActorItem a {
     /* 텍스트 밑줄 제거 */
