@@ -10,10 +10,13 @@
   width: 250px;
   height: 300px;
   border-radius: 15px;
+  margin-bottom: 8px;
 }
 .search-item .item-name-job {
   display: flex;
   justify-content: space-between;
+  width: 250px;
+  margin-left: 24px;
 }
 .search-item p {
   color: #fff;

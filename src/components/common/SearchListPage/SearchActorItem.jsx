@@ -11,7 +11,7 @@ const SearchActorItem = ({ actor }) => {
             alt={actor.name}
           />
         ) : (
-          <img src="/../../public/img/img_loading.png" alt={actor.name} />
+          <img src="img/img_loading.png" alt={actor.name} />
         )}
         <div className="item-name-job">
           <p className="item-name">{actor.name}</p>

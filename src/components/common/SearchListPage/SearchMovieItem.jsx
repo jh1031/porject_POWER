@@ -12,7 +12,7 @@ const SearchMovieItem = ({ movie }) => {
             alt={movie.title}
           />
         ) : (
-          <img src="/../../public/img/img_loading.png" alt={movie.title} />
+          <img src="img/img_loading.png" alt={movie.title} />
         )}
         <div className="movie-info">
           <p className="movie-title">{movie.title}</p>
