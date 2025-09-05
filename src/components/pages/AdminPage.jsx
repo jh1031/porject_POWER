@@ -5,26 +5,26 @@ const AdminPage = () => {
     const [selectedMenu, setSelectedMenu] = useState("movie");
 
     // 예시 데이터 (여러 개 추가)
-    const [movies, setMovies] = useState([ // 영화 관리 관련
+    const [movies, setMovies] = useState([ // 영화 관리 관련.
         { id: 1, title: "극장판 귀멸의 칼날: 무한성편", date: "2025-09-02" },
         { id: 2, title: "F1 더 무비", date: "2025-6-26" },
         { id: 3, title: "슈퍼맨", date: "2025-07-10" },
         { id: 4, title: "미션 임파서블: 파이널 레코닝", date: "2025-06-17" },
         { id: 5, title: "나는 네가 지난 여름에 한 일을 알고있다.", date: "2025-06-17" },
     ]);
-    const [actors, setActors] = useState([ // 회원 관리 관련
+    const [actors, setActors] = useState([ // 회원 관리 관련.
         { id: 1, name: "브래드 피트", birth: "1963-12-18" },
         { id: 2, name: "니콜라스 홀트", birth: "1989-12-07" }
     ]);
-    const [members, setMembers] = useState([ // 이메일 관리 관련
+    const [members, setMembers] = useState([ // 이메일 관리 관련.
         { id: 1, username: "testUser", email: "test@gmail.com(mailto:test@gmail.com)" },
         { id: 2, username: "helloUser", email: "hello@naver.com(mailto:hello@naver.com)" }
     ]);
-    const [inquiries, setInquiries] = useState([ // 문의 관리 관련
+    const [inquiries, setInquiries] = useState([ // 문의 관리 관련.
         { id: 1, title: "영화 포스터 문의", writer: "도라에몽" },
         { id: 2, title: "로그인 오류", writer: "짱구" }
     ]);
-    const [reviews, setReviews] = useState([ // 리뷰 관리 관련
+    const [reviews, setReviews] = useState([ // 리뷰 관리 관련.
         { id: "극장판 귀멸의 칼날", content: "정말 재밌었어요!", writer: "영화팬1" },
         { id: "영화1", content: "별로였어요.", writer: "비평가99" }
     ]);
