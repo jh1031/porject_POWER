@@ -35,7 +35,7 @@
     background-color: #eee;
     border: 1px solid #ccc;
     padding: 8px 16px;
-    cursor: pointer;
+    cursor: pointer;  /* 마우스 손가락 모양 설정 */
     transition: all 0.2s ease;
     /* 부드러운 전환 */
 }

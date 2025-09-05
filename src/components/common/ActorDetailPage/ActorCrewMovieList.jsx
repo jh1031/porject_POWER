@@ -39,6 +39,7 @@ const ActorCrewMovieList = ({ actor, movies }) => {
   const handleMore = () => {
     setVisibleCount((c) => Math.min(c + 4, sortedMovies.length));
   };
+
   return (
     <div id="ActorCrewMovieList">
       <p className="actor-movie">{actor.name} 제작 작품</p>
@@ -48,8 +49,8 @@ const ActorCrewMovieList = ({ actor, movies }) => {
         <option value="oldest">오래된순</option>
       </select>
       <ul>
-        {visibleMovies.map((movie) => (
-          <ActorCrewMovieItem key={movie.id} movie={movie} />
+        {visibleMovies.map((movie, idx) => (
+          <ActorCrewMovieItem key={idx} movie={movie} />
         ))}
       </ul>
       <div className="btn">
