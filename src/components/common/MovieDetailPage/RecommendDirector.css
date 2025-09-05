@@ -1,5 +1,4 @@
-/* RecommendGenre.css */
-#RecommendGenre ul {
+#RecommendDirector ul {
     display: grid; /* 그리드 레이아웃을 사용합니다. */
     grid-template-columns: repeat(
         auto-fill,
@@ -10,6 +9,6 @@
     flex-wrap: wrap;
     align-items: end;
 }
-#RecommendGenre .recommend-more button{
+#RecommendDirector .recommend-more button{
     filter: invert(100%);
 }
