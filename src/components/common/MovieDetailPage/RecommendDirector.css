@@ -1,3 +1,4 @@
+/* RecommendDirector.css */
 #RecommendDirector ul {
     display: grid; /* 그리드 레이아웃을 사용합니다. */
     grid-template-columns: repeat(

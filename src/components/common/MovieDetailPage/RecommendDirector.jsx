@@ -1,3 +1,4 @@
+// RecommendDirector.jsx
 import { useNavigate, useParams } from 'react-router-dom';
 import MovieItem from '../MovieListPage/MovieItem';
 import { useEffect, useState } from 'react';
