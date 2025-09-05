@@ -8,10 +8,10 @@
     padding-left: 80px;
 }
 #MovieListTop3>div{
-    width: 350px;
+    width: 390px;
 }
 #MovieListTop3>div:first-child{
-    width: 420px;
+    width: 450px;
 }
 #MovieListTop3 .rank{
     display: flex;
