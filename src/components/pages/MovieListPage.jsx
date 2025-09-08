@@ -164,9 +164,15 @@ const MovieListPage = () => {
             <div className="pagination">
                 {Number(currentPage) > 1 && (
                     <button
-                        onClick={() =>
-                            handlePageChange(Number(currentPage) - 1)
-                        }
+                        onClick={() => {
+                            if (Number(currentPage) > 10) {
+                                handlePageChange(Number(currentPage) - 10);
+                            } else {
+                                
+                                handlePageChange(1);
+                            }
+                        }}
+                        disabled={Number(currentPage) <= 1} 
                     >
                         이전
                     </button>
@@ -193,11 +199,18 @@ const MovieListPage = () => {
                         </button>
                     )
                 )}
+
                 {Number(currentPage) < totalPage && (
                     <button
-                        onClick={() =>
-                            handlePageChange(Number(currentPage) + 1)
-                        }
+                        onClick={() => {
+                            if (Number(currentPage) < totalPage - 9) {
+                                handlePageChange(Number(currentPage) + 10);
+                            } else {
+                                
+                                handlePageChange(totalPage);
+                            }
+                        }}
+                        disabled={Number(currentPage) >= totalPage} 
                     >
                         다음
                     </button>
