@@ -111,7 +111,8 @@ a {
   margin-left: -300px;
 }
 #MainPage .remaining-top-movies .swiper {
-  overflow: visible;
+  overflow: hidden;
+  margin-left: 150px;
 }
 
 #MainPage .remaining-top-movies .movie-item {
