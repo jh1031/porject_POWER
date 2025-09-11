@@ -59,6 +59,7 @@ const MovieDetailPage = () => {
     const handleClickLike = ()=>{
         setLikeBtn(!likeBtn)
     }
+    let movieScore = Math.round(movie.vote_average * 100) / 100;
     if (!isReady) {
         return <div>데이터 로딩 중 ...</div>;
     }
@@ -68,13 +69,13 @@ const MovieDetailPage = () => {
                 <div className="md-left">
                     <img
                         className="img"
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        src={movie.poster_path ?`https://image.tmdb.org/t/p/w500${movie.poster_path}` :"/img/img_loading.png"}
                         alt={movie.title}
                     />
                     <div className="left-info">
                         <div className="rating">
                             <span>평점</span>
-                            <p>{movie.vote_average}점
+                            <p>{movieScore}점
                                 {/* {Array.from({
                                     length: parseInt(movie.vote_average / 2),
                                 }).map((_, index) => (
@@ -120,14 +121,14 @@ const MovieDetailPage = () => {
                         </div>
                         <div>
                             <h4>줄거리</h4>
-                            <span>{movie.overview}</span>
+                            <span>{movie.overview ?movie.overview :"..."}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <ReviewList />
             <h2>같은 장르 추천 영화</h2>
-            <RecommendGenre movie={filteredGenreMovie} handleClickGenre={handleClickGenre}/>
+            <RecommendGenre genre={movie} movie={filteredGenreMovie} handleClickGenre={handleClickGenre}/>
             <h2>같은 감독의 다른 영화</h2>
             <RecommendDirector director={director} />
         </div>

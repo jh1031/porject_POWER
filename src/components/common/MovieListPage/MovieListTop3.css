@@ -1,3 +1,4 @@
+/* MovieListTop3.css */
 #MovieListTop3{
     display: flex; /* 그리드 레이아웃을 사용합니다. */
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 화면 크기에 따라 열의 개수가 자동으로 조절됩니다. */
@@ -8,10 +9,16 @@
     padding-left: 80px;
 }
 #MovieListTop3>div{
-    width: 390px;
+    width: 420px;
+    height: auto;
 }
 #MovieListTop3>div:first-child{
     width: 450px;
+    height: auto;
+}
+#MovieListTop3>div:last-child{
+    width: 400px;
+    height: auto;
 }
 #MovieListTop3 .rank{
     display: flex;

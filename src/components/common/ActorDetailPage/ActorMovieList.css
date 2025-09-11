@@ -3,7 +3,6 @@
 #ActorMovieList ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
+  gap: 24px;
   margin-bottom: 50px;
 }

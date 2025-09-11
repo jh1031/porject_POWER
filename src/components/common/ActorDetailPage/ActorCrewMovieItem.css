@@ -1,7 +1,17 @@
 /* ActorCrewMovieItem.css */
 
+.actor-crew-moive-item {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* 마우스를 올렸을 때 부드러운 효과를 줍니다. */
+  border-radius: 10px;
+  overflow: hidden; /* 이미지가 밖으로 삐져나오지 않게 합니다. */
+}
+
+.actor-crew-moive-item:hover {
+  transform: scale(1.05); /* 마우스를 올리면 살짝 커지게 합니다. */
+}
 .actor-crew-moive-item .movie-poster {
-  width: 345px;
+  width: 382px;
   height: 500px;
   border-radius: 25px;
   margin-bottom: 12px;
@@ -9,10 +19,10 @@
 .actor-crew-moive-item .movie-title {
   width: 300px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 24px;
   color: #fff;
 }
 .actor-crew-moive-item .movie-date {
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
 }

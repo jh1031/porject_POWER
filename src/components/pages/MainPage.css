@@ -7,7 +7,7 @@
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.container {
+#MainPage .container {
   max-width: 1600px;
   margin: 0 auto;
   padding: 20px;
@@ -18,7 +18,7 @@ a {
   color: inherit;
 }
 
-.search-bar {
+#MainPage .search-bar {
   position: relative;
   width: 60%;
   margin: 30px auto 50px auto;
@@ -26,7 +26,7 @@ a {
   margin-bottom: 300px;
 }
 
-.search-bar input {
+#MainPage .search-bar input {
   width: 100%;
   padding: 12px 45px 12px 20px;
   border: 1px solid #ccc;
@@ -36,11 +36,11 @@ a {
   box-sizing: border-box;
 }
 
-.search-bar input:focus {
+#MainPage .search-bar input:focus {
   border-color: #000;
 }
 
-.search-icon {
+#MainPage .search-icon {
   position: absolute;
   right: 20px;
   top: 50%;
@@ -50,12 +50,12 @@ a {
   color: #555;
 }
 
-.top-movies-section,
-.event-section {
+#MainPage .top-movies-section,
+#MainPage .event-section {
   margin-bottom: 60px;
 }
 
-.section-header {
+#MainPage .section-header {
   width: 1600px;
   display: flex;
   justify-content: space-between;
@@ -63,18 +63,18 @@ a {
   margin-bottom: 20px;
 }
 
-.section-header h2 {
+#MainPage .section-header h2 {
   font-size: 28px;
   font-weight: 800;
   color: #fff;
 }
 
-.section-header .current-time {
+#MainPage .section-header .current-time {
   font-size: 14px;
   color: #dbdbdb;
 }
 
-.top-three-movies {
+#MainPage .top-three-movies {
   width: 1600px;
   display: flex;
   justify-content: space-between;
@@ -82,18 +82,18 @@ a {
   margin-bottom: 40px;
 }
 
-.top-three-movies .movie-item {
+#MainPage .top-three-movies .movie-item {
   position: relative;
   flex: 1;
 }
 
-.top-three-movies .movie-item img {
+#MainPage .top-three-movies .movie-item img {
   width: 435px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.top-three-movies .movie-item .movie-rank {
+#MainPage .top-three-movies .movie-item .movie-rank {
   position: absolute;
   bottom: -20px;
   left: -110px;
@@ -105,23 +105,24 @@ a {
   line-height: 1;
 }
 
-.remaining-top-movies {
+#MainPage .remaining-top-movies {
   padding-bottom: 20px;
   padding-left: 100px;
   margin-left: -300px;
 }
-.remaining-top-movies .swiper {
-  overflow: visible;
+#MainPage .remaining-top-movies .swiper {
+  overflow: hidden;
+  margin-left: 150px;
 }
 
-.remaining-top-movies .movie-item {
+#MainPage .remaining-top-movies .movie-item {
   position: relative;
   width: 250px;
   height: 375px;
   box-sizing: border-box;
 }
 
-.remaining-top-movies .movie-item img {
+#MainPage .remaining-top-movies .movie-item img {
   height: 100%;
   border-radius: 8px;
   object-fit: cover;
@@ -130,7 +131,7 @@ a {
   padding-left: 50px;
 }
 
-.remaining-top-movies .movie-item .movie-rank {
+#MainPage .remaining-top-movies .movie-item .movie-rank {
   position: absolute;
   bottom: -10px;
   right: 150px;
@@ -145,25 +146,25 @@ a {
   letter-spacing: -10px;
 }
 
-.event-list {
+#MainPage .event-list {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
-.event-list .event-item {
+#MainPage .event-list .event-item {
   flex: 1;
   text-align: center;
 }
 
-.event-item img {
+#MainPage .event-item img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
   border: 1px solid #eee;
 }
 
-.event-item .event-title {
+#MainPage .event-item .event-title {
   font-size: 16px;
   font-weight: bold;
   color: #fff;

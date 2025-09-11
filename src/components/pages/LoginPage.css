@@ -1,11 +1,9 @@
 /* LoginPage.css */
 
-/* 전체적인 폰트와 박스 크기 계산법 설정 */
 * {
   box-sizing: border-box;
 }
 
-/* 모달 오버레이 스타일 */
 #LoginPage {
   /* 화면 전체를 덮는 어두운 배경 */
   position: fixed;
