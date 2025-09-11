@@ -134,14 +134,21 @@ function MainPage() {
           <div className="remaining-top-movies">
             <Swiper
               modules={[Virtual]}
-              spaceBetween={150}
+              spaceBetween={100}
               slidesPerView={4}
               virtual
             >
               {remainingMovies.map((movie, index) => (
                 <SwiperSlide key={movie.id} virtualIndex={index}>
                   <div className="movie-item">
-                    <span className="movie-rank">{index + 4}</span>
+                    {/* [핵심 수정] 순위가 10일 때 'rank-10' 클래스를 추가합니다. */}
+                    <p
+                      className={`movie-rank ${
+                        index + 4 === 10 ? 'rank-10' : ''
+                      }`}
+                    >
+                      {index + 4}
+                    </p>
                     <Link to={`/moviedetail/${movie.id}`}>
                       <img
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

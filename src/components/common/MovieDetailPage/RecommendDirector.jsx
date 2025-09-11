@@ -52,8 +52,8 @@ const RecommendDirector = ({ director }) => {
                             src="/icon/plus_128px.png"
                             alt="해당 감독 더보기"
                         />
-                        {director.map((item) => (
-                            <p>{item.name} 감독 작품 더보기</p>
+                        {director.map((item,idx) => (
+                            <p key={idx}>{item.name} 감독 작품 더보기</p>
                         ))}
                     </button>
                 </div>
