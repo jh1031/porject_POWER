@@ -1,4 +1,4 @@
-.movie-item {
+#movieItem {
     text-align: center; /* 내용을 가운데 정렬합니다. */
     cursor: pointer;
     transition: transform 0.2s ease-in-out; /* 마우스를 올렸을 때 부드러운 효과를 줍니다. */
@@ -7,17 +7,17 @@
     overflow: hidden; /* 이미지가 밖으로 삐져나오지 않게 합니다. */
 }
 
-.movie-item:hover {
+#movieItem:hover {
     transform: scale(1.05); /* 마우스를 올리면 살짝 커지게 합니다. */
 }
 
-.movie-item .img {
+#movieItem .img {
     width: 100%; /* 이미지가 부모 요소(카드)의 너비를 꽉 채우게 합니다. */
     height: auto; /* 이미지 비율을 유지합니다. */
     border-radius: 10px;
 }
 
-.movie-item .title {
+#movieItem .title {
     font-size: 1rem;
     margin: 10px 0 5px; /* 위아래 여백을 줍니다. */
     color: #fff;

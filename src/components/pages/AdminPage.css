@@ -2,7 +2,7 @@
 #AdminPage {
     width: 80%;
     margin: 20px auto;
-    font-family: "Arial", sans-serif;
+    font-family: "Arial", sans-serif; 
     color: #fff;
 }
 
@@ -19,16 +19,16 @@
 }
 
 #AdminPage table button:hover {
-    background-color: #8c1a1a;
+    background-color: #6b0101;
 }
 
 /* 삭제 버튼 강조색상 */
 #AdminPage table button.delete-btn {
-    background-color: #b22222;
+    background-color: #6b0101;
 }
 
 #AdminPage table button.delete-btn:hover {
-    background-color: #cc3333;
+    background-color: #6b0101;
 }
 
 /* 제목 */
@@ -51,14 +51,14 @@
 #AdminPage .container div {
     color: #212121;
     padding: 10px 20px;
-    background-color: #f0f0f0;
+    background-color: #fff;
     border-radius: 5px;
     cursor: pointer; /* 마우스 손가락 모양 */
-    transition: background 0.2s ease; /* 배경 부드럽게 전환디도록 애니메이선 */
+    transition: background 0.2s ease; /* 배경 부드럽게 전환되도록 애니메이선 */
 }
 
 #AdminPage .container div:hover {
-    background-color: #d34d4d;
+    background-color: #6b0101;
 }
 
 /* 테이블 */
@@ -70,14 +70,14 @@
 
 #AdminPage th,
 #AdminPage td {
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
     padding: 10px;
     text-align: center; /* 텍스트 인라인 요쇼의 정렬 위치 : 가운데 정렬 */
 }
 
 #AdminPage th {
     color: #212121;
-    background-color: #f5f5f5;
+    background-color: #fff;
     font-weight: bold;
 }
 

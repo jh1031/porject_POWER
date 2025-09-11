@@ -18,9 +18,9 @@
 
 /* 공통 에러 메시지 스타일 */
 .error-message {
-    color: red;
+    color: red; /* 화면에 글씨 안보여서 색상 레드 */
     font-size: 14px;
-    margin-top: 3px;
+    margin-top: 4px;
     text-align: left;
 }
 
@@ -32,8 +32,8 @@
 
 /* 버튼 클릭 */
 #InquiryWritePage .button {
-    background-color: #eee;
-    border: 1px solid #ccc;
+    background-color: #fff;
+    border: 1px solid #fff;
     padding: 8px 16px;
     cursor: pointer;  /* 마우스 손가락 모양 설정 */
     transition: all 0.2s ease;
@@ -41,21 +41,21 @@
 }
 
 #InquiryWritePag .button:active {
-    background-color: #ccc;
+    background-color: #fff;
     transform: scale(0.95);
     /* 살짝 줄어드는 효과 */
 }
 
 #InquiryWritePage .categoryGroup {
     background: #606060;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
     padding: 8px 16px;
     cursor: pointer;
 }
 
 .categoryGroup:active {
-    background-color: #333;
-    background: #007bff;
+    background-color: #212121;
+    background: #6b0101;
     color: #fff;
     font-weight: bold;
 }
@@ -72,13 +72,13 @@
 }
 
 #InquiryWritePage .categoryGroup:hover {
-    border-color: #333;
+    border-color: #3b3b3b;
 }
 
 #InquiryWritePage .categoryGroup.active {
-    background: #333;
+    background: #212121;
     color: #fff;
-    border-color: #333;
+    border-color: #212121;
 }
 
 /* --- 제목 / 내용 입력 박스 --- */
@@ -110,7 +110,7 @@
 
 #InquiryWritePage .title input:focus,
 .content input:focus {
-    border-color: #333;
+    border-color: #3b3b3b;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -144,9 +144,10 @@
     border-radius: 8px;
 }
 
+/* 글자 수 배경,위치 */
 #InquiryWritePage .content {
     font-size: 12px;
-    color: #606060;
+    color: #dbdbdb;
     text-align: right;
     margin-top: 4px;
 }
@@ -154,7 +155,7 @@
 #InquiryWritePage .count {
     text-align: right;
     font-size: 12px;
-    color: #606060;
+    color: #dbdbdb;
     margin-top: 4px;
 }
 
@@ -169,7 +170,7 @@
     border-radius: 8px;
     padding: 50px;
     text-align: center;
-    color: #dbdbdb;
+    color: #fff;
     font-size: 14px;
 }
 

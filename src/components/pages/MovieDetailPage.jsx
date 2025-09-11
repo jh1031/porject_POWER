@@ -1,3 +1,4 @@
+// MovieDetailPage.jsx
 import { useEffect, useState } from 'react';
 import {
     MovieDetailActorList,
@@ -17,6 +18,7 @@ const MovieDetailPage = () => {
     const [genreMovie, setGenreMovie] = useState([]);
     const [cast,setCast] = useState([]);
     const [crew,setCrew] = useState([]);
+    const [likeBtn,setLikeBtn] = useState(false);
 
     useEffect(() => {
         fetchMovie();
@@ -50,9 +52,12 @@ const MovieDetailPage = () => {
     
     // 감독찾기
     const director = crew.filter(item => item.job === "Director")
-
+    
     const handleClickGenre = ()=>{
         nav(`/movielist?genre=${movie.genres[0].id}&page=1`)
+    }
+    const handleClickLike = ()=>{
+        setLikeBtn(!likeBtn)
     }
     if (!isReady) {
         return <div>데이터 로딩 중 ...</div>;
@@ -69,8 +74,8 @@ const MovieDetailPage = () => {
                     <div className="left-info">
                         <div className="rating">
                             <span>평점</span>
-                            <p>
-                                {Array.from({
+                            <p>{movie.vote_average}점
+                                {/* {Array.from({
                                     length: parseInt(movie.vote_average / 2),
                                 }).map((_, index) => (
                                     <span
@@ -90,19 +95,20 @@ const MovieDetailPage = () => {
                                     >
                                         ☆
                                     </span>
-                                ))}
+                                ))} */}
                             </p>
-                            <strong>{parseInt(movie.vote_average / 2)}</strong>
+                            {/* <strong>{parseInt(movie.vote_average / 2)}</strong> */}
                         </div>
                         <div className="left-btn">
-                            <button>보고싶어요</button>
-                            <button>리뷰작성</button>
+                            <button onClick={handleClickLike} className={`good-btn ${likeBtn ? 'active' : ''}`}>보고싶어요</button>
+                            <button className='go-review-btn'>리뷰작성</button>
                         </div>
                     </div>
                 </div>
                 <div className="md-right">
                     <h1>{movie.title}</h1>
-                    <MovieDetailActorList cast={cast} director={director}/>
+                    <MovieDetailActorList cast={cast} director={director}
+                    genre={movie.genres[0]}/>
                     <div className="right-info">
                         <div>
                             <h4>장르</h4>
@@ -123,7 +129,7 @@ const MovieDetailPage = () => {
             <h2>같은 장르 추천 영화</h2>
             <RecommendGenre movie={filteredGenreMovie} handleClickGenre={handleClickGenre}/>
             <h2>같은 감독의 다른 영화</h2>
-            <RecommendDirector movie={movie} director={director} />
+            <RecommendDirector director={director} />
         </div>
     );
 };

@@ -1,0 +1,29 @@
+/* SearchResultPage.css */
+
+#SearchResult {
+  max-width: 1600px;
+  margin: 0 auto;
+  margin-top: 160px;
+}
+#SearchResult .search-result {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 120px;
+}
+#SearchResult .search-result h1 {
+  color: #fff;
+}
+#SearchResult .search-result h1 span {
+  color: red;
+}
+#SearchResult .search-movie {
+  margin-bottom: 120px;
+}
+#SearchResult .search-movie .movie {
+  margin-left: 80px;
+  color: #fff;
+}
+#SearchResult .search-actor .actor {
+  margin-left: 80px;
+  color: #fff;
+}
