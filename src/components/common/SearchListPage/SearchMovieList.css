@@ -6,6 +6,6 @@
 #SearchMovieList .search-movie-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  margin-left: 50px;
+  justify-content: center;
+  gap: 32px;
 }

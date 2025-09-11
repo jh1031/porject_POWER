@@ -48,11 +48,30 @@ const ActorDetailPage = () => {
       if (respones.data.cast.length !== 0) {
         const castMovieData = respones.data.cast;
         const crewMovieData = respones.data.crew;
+        const uniqueTitles = new Set();
+
         setCastMovies(castMovieData);
-        setCrewMovies(crewMovieData);
+
+        const unqueCrewMoves = crewMovieData.filter((movie) => {
+          if (!uniqueTitles.has(movie.title)) {
+            uniqueTitles.add(movie.title);
+            return true;
+          }
+          return false;
+        });
+        setCrewMovies(unqueCrewMoves);
       } else {
         const crewMovieData = respones.data.crew;
-        setCrewMovies(crewMovieData);
+        const uniqueTitles = new Set();
+
+        const unqueCrewMoves = crewMovieData.filter((movie) => {
+          if (!uniqueTitles.has(movie.title)) {
+            uniqueTitles.add(movie.title);
+            return true;
+          }
+          return false;
+        });
+        setCrewMovies(unqueCrewMoves);
       }
     } catch (e) {
       console.error("데이터 로딩 실패 : ", e);

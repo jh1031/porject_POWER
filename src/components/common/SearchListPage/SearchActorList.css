@@ -1,6 +1,7 @@
 /* SearchActorList.css */
 
 #SearchActorList {
+  width: 1240px;
   margin: 0 auto;
 }
 
@@ -8,5 +9,4 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  margin-left: 55px;
 }
