@@ -1,11 +1,12 @@
 /* SearchMovieList.css */
 
 #SearchMovieList {
+  width: 1470px;
   margin: 0 auto;
 }
 #SearchMovieList .search-movie-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
+  gap: 24px;
+  margin: 0 auto;
 }
