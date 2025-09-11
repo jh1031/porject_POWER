@@ -12,8 +12,10 @@ const EventListPage = () => {
   const [evMd, setEvMd] = useState([]);
   const [text, setText] = useState('');
   const [today, setToday] = useState(new Date());
+  const [showAllEvents, setShowAllEvents] = useState(false);
 
   const handleChangeText = (e) => setText(e.target.value);
+  const handleShowMore = () => setShowAllEvents(true);
 
   useEffect(() => {
     fetchData();
@@ -35,58 +37,89 @@ const EventListPage = () => {
   const thisYear = today.getFullYear();
   const thisMonth = today.getMonth();
 
-  const firstDay = new Date(thisYear, thisMonth, 1);
-  const lastDay = new Date(thisYear, thisMonth + 1, 1);
+  const firstDay = new Date(thisYear, thisMonth, 1).toISOString().slice(0, 10);
+  const lastDay = new Date(thisYear, thisMonth + 1, 0)
+    .toISOString()
+    .slice(0, 10);
 
   const handleClickPrev = () => {
     setToday(new Date(thisYear, thisMonth - 1, 1));
+    console.log(today);
   };
   const handleClickNext = () => {
     setToday(new Date(thisYear, thisMonth + 1, 1));
+    console.log(today);
   };
 
   const [filter, setFilter] = useState('nowEvent');
 
   const handleFilterChange = (e) => setFilter(e.target.value);
 
-  const filteredEvMovie = evMovie.filter((item) => {
-    const isTextMath = item.movieName.includes(text);
-    const isFilterMath =
-      filter === 'nowEvent' ||
-      (filter === 'startEvnet' )
-      (filter === 'endEvent')
+  const todayFormatted = today.toISOString().slice(0, 10);
 
-      return isTextMath && isFilterMath;
-    });
-    // ? [...filteredEvMovie].sort(
-    //     (a, b) => new Date(a.startDate) - new Date(b.startDate)
-    //   )
-    // : filteredEvMovie;
+  const filterAndSortEvents = (data) => {
+    const textFilteredData = data.filter((item) =>
+      item.movieName.includes(text)
+    );
 
-    // 내일 해야할거 시작일 빠른순 이랑 마감일 빠른순 으로 보여지게 할건지 
-    // 데이터 받아오는거 정리
+    let finalFilteredData = textFilteredData;
+
+    if (filter === 'nowEvent') {
+      finalFilteredData = textFilteredData.filter(
+        (item) =>
+          todayFormatted >= item.startDate && todayFormatted <= item.endDate
+      );
+    } else if (filter === 'startEvent') {
+      finalFilteredData = textFilteredData.filter(
+        (item) => todayFormatted < item.startDate
+      );
+    } else if (filter === 'endEvent') {
+      finalFilteredData = textFilteredData.filter(
+        (item) => todayFormatted > item.endDate
+      );
+    } else if (filter === 'all') {
+      finalFilteredData = textFilteredData.filter(
+        (item) =>
+          (item.startDate >= firstDay && item.startDate <= lastDay) ||
+          (item.endDate >= firstDay && item.endDate <= lastDay)
+      );
+    }
+    return finalFilteredData.sort(
+      (a, b) => new Date(a.startDate) - new Date(b.startDate)
+    );
+  };
+
+  const filteredEvMovie = filterAndSortEvents(evMovie);
+  const filteredEvMd = filterAndSortEvents(evMd);
+
+  const displayedEvMovie = showAllEvents
+    ? filteredEvMovie
+    : filteredEvMovie.slice(0, 6);
+  const displayedEvMd = showAllEvents ? filteredEvMd : filteredEvMd.slice(0, 6);
 
   if (!isReady) {
     return <div>데이터 로딩 중,,,</div>;
   }
   return (
     <div id="EventListPage">
-        <div className="date-control">
-            <p className="btnLeft">
+      <div className="date-control">
+        <p className="btnLeft">
           <button onClick={handleClickPrev}>
             <span>이전 달</span>
           </button>
         </p>
-            <div className="thismonth">{today.toISOString().slice(5,7)}월 이벤트</div>
-             <p className="btnRight">
+        <div className="thismonth">
+          {today.toISOString().slice(5, 7)}월 이벤트
+        </div>
+        <p className="btnRight">
           <button onClick={handleClickNext}>
             <span>다음 달</span>
           </button>
         </p>
-        </div>
+      </div>
       <div className="event-top">
         <div className="event-filter">
-            <select value={filter} onChange={handleFilterChange}>
+          <select value={filter} onChange={handleFilterChange}>
             <option value="nowEvent">진행중인 이벤트</option>
             <option value="startEvent">다가오는 이벤트</option>
             <option value="endEvent">끝난 이벤트</option>
@@ -96,17 +129,30 @@ const EventListPage = () => {
         <div className="event-search">
           <input
             type="text"
-            placeholder="🔎 search"
+            placeholder="영화 제목을 입력해주세요."
             value={text}
             onChange={handleChangeText}
           />
         </div>
       </div>
-      <h3>시사회 이벤트</h3>
-      
-      <EventMovieList evMovie={evMovie} text={text} />
-      <h3>굿즈 이벤트</h3>
-      <EventMdList evMd={evMd} text={text} />
+      <div className="EventMovie">
+        <h3>시사회 이벤트</h3>
+        <EventMovieList filteredEvMovie={displayedEvMovie} />
+        {!showAllEvents && filteredEvMovie.length > 6 && (
+          <button className="morebtn" onClick={handleShowMore}>
+            시사회 더보기
+          </button>
+        )}
+      </div>
+      <div className="EventMd">
+        <h3>굿즈 이벤트</h3>
+        <EventMdList filteredEvMd={displayedEvMd} />
+        {!showAllEvents && filteredEvMd.length > 6 && (
+          <button className="morebtn" onClick={handleShowMore}>
+            굿즈 더보기
+          </button>
+        )}
+      </div>
     </div>
   );
 };

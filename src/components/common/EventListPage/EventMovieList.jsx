@@ -1,16 +1,23 @@
 // EventMovieList.jsx
 
-import { useState } from 'react';
+import EventListItem from './EventListItem';
 
-const EventMovieList = ({ evMovie, text }) => {
+import './EventList.css';
 
-
+const EventMovieList = ({ filteredEvMovie }) => {
   return (
-
-      <div id="EventMovieList">
-
-      </div>
-  )
+    <div className="EventList">
+      <ul>
+        {filteredEvMovie.length > 0 ? (
+          filteredEvMovie.map((item) => (
+            <EventListItem key={item.id} data={item} type="movie" />
+          ))
+        ) : (
+          <p>이벤트가 없습니다.</p>
+        )}
+      </ul>
+    </div>
+  );
 };
 
 export default EventMovieList;
