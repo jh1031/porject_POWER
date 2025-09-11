@@ -23,7 +23,7 @@ const ReviewCard = ({ review }) => {
             <div className="card-top">
                 <div className="card-profile">
                     <p className="profile-img">
-                        {/* <img src={review.profile} alt={review.nickName} /> */}
+                        <img src={review.profile ?`${review.profile}`:"/img/no_user_profile.jpg"} alt={review.nickName} />
                     </p>
                     <p className="info-nick">{review.nickName}</p>
                 </div>

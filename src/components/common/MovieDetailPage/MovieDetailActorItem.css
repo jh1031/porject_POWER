@@ -32,7 +32,7 @@ transform: scale(1.05);
     /* 이미지의 너비를 부모 요소(카드)에 맞춤 */
     width: 100%;
     /* 높이는 비율에 맞춰 자동 조절 */
-    height: auto;
+    height: 236px;
     /* 이미지를 블록 요소로 설정 */
     display: block;
     /* 이미지 상단 모서리만 둥글게 */
@@ -49,6 +49,9 @@ transform: scale(1.05);
     margin: 10px;
     /* 줄 간격 조절 */
     line-height: 1.5;
+    white-space: nowrap;      /* 텍스트 줄바꿈 방지 */
+    overflow: hidden;         /* 넘치는 텍스트를 숨김 */
+    text-overflow: ellipsis;  /* 숨겨진 텍스트 대신 '...' 표시 */
 }
 #MovieDetailActorItem .detail-actor-job {
     /* 글씨 크기 및 색상 */
