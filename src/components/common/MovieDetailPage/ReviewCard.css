@@ -27,10 +27,13 @@
 .ReviewCard .profile-img {
   width: 40px; /* 아이콘 너비 */
   height: 40px; /* 아이콘 높이 */
-  background-color: #000; /* 검은색 배경 */
-  border-radius: 50%; /* 원 모양으로 만듦 */
   margin-right: 10px; /* 오른쪽 여백 */
   /* SVG 아이콘 추가. 실제로는 SVG 파일을 사용하거나 React Icons 같은 라이브러리를 쓰는 게 좋아요. */
+}
+.ReviewCard .profile-img img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%; /* 원 모양으로 만듦 */
 }
 
 /* 닉네임 */
@@ -74,6 +77,7 @@
   margin-bottom: 15px; /* 하단 여백 */
   color: #555; /* 글씨색 */
   font-size: 0.95em;
+  padding-right: 40px;
 }
 
 /* 좋아요 버튼 영역 */

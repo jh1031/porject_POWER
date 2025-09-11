@@ -7,7 +7,7 @@ const MovieDetailActorItem = ({people,genre}) => {
     return (
         <div id="MovieDetailActorItem">
             <Link to={`/actordetail/${people.id}`}>
-                <img className='detail-actor-img' src={`https://image.tmdb.org/t/p/w185${people.profile_path}`} alt="배우사진" />
+                <img className='detail-actor-img' src={people.profile_path ?`https://image.tmdb.org/t/p/w185${people.profile_path}` :"/img/no_actor.PNG"} alt="배우사진" />
                 <p className='detail-actor-name'>{people.name}</p>
                 <p className='detail-actor-job'>{people.job ? '감독' : distribute}</p>
             </Link>
