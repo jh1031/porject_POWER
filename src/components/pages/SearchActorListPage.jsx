@@ -4,11 +4,29 @@ import { useState, useEffect } from "react";
 import baseApi from "../../../public/data/api/api";
 import { SearchActorList } from "../common/SearchListPage";
 import "./SearchActorListPage.css";
+
+const DEPT_KO = {
+  Acting: "배우",
+  Directing: "감독",
+  Writing: "각본",
+  Production: "제작",
+  Editing: "편집",
+  Camera: "촬영",
+  Art: "미술",
+  Sound: "사운드",
+  Lighting: "조명",
+  "Visual Effects": "시각효과",
+  "Costume & Make-Up": "의상·분장",
+  Crew: "스태프",
+};
+
 const SearchActorListPage = ({ query }) => {
   const [loading, setLoading] = useState(false);
   const [actors, setActors] = useState([]);
   const [current, setCurrent] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
+
+  const tDept = (dept) => (dept && DEPT_KO[dept]) || dept || "";
 
   useEffect(() => {
     setCurrent(1);
@@ -93,7 +111,7 @@ const SearchActorListPage = ({ query }) => {
   return (
     <div id="SearchActorListPage">
       {actors.length !== 0 ? (
-        <SearchActorList actors={actors} />
+        <SearchActorList actors={actors} tDept={tDept} />
       ) : (
         <h1>검색 결과가 없습니다.</h1>
       )}

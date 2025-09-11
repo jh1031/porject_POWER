@@ -6,7 +6,11 @@ const ActorInfo = ({ actor, tDept }) => {
     <div id="ActorInfo">
       <div className="actorProfile">
         <img
-          src={`http://image.tmdb.org/t/p/w185/${actor.profile_path}`}
+          src={
+            actor.profile_path
+              ? `http://image.tmdb.org/t/p/w185/${actor.profile_path}`
+              : "/img/img_loading.png"
+          }
           alt={actor.name}
         />
         <div className="actorInfo">

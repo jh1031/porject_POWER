@@ -1,14 +1,17 @@
 /* ActorMovieItem.css */
 
+#ActorDetailPage {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 #ActorDetailPage .actorWork .actor-movie {
-  margin-left: 30px;
   margin-bottom: 12px;
   font-size: 24px;
   color: #fff;
 }
 #ActorDetailPage .actorWork select {
   width: 80px;
-  margin-left: 30px;
   margin-bottom: 18px;
 }
 #ActorDetailPage .btn {
