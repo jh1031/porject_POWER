@@ -119,6 +119,7 @@ a {
 }
 
 #MainPage .remaining-top-movies .movie-item {
+  flex: 1;
   position: relative;
   width: 250px;
   height: 375px;
@@ -126,30 +127,36 @@ a {
 }
 
 #MainPage .remaining-top-movies .movie-item img {
+  width: 400px;
   height: 100%;
   border-radius: 8px;
-  object-fit: cover;
-  position: relative;
-  z-index: -1;
-  padding-left: 80px;
+  padding-left: 55px;
+  padding-right: 65px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
 }
+
 #MainPage .remaining-top-movies .movie-item img:hover {
   transform: scale(1.05);
 }
+
 #MainPage .remaining-top-movies .movie-item .movie-rank {
   position: absolute;
   bottom: -10px;
-  right: 150px;
+  right: 155px;
   width: auto;
   text-align: right;
   font-size: 200px;
   font-weight: 900;
   color: #212121;
   -webkit-text-stroke: 4px #fff;
-  line-height: 0.9;
-  z-index: 0;
+  line-height: 1;
   letter-spacing: -40px;
+}
+
+#MainPage .remaining-top-movies .movie-item .rank-10 {
+  letter-spacing: -30px;
+  right: 100px;
 }
 
 #MainPage .event-list {
