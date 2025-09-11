@@ -10,7 +10,11 @@ const ActorCrewMovieItem = ({ movie }) => {
       <Link to={`/moviedetail/${movie.id}`}>
         <img
           className="movie-poster"
-          src={`http://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `http://image.tmdb.org/t/p/w342/${movie.poster_path}`
+              : "/img/img_loading.png"
+          }
           alt={movie.title}
         />
         <p className="movie-title">{movie.title}</p>

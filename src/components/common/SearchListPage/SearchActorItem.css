@@ -1,20 +1,28 @@
 /* SearchActorItem.css */
 
 .search-item {
-  width: 250px;
+  width: 220px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out; /* 마우스를 올렸을 때 부드러운 효과를 줍니다. */
+  border-radius: 10px;
+  overflow: hidden; /* 이미지가 밖으로 삐져나오지 않게 합니다. */
 }
-.search-item a {
-  margin-left: 25px;
+.search-item:hover {
+  transform: scale(1.05); /* 마우스를 올리면 살짝 커지게 합니다. */
 }
 .search-item img {
-  width: 250px;
+  width: 220px;
   height: 300px;
   border-radius: 15px;
+  margin-bottom: 8px;
 }
 .search-item .item-name-job {
   display: flex;
   justify-content: space-between;
+  width: 220px;
 }
 .search-item p {
+  font-size: 16px;
   color: #fff;
 }
