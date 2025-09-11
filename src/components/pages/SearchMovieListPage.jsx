@@ -97,34 +97,37 @@ const SearchMovieListPage = ({ query }) => {
       ) : (
         <h1>검색 결과가 없습니다.</h1>
       )}
-      <div className="pagination">
-        {current > 1 && (
-          <button onClick={() => handleClickPage(current - 1)}>이전</button>
-        )}
 
-        {getPaginationPages().map((pageNum) =>
-          pageNum === "..." ? (
-            <span key={pageNum} className="pagination-ellipsis">
-              ...
-            </span>
-          ) : (
-            <button
-              key={pageNum}
-              onClick={() => handleClickPage(pageNum)}
-              style={{
-                fontWeight: pageNum === Number(current) ? "bold" : "normal",
-              }}
-            >
-              {" "}
-              {pageNum}
-            </button>
-          )
-        )}
+      {totalPage > 1 && (
+        <div className="pagination">
+          {current > 1 && (
+            <button onClick={() => handleClickPage(current - 1)}>이전</button>
+          )}
 
-        {current < totalPage && (
-          <button onClick={() => handleClickPage(current + 1)}>다음</button>
-        )}
-      </div>
+          {getPaginationPages().map((pageNum) =>
+            pageNum === "..." ? (
+              <span key={pageNum} className="pagination-ellipsis">
+                ...
+              </span>
+            ) : (
+              <button
+                key={pageNum}
+                onClick={() => handleClickPage(pageNum)}
+                style={{
+                  fontWeight: pageNum === Number(current) ? "bold" : "normal",
+                }}
+              >
+                {" "}
+                {pageNum}
+              </button>
+            )
+          )}
+
+          {current < totalPage && (
+            <button onClick={() => handleClickPage(current + 1)}>다음</button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

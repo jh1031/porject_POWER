@@ -1,6 +1,6 @@
 /* SearchMovieItem.css */
 .search-movie-item {
-  width: 270px;
+  width: 300px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out; /* 마우스를 올렸을 때 부드러운 효과를 줍니다. */
   border-radius: 10px;
@@ -10,16 +10,16 @@
   transform: scale(1.05); /* 마우스를 올리면 살짝 커지게 합니다. */
 }
 .search-movie-item img {
-  width: 270px;
-  height: 370px;
+  width: 300px;
+  height: 450px;
   border-radius: 10px;
   margin-bottom: 8px;
 }
 .search-movie-item p {
-  font-size: 16px;
+  font-size: 24px;
+  font-weight: 500;
   color: #fff;
 }
 .search-movie-item .movie-info {
-  width: 220px;
   text-align: center;
 }

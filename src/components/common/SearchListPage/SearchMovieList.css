@@ -1,12 +1,7 @@
 /* SearchMovieList.css */
 
-#SearchMovieList {
-  width: 1470px;
-  margin: 0 auto;
-}
 #SearchMovieList .search-movie-list {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  margin: 0 auto;
 }
