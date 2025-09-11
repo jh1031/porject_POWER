@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import './Header.css';
+import HeaderSearchBar from './HeaderSearchBar'; // 1. 새로 만든 검색창 컴포넌트 임포트
 
 // 재사용 가능한 드롭다운 메뉴 컴포넌트
 const DropdownMenu = ({ title, to, items, dropdownClassName }) => {
@@ -28,7 +29,7 @@ const DropdownMenu = ({ title, to, items, dropdownClassName }) => {
 };
 
 const Header = () => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation(); // 2. 현재 경로를 가져오기 위해 useLocation 사용
 
   // 장르와 이벤트 데이터를 컴포넌트에 맞게 구조화
   const genreItems = [
@@ -90,6 +91,8 @@ const Header = () => {
       </nav>
 
       <div className="user-menu">
+        {/* 3. 현재 경로가 메인('/')이 아닐 때만 검색창을 렌더링 */}
+        {pathname !== '/' && <HeaderSearchBar />}
         <button onClick={handleClickIsMdal}>로그인</button>
         <Link to="/signup">회원가입</Link>
       </div>
