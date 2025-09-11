@@ -45,9 +45,9 @@
     border: none;
     background-color: #1e1e1e;
 }
-#EventListPage .event-search input::placeholder {
+/* #EventListPage .event-search input::placeholder {
     color: #ffffff;
-}
+} */
 #EventListPage h3{
     margin-bottom: 20px;
     color: #fff;
