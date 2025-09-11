@@ -43,7 +43,7 @@ function App() {
             <Route element={<SignupPage />} path="/signup" />
             <Route element={<MovieListPage />} path="/movielist" />
             <Route element={<MovieDetailPage />} path="/moviedetail/:id" />
-            <Route element={<ReviewWritePage />} path="/reviewwrite" />
+            <Route element={<ReviewWritePage />} path="/reviewwrite/:id" />
             <Route element={<EventListPage />} path="/eventlist" />
             <Route element={<EventDetailPage />} path="/eventdetail/:id" />
             <Route element={<SearchActorListPage />} path="/actorlist" />

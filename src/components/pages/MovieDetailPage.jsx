@@ -59,6 +59,9 @@ const MovieDetailPage = () => {
     const handleClickLike = ()=>{
         setLikeBtn(!likeBtn)
     }
+    const handleClickReviewBtn = ()=>{
+        nav(`/reviewwrite/${movie.id}`)
+    }
     let movieScore = Math.round(movie.vote_average * 100) / 100;
     if (!isReady) {
         return <div>데이터 로딩 중 ...</div>;
@@ -102,7 +105,7 @@ const MovieDetailPage = () => {
                         </div>
                         <div className="left-btn">
                             <button onClick={handleClickLike} className={`good-btn ${likeBtn ? 'active' : ''}`}>보고싶어요</button>
-                            <button className='go-review-btn'>리뷰작성</button>
+                            <button onClick={handleClickReviewBtn} className='go-review-btn'>리뷰작성</button>
                         </div>
                     </div>
                 </div>
