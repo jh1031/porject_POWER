@@ -24,7 +24,7 @@ const HeaderSearchBar = () => {
     <div className="header-search-bar">
       <input
         type="text"
-        placeholder="검색"
+        placeholder="영화,배우 등 검색"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyPress={handleKeyPress}
