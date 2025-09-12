@@ -1,10 +1,5 @@
 /* SearchActorList.css */
 
-#SearchActorList {
-  width: 1240px;
-  margin: 0 auto;
-}
-
 #SearchActorList .search-list {
   display: flex;
   flex-wrap: wrap;
