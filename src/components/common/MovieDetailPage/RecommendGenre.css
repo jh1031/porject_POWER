@@ -8,7 +8,7 @@
     gap: 30px; 
     margin-top: 20px;
     flex-wrap: wrap;
-    align-items: end;
+    /* align-items: end; */
 }
 #RecommendGenre ul>div{
     height: 450px;
@@ -26,4 +26,11 @@
 #RecommendGenre .recommend-more:hover{
     transform: scale(1.05);
 }
-
+#RecommendGenre #movieItem a{
+        height: 384px;
+    width: 256px;
+}
+#RecommendGenre #movieItem .img{
+    height: 384px;
+    width: 256px;
+}
