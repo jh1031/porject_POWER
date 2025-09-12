@@ -8,10 +8,9 @@
     gap: 30px; /* 영화 카드 사이의 간격을 줍니다. */
     margin-top: 20px;
     flex-wrap: wrap;
-    align-items: end;
+    /* align-items: end; */
 }
 #RecommendDirector ul>div{
-    height: 450px;
     display: flex;
 }
 #RecommendDirector .recommend-more button{
@@ -24,4 +23,10 @@
 }
 #RecommendDirector .recommend-more:hover{
     transform: scale(1.05);
+}
+
+
+#RecommendDirector #movieItem .img{
+    height: 384px;
+    width: 256px;
 }
