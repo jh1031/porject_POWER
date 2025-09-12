@@ -6,7 +6,7 @@
 }
 #ActorInfo .actorProfile {
   display: flex;
-  gap: 12px;
+  gap: 24px;
   align-items: end;
 }
 #ActorInfo .actorProfile img {

@@ -33,14 +33,14 @@
 /* 로그인 폼 컨테이너 */
 .loginPage {
   position: relative;
-  width: 380px;
-  padding: 40px 30px;
-  background-color: #6b0101;
+  width: 700px;
+  padding: 70px 60px;
+  background-color: rgba(12, 12, 12, 0.85);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* 요소들 사이의 간격 */
+  gap: 100px; /* 요소들 사이의 간격 */
 }
 
 /* 닫기 버튼 */
@@ -50,7 +50,7 @@
   right: 15px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 50px;
   color: #aaa;
   cursor: pointer;
   padding: 0;
@@ -59,12 +59,13 @@
 /* 제목 "로그인" */
 .loginPage h1 {
   font-size: 40px;
-  color: #fff;
+  color: #ccc;
   margin: 0 0 10px 0;
 }
 
 /* 폼 영역 */
 .login-form {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -74,23 +75,42 @@
 /* 이메일, 비밀번호 입력 필드 */
 .login-form input {
   width: 100%;
+  height: 70px;
   padding: 14px 16px;
   font-size: 16px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #606060;
   border-radius: 6px;
-  background-color: #f7f7f7;
+  background-color: rgba(12, 12, 12, 0.5);
+  color: #ccc;
+  font-size: 24px;
 }
 
 /* 입력 필드 placeholder 스타일 */
 .login-form input::placeholder {
   color: #ccc;
+  font-size: 24px;
 }
 
 /* 입력 필드 포커스 시 스타일 (왓챠피디아 핑크 색상) */
 .login-form input:focus {
   outline: none;
   border-color: #606060;
-  box-shadow: 0 0 0 2px rgba(255, 5, 88, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.login-form .eye {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 36px;
+  height: 36px;
+  background-image: url("/icon/closed-eye-white.png");
+  background-size: cover;
+  text-indent: -99999px;
+}
+.login-form .eye.active {
+  top: 105px;
+  background-image: url("/icon/open-eye-white.png");
 }
 
 /* 비밀번호 찾기 버튼 */
@@ -100,10 +120,11 @@
 }
 
 .login-form-find .find {
+  margin-bottom: 36px;
   background: none;
   border: none;
-  color: #888;
-  font-size: 13px;
+  color: #ccc;
+  font-size: 24px;
   cursor: pointer;
   padding: 5px;
 }
@@ -113,15 +134,16 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
   margin-top: 10px;
 }
 
 /* 모든 버튼에 공통으로 적용될 스타일 */
 .sign-btn button {
   width: 100%;
+  height: 70px;
   padding: 14px;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
@@ -129,13 +151,19 @@
 
 /* 로그인 버튼 (메인 버튼) */
 .sign-btn .login {
-  background-color: #606060;
-  color: white;
+  background-color: #c71919;
+  color: #c5c5c5;
   border: none;
 }
 .sign-btn .login:hover {
-  background-color: #9b9b9b;
+  background-color: #ac0000;
 }
+.sign-btn .sign-or {
+  text-align: center;
+  color: #acabab;
+  font-size: 30px;
+}
+
 /* 회원가입 버튼 (보조 버튼) */
 .sign-btn .signup {
   background-color: transparent;
@@ -144,5 +172,5 @@
   background-color: #dbdbdb;
 }
 .sign-btn .signup:hover {
-  background-color: #9b9b9b;
+  background-color: #acabab;
 }
