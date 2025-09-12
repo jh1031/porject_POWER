@@ -1,7 +1,7 @@
 /*MainPage.jsx*/
 
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // useNavigate 임포트
+import { Link, useNavigate } from 'react-router-dom';
 import './MainPage.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual } from 'swiper/modules';
@@ -13,13 +13,13 @@ import 'swiper/css/virtual';
 function MainPage() {
   const [currentTime, setCurrentTime] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [topMovies, setTopMovies] = useState([]); // 영화 데이터를 저장할 상태
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가
-  const [error, setError] = useState(null); // 에러 상태 추가
-  const navigate = useNavigate(); // useNavigate 훅 사용
+  const [topMovies, setTopMovies] = useState([]);
+  const [ongoingEvents, setOngoingEvents] = useState([]); // [추가] 이벤트 데이터를 저장할 상태
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // 시간 업데이트 로직
     const updateTime = () => {
       const now = new Date();
       const year = now.getFullYear();
@@ -33,35 +33,58 @@ function MainPage() {
     updateTime();
     const intervalId = setInterval(updateTime, 60000);
 
-    // TMDB에서 인기 영화 데이터 가져오기
-    const fetchTopMovies = async () => {
+    // [수정] 영화와 이벤트 데이터를 함께 불러오는 함수
+    const fetchData = async () => {
       try {
-        setLoading(true); // 데이터 요청 시작 시 로딩 상태로 설정
-        setError(null); // 이전 에러 상태 초기화
-        // baseApi는 axios 인스턴스로 가정합니다.
-        const response = await baseApi.get('/movie/popular', {
-          params: {
-            language: 'ko-KR',
-            region: 'KR',
-            page: 1,
-          },
+        setLoading(true);
+        setError(null);
+
+        // Promise.all을 사용해 여러 데이터를 동시에 요청합니다.
+        const [movieResponse, movieEventsRes, mdEventsRes] = await Promise.all([
+          baseApi.get('/movie/popular', {
+            params: { language: 'ko-KR', region: 'KR', page: 1 },
+          }),
+          fetch('/data/eventMovieData.json'), // 영화 이벤트 데이터 fetch
+          fetch('/data/eventMdData.json'), // 굿즈 이벤트 데이터 fetch
+        ]);
+
+        // 1. 인기 영화 데이터 처리
+        setTopMovies(movieResponse.data.results.slice(0, 10));
+
+        // 2. 이벤트 데이터 처리
+        const movieEvents = await movieEventsRes.json();
+        const mdEvents = await mdEventsRes.json();
+
+        // 3. 두 종류의 이벤트를 하나의 배열로 합치기
+        const allEvents = [
+          ...movieEvents.map((event) => ({ ...event, type: 'movie' })),
+          ...mdEvents.map((event) => ({ ...event, type: 'goods' })),
+        ];
+
+        // 4. 현재 날짜를 기준으로 진행 중인 이벤트만 필터링
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // 날짜만 비교하기 위해 시간 초기화
+
+        const filteredEvents = allEvents.filter((event) => {
+          const startDate = new Date(event.startDate);
+          const endDate = new Date(event.endDate);
+          return startDate <= today && today <= endDate;
         });
-        // axios는 데이터를 .data 속성에 담아줍니다. .json()이 아닙니다.
-        const data = response.data;
-        // 상위 10개 영화만 잘라서 상태에 저장
-        setTopMovies(data.results.slice(0, 10));
-      } catch (error) {
-        console.error('TMDB API 호출 중 오류 발생:', error);
-        setError('영화 정보를 불러오는 데 실패했습니다.'); // 에러 상태 설정
+
+        // 5. 필터링된 이벤트를 상태에 저장
+        setOngoingEvents(filteredEvents);
+      } catch (e) {
+        console.error('데이터 로딩 중 오류 발생:', e);
+        setError('정보를 불러오는 데 실패했습니다.');
       } finally {
-        setLoading(false); // 데이터 요청 완료 시 로딩 상태 해제
+        setLoading(false);
       }
     };
 
-    fetchTopMovies();
+    fetchData();
 
     return () => clearInterval(intervalId);
-  }, []); // 의존성 배열을 빈 배열로 수정하여 한 번만 실행되도록 합니다.
+  }, []);
 
   // 검색 실행 함수
   const handleSearch = () => {
@@ -86,7 +109,7 @@ function MainPage() {
 
   // 로딩 중일 때 표시할 UI
   if (loading) {
-    return <div className="loading-message">영화 정보를 불러오는 중...</div>;
+    return <div className="loading-message">정보를 불러오는 중...</div>;
   }
 
   // 에러 발생 시 표시할 UI
@@ -112,7 +135,7 @@ function MainPage() {
 
         <section className="top-movies-section">
           <div className="section-header">
-            <h2>대한민국의 TOP10</h2>
+            <h2>실시간 TOP 10</h2>
             <p className="current-time">{currentTime}</p>
           </div>
 
@@ -164,20 +187,27 @@ function MainPage() {
 
         <section className="event-section">
           <div className="section-header">
-            <h2>지금 인기있는 이벤트</h2>
+            <h2>지금 진행중인 이벤트</h2>
           </div>
           <div className="event-list">
-            {[101, 102, 103].map((id) => (
-              <div key={id} className="event-item">
-                <Link to={`/eventdetail/${id}`}>
-                  <img
-                    src={`https://picsum.photos/id/${id}/600/300`}
-                    alt={`이벤트 ${id}`}
-                  />
-                  <p className="event-title">0000 시사회 이벤트</p>
-                </Link>
-              </div>
-            ))}
+            {/* [핵심 수정] ongoingEvents 상태를 기반으로 이벤트 목록을 동적으로 렌더링 */}
+            {ongoingEvents.length > 0 ? (
+              ongoingEvents.map((event) => (
+                <div key={`${event.type}-${event.id}`} className="event-item">
+                  {/* 이벤트 타입에 따라 다른 링크 경로를 설정할 수 있습니다. */}
+                  <Link to={`/eventdetail/${event.id}`}>
+                    {/* imagePath가 배열이므로 첫 번째 이미지를 사용합니다. */}
+                    <img
+                      src={event.imagePath[0].replace('../public', '')}
+                      alt={event.title}
+                    />
+                    <p className="event-title">{event.title}</p>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p className="no-events">진행중인 이벤트가 없습니다.</p>
+            )}
           </div>
         </section>
       </div>

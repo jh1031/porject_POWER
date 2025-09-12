@@ -57,7 +57,6 @@ a {
 }
 
 #MainPage .section-header {
-  width: 1600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,10 +75,11 @@ a {
 }
 
 #MainPage .top-three-movies {
-  width: 1600px;
+  /* max-width: 1600px; */
   display: flex;
-  justify-content: space-between;
-  gap: 150px;
+  justify-content: center;
+  gap: 100px;
+  padding-left: 80px;
   margin-bottom: 40px;
 }
 
@@ -89,7 +89,7 @@ a {
 }
 
 #MainPage .top-three-movies .movie-item img {
-  width: 435px;
+  width: 420px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
@@ -127,10 +127,10 @@ a {
 }
 
 #MainPage .remaining-top-movies .movie-item img {
-  width: 400px;
+  width: 420px;
   height: 100%;
   border-radius: 8px;
-  padding-left: 55px;
+  padding-left: 90px;
   padding-right: 65px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
@@ -143,7 +143,7 @@ a {
 #MainPage .remaining-top-movies .movie-item .movie-rank {
   position: absolute;
   bottom: -10px;
-  right: 155px;
+  right: 120px;
   width: auto;
   text-align: right;
   font-size: 200px;
@@ -181,4 +181,12 @@ a {
   font-size: 16px;
   font-weight: bold;
   color: #fff;
+}
+
+#MainPage .no-events {
+  grid-column: 1 / -1; /* 그리드 전체 너비를 차지하도록 설정 */
+  text-align: center;
+  color: #888;
+  padding: 50px 0;
+  font-size: 16px;
 }
