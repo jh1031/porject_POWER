@@ -1,6 +1,6 @@
 /* SortedMovieList.css */
 #SortedMovieList{
-    width: 1600px;
+    width: 1560px;
     margin: 0 auto;
     display: grid; /* 그리드 레이아웃을 사용합니다. */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 화면 크기에 따라 열의 개수가 자동으로 조절됩니다. */

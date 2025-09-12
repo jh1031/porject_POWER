@@ -40,6 +40,7 @@ const RecommendDirector = ({ director }) => {
     const handleClickDirector = () => {
         nav(`/actordetail/${director[0].id}`);
     };
+    const cutDirector = director.slice(0,1)
     return (
         <div id="RecommendDirector">
             <ul>
@@ -52,7 +53,7 @@ const RecommendDirector = ({ director }) => {
                             src="/icon/plus_128px.png"
                             alt="해당 감독 더보기"
                         />
-                        {director.map((item,idx) => (
+                        {cutDirector.map((item,idx) => (
                             <p key={idx}>{item.name} 감독 작품 더보기</p>
                         ))}
                     </button>
