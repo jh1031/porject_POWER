@@ -1,7 +1,6 @@
 import './EventDetailPage.css'
 
 const EventDetailPage = () => {
-    
     return(
         <div id="EventDetailPage">
             <div className="event-name">
