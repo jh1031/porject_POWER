@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 const LoginPage = ({ isModal, modalClose }) => {
@@ -7,8 +7,21 @@ const LoginPage = ({ isModal, modalClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [passwordType, setPasswordType] = useState("password");
+  const [isPassType, setIsPassType] = useState(false);
+
   const handleChangeEmail = (e) => setEmail(e.target.value);
   const handleChangePassword = (e) => setPassword(e.target.value);
+
+  const handleClickPassType = () => {
+    if ("password" === passwordType) {
+      setPasswordType("text");
+      setIsPassType(true);
+    } else {
+      setPasswordType("password");
+      setIsPassType(false);
+    }
+  };
 
   const handleClickGoSignUp = () => {
     modalClose();
@@ -32,11 +45,18 @@ const LoginPage = ({ isModal, modalClose }) => {
             onChange={handleChangeEmail}
           />
           <input
-            type="password"
+            type={passwordType}
             placeholder="비밀번호"
             value={password}
             onChange={handleChangePassword}
           />
+          <button
+            className={`eye ${isPassType ? "active" : ""}`}
+            type="button"
+            onClick={handleClickPassType}
+          >
+            비밀번호 보기
+          </button>
           <div className="login-form-find">
             <button type="button" className="find">
               비밀번호 찾기
@@ -44,6 +64,7 @@ const LoginPage = ({ isModal, modalClose }) => {
           </div>
           <div className="sign-btn">
             <button className="login">로그인</button>
+            <p className="sign-or">또는</p>
             <button className="signup" onClick={handleClickGoSignUp}>
               회원가입
             </button>

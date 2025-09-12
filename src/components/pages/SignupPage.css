@@ -64,11 +64,11 @@
 #SignupPage .eye {
   width: 24px;
   height: 24px;
-  background-image: url("../../../public/icon/hidden.png");
+  background-image: url("/icon/hidden.png");
   text-indent: -99999px;
 }
 #SignupPage .eye.active {
-  background-image: url("../../../public/icon/visible.png");
+  background-image: url("/icon/visible.png");
 }
 
 #SignupPage .sign-password {
