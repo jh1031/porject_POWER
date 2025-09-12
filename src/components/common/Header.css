@@ -148,11 +148,17 @@ li {
 }
 
 /* 
-  [삭제] 이전에 중복 정의되었던 규칙을 정리합니다.
-  .main-nav ul li a { ... } 부분은 이미 상단에서
-  .main-nav ul li > a 로 더 명확하게 정의되었으므로 삭제해도 좋습니다.
+  [핵심 수정 1]
+  문의 메뉴(li)를 툴팁의 위치 기준점으로 설정합니다.
 */
+.tooltip-item {
+  position: relative;
+}
 
+/* 
+  [핵심 수정 2]
+  툴팁의 위치를 부모(문의 메뉴) 기준으로 변경합니다.
+*/
 .tooltip-text {
   visibility: hidden;
   opacity: 0;
@@ -164,20 +170,29 @@ li {
   padding: 5px 10px;
   position: absolute;
   z-index: 1;
-  top: 80%;
-  left: 950px;
-  transform: none;
-  margin-left: 10px;
+
+  /* 부모(li)의 하단 중앙에 위치하도록 설정 */
+  top: 100%; /* 부모의 바로 아래 */
+  left: 50%; /* 부모의 중앙 */
+  transform: translateX(
+    -50%
+  ); /* 자신의 너비 절반만큼 왼쪽으로 이동하여 완벽한 중앙 정렬 */
+  margin-top: 10px; /* 메뉴와의 간격 */
+
   transition: opacity 0.3s;
   white-space: nowrap;
 }
 
+/* 
+  [핵심 수정 3]
+  툴팁 화살표의 위치도 중앙으로 맞춥니다.
+*/
 .tooltip-text::after {
   content: '';
   position: absolute;
-  top: -5px;
-  left: 10px;
-  margin-left: 0;
+  bottom: 100%; /* 툴팁의 상단에 위치 */
+  left: 50%; /* 툴팁의 중앙 */
+  transform: translateX(-50%); /* 화살표를 중앙 정렬 */
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent #555 transparent;
