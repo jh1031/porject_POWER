@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import { EventMovieList, EventMdList } from '../common/EventListPage/index';
 
 import './EventListPage.css';
@@ -13,6 +14,7 @@ const EventListPage = () => {
   const [text, setText] = useState('');
   const [today, setToday] = useState(new Date());
   const [showAllEvents, setShowAllEvents] = useState(false);
+  const location = useLocation();
 
   const handleChangeText = (e) => setText(e.target.value);
   const handleShowMore = () => setShowAllEvents(true);
@@ -44,11 +46,11 @@ const EventListPage = () => {
 
   const handleClickPrev = () => {
     setToday(new Date(thisYear, thisMonth - 1, 1));
-    console.log(today);
+    setFilter('all');
   };
   const handleClickNext = () => {
     setToday(new Date(thisYear, thisMonth + 1, 1));
-    console.log(today);
+    setFilter('all');
   };
 
   const [filter, setFilter] = useState('nowEvent');
@@ -100,6 +102,11 @@ const EventListPage = () => {
   if (!isReady) {
     return <div>데이터 로딩 중,,,</div>;
   }
+
+  const showAll = location.pathname === '/eventlist';
+  const showMovies = location.pathname.includes('/events/premieres');
+  const showMds = location.pathname.includes('/events/goods');
+
   return (
     <div id="EventListPage">
       <div className="date-control">
@@ -135,24 +142,28 @@ const EventListPage = () => {
           />
         </div>
       </div>
-      <div className="EventMovie">
-        <h3>시사회 이벤트</h3>
-        <EventMovieList filteredEvMovie={displayedEvMovie} />
-        {!showAllEvents && filteredEvMovie.length > 6 && (
-          <button className="morebtn" onClick={handleShowMore}>
-            시사회 더보기
-          </button>
-        )}
-      </div>
-      <div className="EventMd">
-        <h3>굿즈 이벤트</h3>
-        <EventMdList filteredEvMd={displayedEvMd} />
-        {!showAllEvents && filteredEvMd.length > 6 && (
-          <button className="morebtn" onClick={handleShowMore}>
-            굿즈 더보기
-          </button>
-        )}
-      </div>
+      {(showAll || showMovies) && (
+        <div className="EventMovie">
+          <h3>시사회 이벤트</h3>
+          <EventMovieList filteredEvMovie={displayedEvMovie} />
+          {!showAllEvents && filteredEvMovie.length > 6 && (
+            <button className="morebtn" onClick={handleShowMore}>
+              시사회 더보기
+            </button>
+          )}
+        </div>
+      )}
+      {(showAll || showMds) && (
+        <div className="EventMd">
+          <h3>굿즈 이벤트</h3>
+          <EventMdList filteredEvMd={displayedEvMd} />
+          {!showAllEvents && filteredEvMd.length > 6 && (
+            <button className="morebtn" onClick={handleShowMore}>
+              굿즈 더보기
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

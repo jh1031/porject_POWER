@@ -45,6 +45,8 @@ function App() {
             <Route element={<MovieDetailPage />} path="/moviedetail/:id" />
             <Route element={<ReviewWritePage />} path="/reviewwrite/:id" />
             <Route element={<EventListPage />} path="/eventlist" />
+            <Route element={<EventListPage />} path="/events/premieres" />
+            <Route element={<EventListPage />} path="/events/goods" />
             <Route element={<EventDetailPage />} path="/eventdetail/:id" />
             <Route element={<SearchActorListPage />} path="/actorlist" />
             <Route element={<ActorDetailPage />} path="/actordetail/:id" />
