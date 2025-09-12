@@ -22,7 +22,6 @@
 #SearchResult .search-movie-actor .page-btn {
   display: flex;
   gap: 20px;
-  margin-left: 120px;
   margin-bottom: 60px;
 }
 #SearchResult .search-movie-actor .page-btn button {

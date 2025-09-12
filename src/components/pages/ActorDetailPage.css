@@ -7,12 +7,15 @@
 
 #ActorDetailPage .actorWork .actor-movie {
   margin-bottom: 12px;
-  font-size: 24px;
+  font-size: 32px;
+  font-weight: 500;
   color: #fff;
 }
 #ActorDetailPage .actorWork select {
-  width: 80px;
-  margin-bottom: 18px;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  margin-bottom: 24px;
 }
 #ActorDetailPage .btn {
   display: flex;
@@ -23,6 +26,8 @@
 #ActorDetailPage .moreBtn {
   width: 150px;
   height: 50px;
+  font-size: 16px;
+  font-weight: 500;
   margin-bottom: 120px;
   background-color: #dbdbdb;
   border-radius: 25px;
