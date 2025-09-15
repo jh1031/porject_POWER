@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import baseApi from "../../../public/data/api/api";
+import baseApi from "/public/data/api/api";
 import {
   ActorInfo,
   ActorMovieList,
