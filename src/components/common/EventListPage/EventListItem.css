@@ -1,3 +1,5 @@
+/* EventListItem.css */
+
 .EventListItem {
   flex: 1 1 calc(33.333% - 20px);
   min-width: 500px;
