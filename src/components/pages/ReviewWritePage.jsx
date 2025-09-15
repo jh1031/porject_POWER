@@ -1,7 +1,7 @@
 // ReviewWritePage.jsx
 import { useEffect, useState } from 'react';
 import './ReviewWritePage.css';
-import baseApi from '../../../public/data/api/api';
+import baseApi from '/public/data/api/api';
 import { useNavigate, useParams } from 'react-router-dom';
 const ReviewWritePage = () => {
   const nav = useNavigate();

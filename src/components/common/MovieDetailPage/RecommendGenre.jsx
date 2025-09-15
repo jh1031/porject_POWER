@@ -1,8 +1,7 @@
 // RecommendGenre.jsx
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import MovieItem from '../MovieListPage/MovieItem';
-import { useEffect, useState } from 'react';
-import baseApi from '../../../../public/data/api/api';
+
 import './RecommendGenre.css';
 
 const RecommendGenre = ({ genre, movie, handleClickGenre }) => {
