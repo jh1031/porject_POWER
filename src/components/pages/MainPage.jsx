@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './MainPage.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual } from 'swiper/modules';
-import baseApi from '../../../public/data/api/api';
+import baseApi from '/public/data/api/api';
 
 import 'swiper/css';
 import 'swiper/css/virtual';
@@ -119,7 +119,7 @@ function MainPage() {
   const cutOnGoingEvent = ongoingEvents.slice(0, 4);
 
   const handleClickPlus = () => {
-    nav('/eventlist');
+    navigate('/eventlist');
   };
   return (
     <div id="MainPage">

@@ -203,6 +203,10 @@ a {
   margin: 0 auto;
 }
 #MainPage .event-plus img {
-  width: 100%;
+  width: 80%;
   height: auto;
+  margin-bottom: 10px;
+}
+#MainPage .event-plus p {
+  font-size: 20px;
 }
