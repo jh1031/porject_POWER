@@ -6,7 +6,7 @@ import {
     RecommendGenre,
     ReviewList,
 } from '../common/MovieDetailPage';
-import baseApi from '../../../public/data/api/api';
+import baseApi from '/public/data/api/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import "./MovieDetailPage.css";
 
