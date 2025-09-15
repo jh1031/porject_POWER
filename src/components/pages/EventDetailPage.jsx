@@ -3,7 +3,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import baseApi from '/public/data/api/api';
+import { MovieDetailActorList } from '../common/MovieDetailPage';
 import './EventDetailPage.css';
 
 const EventDetailPage = () => {
@@ -18,9 +19,23 @@ const EventDetailPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImgIdx, setModalImgIdx] = useState(0);
 
+  const [movie, setMovie] = useState([]);
+  const [cast,setCast] = useState([]);
+  const [crew,setCrew] = useState([]);
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  const foundMovie = evMovie.find((item) => item.id === numId);
+  const foundMd = evMd.find((item) => item.id === numId);
+  const foundData = foundMovie || foundMd;
+
+   useEffect(() => {
+        if (foundData && foundData.movieId) {
+      fetchMovie();
+    }
+    }, [foundData]);
 
   const fetchData = async () => {
     try {
@@ -36,14 +51,30 @@ const EventDetailPage = () => {
     }
   };
 
-  if (!isReady) {
+  const fetchMovie = async () => {
+        setIsReady(false);
+        try {
+            const res1 = await baseApi.get(`/movie/${foundData.movieId}`);
+            const data = await res1.data;
+            const res3 = await baseApi.get(`/movie/${foundData.movieId}/credits`);
+            
+            const castData = await res3.data.cast;
+            const crewData = await res3.data.crew;
+
+            setMovie(data);
+            setCast(castData)
+            setCrew(crewData)
+
+        } catch (e) {
+            console.error('데이터 로딩 실패 :', e);
+        }
+    };
+
+    const director = crew.filter(item => item.job === "Director")
+
+    if (!isReady) {
     return <div>데이터 로딩 중,,,</div>;
   }
-
-  const foundMovie = evMovie.find((item) => item.id === numId);
-  const foundMd = evMd.find((item) => item.id === numId);
-
-  const foundData = foundMovie || foundMd;
 
   if (!foundData) {
     return (
@@ -112,6 +143,9 @@ const EventDetailPage = () => {
         <div className="event-information">
           <div className="event-actor">
             <h3>참여 출연진 및 MC</h3>
+            <div className="director">
+                
+            </div>
           </div>
           <div className="event-date">
             <h3>이벤트 날짜</h3>
