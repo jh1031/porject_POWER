@@ -2,7 +2,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { MovieListTop3, SortedMovieList } from '../common/MovieListPage';
 import { useEffect, useState } from 'react';
-import baseApi from '../../../public/data/api/api';
+import baseApi from '/public/data/api/api';
 import './MovieListPage.css';
 
 const movieGenre = [
@@ -139,7 +139,7 @@ const MovieListPage = () => {
             <div className="movielist-top">
                 <h2>
                     {filteredGenreId.length > 0 &&
-                        `${filteredGenreId[0].name}영화`}
+                        `${filteredGenreId[0].name}`}
                 </h2>
 
                 <div className="nav">

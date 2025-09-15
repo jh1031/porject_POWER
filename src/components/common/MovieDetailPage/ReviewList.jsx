@@ -10,6 +10,7 @@ const ReviewList = () => {
     const [review, setReview] = useState([]);
     const [sorted, setSorted] = useState('like');
     const [visibleCount, setVisibleCount] = useState(6);
+    const [isMore,setIsMore] = useState(false);
 
     useEffect(() => {
         fetchReview();
@@ -50,12 +51,14 @@ const ReviewList = () => {
 
     const handleMore = () => {
         setVisibleCount((c) => Math.min(c + 6, sortedReview.length));
+        setIsMore(true);
     };
     const handeleFold = () => {
         setVisibleCount(6);
         if (reviewListRef.current) {
             reviewListRef.current.scrollIntoView({ behavior: 'auto' });
         }
+        setIsMore(false);
     };
     if (!isReady) {
         return <div>데이터 로딩 중 ...</div>;
@@ -82,9 +85,9 @@ const ReviewList = () => {
                 <button className="more-btn" onClick={handleMore}>
                     더보기
                 </button>
-                <button className="fold-btn" onClick={handeleFold}>
+                {isMore && <button className="fold-btn" onClick={handeleFold}>
                     접기
-                </button>
+                </button>}
             </div>
         </div>
     );
