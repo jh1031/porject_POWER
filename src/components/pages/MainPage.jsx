@@ -117,6 +117,10 @@ function MainPage() {
     return <div className="error-message">{error}</div>;
   }
   const cutOnGoingEvent = ongoingEvents.slice(0, 4);
+
+  const handleClickPlus = () => {
+    nav('/eventlist');
+  };
   return (
     <div id="MainPage">
       <div className="container">
