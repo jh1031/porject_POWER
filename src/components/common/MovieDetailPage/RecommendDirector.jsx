@@ -2,7 +2,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import MovieItem from '../MovieListPage/MovieItem';
 import { useEffect, useState } from 'react';
-import baseApi from '../../../../public/data/api/api';
+import baseApi from '/public/data/api/api';
 import './RecommendDirector.css';
 
 const RecommendDirector = ({ director }) => {

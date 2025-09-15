@@ -102,14 +102,14 @@
   color: #888; /* 아이콘 색상 */
   padding: 0; /* 내부 여백 제거 */
   margin-right: 5px; /* 숫자와의 간격 */
-  background-image: url(../../../../public/icon/before_like.png);
+  background-image: url(/icon/before_like.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   text-indent: -99999999999999px;
 }
 .ReviewCard .card-like .like-button.active {
-  background-image: url(../../../../public/icon/after_like.png);
+  background-image: url(/icon/after_like.png);
 }
 
 /* 좋아요 숫자 */
