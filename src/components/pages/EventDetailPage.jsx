@@ -112,7 +112,6 @@ const EventDetailPage = () => {
         <div className="event-information">
           <div className="event-actor">
             <h3>참여 출연진 및 MC</h3>
-
           </div>
           <div className="event-date">
             <h3>이벤트 날짜</h3>
@@ -123,25 +122,37 @@ const EventDetailPage = () => {
           <div className="event-reference">
             <h3>이벤트 참여 방법</h3>
             <p>{foundData.reference}</p>
+            <a
+              className="event-url"
+              href={foundData.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            > {foundData.url}</a>
           </div>
         </div>
-        <div className="event-content">
-          <h3>시사회 내용</h3>
-          <p>{foundData.content}</p>
-        </div>
+      </div>
+      <div className="event-content">
+        <h3>시사회 내용</h3>
+        <p>{foundData.subContent}</p>
+        <p>{foundData.content}</p>
       </div>
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <button className="modal-close-button" onClick={closeModal}>&times;</button>
-            <button className="modal-nav-button prev" onClick={goToPrevModal}>&lt;</button>
+            <button className="modal-close-button" onClick={closeModal}>
+              &times;
+            </button>
+            <button className="modal-nav-button prev" onClick={goToPrevModal}>
+              &lt;
+            </button>
             <img src={images[modalImgIdx]} alt={foundData.movieName} />
-            <button className="modal-nav-button next" onClick={goToNextModal}>&gt;</button>
+            <button className="modal-nav-button next" onClick={goToNextModal}>
+              &gt;
+            </button>
           </div>
         </div>
       )}
     </div>
   );
 };
-
 export default EventDetailPage;

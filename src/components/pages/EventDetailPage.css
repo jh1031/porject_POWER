@@ -1,24 +1,30 @@
 /* EventDetailPage.css */
 
 #EventDetailPage{
-    margin: 50px;
+    width: 1600px;
+    margin: 100px auto;
     color: #fff;
+}
+#EventDetailPage .event-name{
+    font-size: 25px;
+    font-weight: 777;
+    margin-bottom: 30px;
+}
+#EventDetailPage .event-container{
+    display: flex;
+    gap: 40px;
 }
 
 #EventDetailPage .event-img-gallery {
     position: relative;
-    width: 600px;
-    height: auto;
-    margin: 0 auto;
+    width: 700px;
+    height: 400px;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #EventDetailPage .event-img-gallery img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 
@@ -37,11 +43,11 @@
 }
 
 #EventDetailPage .nav-button.prev {
-    left: 10px;
+    left: 20px;
 }
 
 #EventDetailPage .nav-button.next {
-    right: 10px;
+    right: 60px;
 }
 
 #EventDetailPage .modal-overlay {
@@ -105,4 +111,25 @@
 
 #EventDetailPage .modal-nav-button.next {
     right: 20px;
+}
+
+#EventDetailPage h3{
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 666;
+}
+#EventDetailPage .event-date, #EventDetailPage .event-reference{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+#EventDetailPage .event-url{
+    color: #b10000;
+    font-size: 18px;
+}
+#EventDetailPage .event-content{
+    margin-top: 20px;
+}
+#EventDetailPage .event-content p{
+    margin-top: 5px;
+    font-size: 20px;
 }
