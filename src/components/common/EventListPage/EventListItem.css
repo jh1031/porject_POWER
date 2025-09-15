@@ -1,9 +1,8 @@
 /* EventListItem.css */
 
 .EventListItem {
-  flex: 1 1 calc(33.333% - 20px);
   min-width: 500px;
-  background-color: #232323;
+  margin-bottom: 40px;
 }
 .EventListItem .event-img {
   width: 500px;
@@ -17,6 +16,10 @@
 .EventListItem .movieName {
   margin-top: 15px;
   font-size: 22px;
-  font-weight: 555;
+  font-weight: 666;
   color: #fff;
+}
+.EventListItem .title{
+  font-size: 17px;
+  color: #d6d6d6;
 }
