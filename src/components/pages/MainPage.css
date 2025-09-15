@@ -168,10 +168,12 @@ a {
 #MainPage .event-list .event-item {
   flex: 1;
   text-align: center;
+  margin-right: 20px;
 }
 
 #MainPage .event-item img {
-  width: 100%;
+  width: 300px;
+  height: 200px;
   border-radius: 10px;
   margin-bottom: 10px;
   border: 1px solid #eee;
@@ -189,4 +191,22 @@ a {
   color: #888;
   padding: 50px 0;
   font-size: 16px;
+}
+
+#MainPage .event-plus {
+  width: 180px;
+  height: 100px;
+  border: 1px solid #eee;
+  filter: invert(100%);
+  text-align: center;
+  font-weight: bold;
+  margin: 0 auto;
+}
+#MainPage .event-plus img {
+  width: 80%;
+  height: auto;
+  margin-bottom: 10px;
+}
+#MainPage .event-plus p {
+  font-size: 20px;
 }

@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './MainPage.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual } from 'swiper/modules';
-import baseApi from '../../../public/data/api/api';
+import baseApi from '/public/data/api/api';
 
 import 'swiper/css';
 import 'swiper/css/virtual';
@@ -116,7 +116,11 @@ function MainPage() {
   if (error) {
     return <div className="error-message">{error}</div>;
   }
+  const cutOnGoingEvent = ongoingEvents.slice(0, 4);
 
+  const handleClickPlus = () => {
+    navigate('/eventlist');
+  };
   return (
     <div id="MainPage">
       <div className="container">
@@ -192,7 +196,7 @@ function MainPage() {
           <div className="event-list">
             {/* [핵심 수정] ongoingEvents 상태를 기반으로 이벤트 목록을 동적으로 렌더링 */}
             {ongoingEvents.length > 0 ? (
-              ongoingEvents.map((event) => (
+              cutOnGoingEvent.map((event) => (
                 <div key={`${event.type}-${event.id}`} className="event-item">
                   {/* 이벤트 타입에 따라 다른 링크 경로를 설정할 수 있습니다. */}
                   <Link to={`/eventdetail/${event.id}`}>
@@ -208,6 +212,22 @@ function MainPage() {
             ) : (
               <p className="no-events">진행중인 이벤트가 없습니다.</p>
             )}
+            <div className="event-plus">
+              {/* <Link to="/eventlist">
+                <img src="/icon/plus_128px.png" alt="더보기 버튼" />
+                {cutOnGoingEvent.length === 4
+                  ? '진행중인 이벤트 더보기'
+                  : '이벤트 더보기'}
+              </Link> */}
+              <button onClick={handleClickPlus}>
+                <img src="/icon/plus_128px.png" alt="해당 감독 더보기" />
+                <p>
+                  {cutOnGoingEvent.length === 4
+                    ? '진행중인 이벤트 더보기'
+                    : '이벤트 더보기'}
+                </p>
+              </button>
+            </div>
           </div>
         </section>
       </div>
