@@ -1,7 +1,7 @@
 /* ActorMovieItem.css */
 
 #ActorDetailPage {
-  max-width: 1600px;
+  width: 1600px;
   margin: 0 auto;
 }
 
@@ -12,10 +12,15 @@
   color: #fff;
 }
 #ActorDetailPage .actorWork select {
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-  margin-bottom: 24px;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 20px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 15px;
+  border: none;
+  background-color: #1e1e1e;
+  color: #fff;
 }
 #ActorDetailPage .btn {
   display: flex;
@@ -24,11 +29,20 @@
 }
 
 #ActorDetailPage .moreBtn {
-  width: 150px;
-  height: 50px;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 120px;
-  background-color: #dbdbdb;
-  border-radius: 25px;
+  padding: 12px 24px; /* 패딩을 약간 늘려 버튼 크기 확장 */
+  border-radius: 25px; /* 모서리를 둥글게 만들어 부드러운 느낌 */
+  background-color: #555; /* 배경색을 테두리색과 동일하게 */
+  color: white; /* 텍스트 색상을 흰색으로 */
+  font-size: 16px; /* 폰트 크기 증가 */
+  font-weight: bold; /* 폰트 굵게 */
+  cursor: pointer;
+  transition: all 0.3s ease; /* 모든 속성에 부드러운 전환 효과 추가 */
+  line-height: 1.5;
+  width: 200px;
+}
+#ActorDetailPage .moreBtn:hover {
+  background-color: red; /* 호버 시 배경색을 약간 어둡게 */
+  border-color: red; /* 호버 시 테두리색도 동일하게 변경 */
+  transform: translateY(-2px); /* 호버 시 버튼을 약간 위로 올리는 효과 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 은은한 그림자 추가 */
 }

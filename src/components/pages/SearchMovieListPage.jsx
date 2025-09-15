@@ -1,7 +1,7 @@
 // SearchMovieListPage.jsx
 
 import { useState, useEffect } from "react";
-import baseApi from "../../../public/data/api/api";
+import baseApi from "/public/data/api/api";
 import { SearchMovieList } from "../common/SearchListPage";
 import "./SearchMovieListPage.css";
 const SearchMovieListPage = ({ query }) => {
