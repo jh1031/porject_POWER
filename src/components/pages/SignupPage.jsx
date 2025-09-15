@@ -295,116 +295,120 @@ const SignupPage = () => {
   };
   return (
     <div id="SignupPage">
-      <h1>회원가입</h1>
-      <div className="sign-name">
-        <p>이름</p>
-        <input
-          type="text"
-          value={name}
-          onChange={handleChangeName}
-          ref={nameFocusRef}
-        />
-        <p className="noti" ref={nameRef}>
-          이름을 입력해주세요.
-        </p>
-      </div>
-      <div className="sign-email">
-        <p>이메일</p>
-        <input
-          type="text"
-          value={email}
-          onChange={handleChangeEmail}
-          ref={emailFocusRef}
-        />
-        <button className="check" onClick={handleClickIsEmail}>
-          이메일 확인
+      <div className="signup-page">
+        <h1>회원가입</h1>
+        <div className="sign-name">
+          <p>이름</p>
+          <input
+            type="text"
+            value={name}
+            onChange={handleChangeName}
+            ref={nameFocusRef}
+          />
+          <p className="noti" ref={nameRef}>
+            이름을 입력해주세요.
+          </p>
+        </div>
+        <div className="sign-email">
+          <p>이메일</p>
+          <input
+            type="text"
+            value={email}
+            onChange={handleChangeEmail}
+            ref={emailFocusRef}
+          />
+          <button className="check" onClick={handleClickIsEmail}>
+            이메일 확인
+          </button>
+          <p className="noti" ref={emailRef}>
+            이메일을 입력해주세요.
+          </p>
+        </div>
+        <div className="sign-password">
+          <p>비밀번호</p>
+          <input
+            type={passwordType}
+            value={password}
+            onChange={handleChangePassword}
+            placeholder="숫자+영문자+특수문자 조합으로 8자리 이상 입력"
+            ref={passwordFocusRef}
+          />
+          <button
+            className={`eye ${isPassType ? "active" : ""}`}
+            onClick={handleClickPassType}
+          >
+            비밀번호보기
+          </button>
+          <p className="noti" ref={passwordRef}>
+            {isPassword ? passwordMessage : "비밀번호를 입력해주세요."}
+          </p>
+        </div>
+        <div className="sign-passwordCheck">
+          <p>비밀번호 확인</p>
+          <input
+            type={passwordCheckType}
+            value={passwordCheck}
+            onChange={handleChangePasswordCheck}
+            ref={passwordCheckFocusRef}
+          />
+          <button
+            className={`eye ${isPassCheckType ? "active" : ""}`}
+            onClick={handleClickPassCheckType}
+          >
+            비밀번호보기
+          </button>
+          <p className="noti" ref={passwordCheckRef}>
+            {isPasswordCheck
+              ? passwordCheckMessage
+              : "비밀번호 확인을 해주세요."}
+          </p>
+        </div>
+        <div className="sign-nickname">
+          <p>닉네임</p>
+          <input
+            type="text"
+            value={nickName}
+            onChange={handleChangeNickName}
+            ref={nickNameFocusRef}
+          />
+          <button className="check" onClick={handleClickIsNickName}>
+            중복확인
+          </button>
+          <p className="noti" ref={nickNameRef}>
+            닉네임을 입력해주세요.
+          </p>
+        </div>
+        <div className="sign-gender">
+          <p>성별</p>
+          <button
+            className={`man ${isCheck ? "active" : ""}`}
+            onClick={handleClickIsCheck}
+          >
+            남성
+          </button>
+          <button
+            className={`woman ${isCheck ? "" : "active"}`}
+            onClick={handleClickIsCheck}
+          >
+            여성
+          </button>
+        </div>
+        <div className="sign-birthdate">
+          <p>생년월일</p>
+          <input
+            type="date"
+            value={birthDate}
+            onChange={handleChangeBirthDate}
+            ref={birthDateFocusRef}
+          />
+          <p className="noti" ref={birthDateRef}>
+            생년월일을 입력해주세요.
+          </p>
+        </div>
+        <button className="signup" onClick={handleClickSignup}>
+          회원가입
         </button>
-        <p className="noti" ref={emailRef}>
-          이메일을 입력해주세요.
-        </p>
       </div>
-      <div className="sign-password">
-        <p>비밀번호</p>
-        <input
-          type={passwordType}
-          value={password}
-          onChange={handleChangePassword}
-          placeholder="숫자+영문자+특수문자 조합으로 8자리 이상 입력"
-          ref={passwordFocusRef}
-        />
-        <button
-          className={`eye ${isPassType ? "active" : ""}`}
-          onClick={handleClickPassType}
-        >
-          비밀번호보기
-        </button>
-        <p className="noti" ref={passwordRef}>
-          {isPassword ? passwordMessage : "비밀번호를 입력해주세요."}
-        </p>
-      </div>
-      <div className="sign-passwordCheck">
-        <p>비밀번호 확인</p>
-        <input
-          type={passwordCheckType}
-          value={passwordCheck}
-          onChange={handleChangePasswordCheck}
-          ref={passwordCheckFocusRef}
-        />
-        <button
-          className={`eye ${isPassCheckType ? "active" : ""}`}
-          onClick={handleClickPassCheckType}
-        >
-          비밀번호보기
-        </button>
-        <p className="noti" ref={passwordCheckRef}>
-          {isPasswordCheck ? passwordCheckMessage : "비밀번호 확인을 해주세요."}
-        </p>
-      </div>
-      <div className="sign-nickname">
-        <p>닉네임</p>
-        <input
-          type="text"
-          value={nickName}
-          onChange={handleChangeNickName}
-          ref={nickNameFocusRef}
-        />
-        <button className="check" onClick={handleClickIsNickName}>
-          중복확인
-        </button>
-        <p className="noti" ref={nickNameRef}>
-          닉네임을 입력해주세요.
-        </p>
-      </div>
-      <div className="sign-gender">
-        <p>성별</p>
-        <button
-          className={`man ${isCheck ? "active" : ""}`}
-          onClick={handleClickIsCheck}
-        >
-          남성
-        </button>
-        <button
-          className={`woman ${isCheck ? "" : "active"}`}
-          onClick={handleClickIsCheck}
-        >
-          여성
-        </button>
-      </div>
-      <div className="sign-birthdate">
-        <p>생년월일</p>
-        <input
-          type="date"
-          value={birthDate}
-          onChange={handleChangeBirthDate}
-          ref={birthDateFocusRef}
-        />
-        <p className="noti" ref={birthDateRef}>
-          생년월일을 입력해주세요.
-        </p>
-      </div>
-      <button className="signup" onClick={handleClickSignup}>
-        회원가입
-      </button>
     </div>
   );
 };

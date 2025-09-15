@@ -15,14 +15,12 @@ import {
   SearchResultPage,
 } from "./components/pages";
 import { Header, Footer } from "./components/common";
-import Header2 from "./components/common/Header2";
 
 import "./App.css";
 
 const Layout = () => {
   return (
     <div id="wrapper">
-      <Header2 />
       <Header />
       <div className="content">
         <Outlet />

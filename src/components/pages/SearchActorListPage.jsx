@@ -1,7 +1,7 @@
 // SearchActorListPage.jsx
 
 import { useState, useEffect } from "react";
-import baseApi from "../../../public/data/api/api";
+import baseApi from "/public/data/api/api";
 import { SearchActorList } from "../common/SearchListPage";
 import "./SearchActorListPage.css";
 
