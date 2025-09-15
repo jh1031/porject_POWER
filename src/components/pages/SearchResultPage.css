@@ -1,13 +1,13 @@
 /* SearchResultPage.css */
 
 #SearchResult {
-  max-width: 1600px;
+  width: 1600px;
   margin: 0 auto;
-  margin-top: 160px;
   margin-bottom: 160px;
 }
 #SearchResult .search-result {
   text-align: center;
+  margin-top: 160px;
   margin-bottom: 120px;
 }
 #SearchResult .search-result h1 {

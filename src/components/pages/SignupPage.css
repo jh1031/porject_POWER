@@ -1,13 +1,25 @@
+/* SignupPage.css */
+
+* {
+  box-sizing: border-box;
+}
+
 #SignupPage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 120px;
 }
-#SignupPage > div {
+
+.signup-page {
+  width: 700px;
+  padding: 70px 60px;
+}
+
+#SignupPage .signup-page > div {
   margin-bottom: 15px;
 }
 #SignupPage .noti {
@@ -15,11 +27,10 @@
   font-size: 16px;
   color: red;
 }
-
 #SignupPage h1 {
   font-size: 40px;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  text-align: center;
   color: #ccc;
 }
 #SignupPage p {
@@ -40,7 +51,7 @@
 }
 
 #SignupPage input::placeholder {
-  color: #ccc;
+  color: #606060;
   font-size: 24px;
 }
 #SignupPage input:focus {
@@ -123,7 +134,6 @@
   height: 70px;
   font-size: 25px;
   background-color: #dbdbdb;
-  border: 1px solid #dbdbdb;
   border-radius: 8px;
 }
 #SignupPage .sign-gender button:hover {
@@ -140,8 +150,19 @@
 #SignupPage .sign-birthdate {
   margin-bottom: 40px;
 }
+
+#SignupPage .sign-birthdate input::-webkit-calendar-picker-indicator {
+  width: 24px;
+  height: 24px;
+  padding: 0; /* 크롬 기본 패딩 제거 */
+  margin-right: 8px;
+  background-color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 #SignupPage .signup {
-  width: 580px;
+  width: 100%;
   height: 70px;
   font-size: 25px;
   color: #121212;
