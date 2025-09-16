@@ -118,13 +118,17 @@
     font-size: 22px;
     font-weight: 666;
 }
+#EventDetailPage .reference{
+    display: flex;
+    gap: 20px;
+}
 #EventDetailPage .event-date, #EventDetailPage .event-reference{
     margin-bottom: 10px;
     font-size: 20px;
 }
 #EventDetailPage .event-url{
     color: #b10000;
-    font-size: 18px;
+    font-size: 16px;
 }
 #EventDetailPage .event-content{
     margin-top: 20px;
@@ -132,4 +136,32 @@
 #EventDetailPage .event-content p{
     margin-top: 5px;
     font-size: 20px;
+}
+#EventDetailPage .event-people {
+    display: flex;
+    gap: 20px;
+    /* width: 860px;
+    justify-content: space-between; */
+}
+#EventDetailPage .detail-actor-img {
+    width: 100%;
+    height: 150px;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#EventDetailPage .detail-actor-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+    line-height: 1.5;
+    white-space: nowrap;     
+    overflow: hidden;        
+    text-overflow: ellipsis;  
+}
+#EventDetailPage .detail-actor-job {
+    font-size: 12px;
+    color: #aaaaaa;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
