@@ -9,9 +9,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
-  margin-top: 60px;
-  margin-bottom: 120px;
+  margin: 100px auto;
 }
 
 .signup-page {

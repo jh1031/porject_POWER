@@ -2,9 +2,7 @@
 #MovieDetailPage{
     color: #fff;
     width: 1440px; 
-    margin: 0 auto; 
-    padding: 20px; 
-        padding-top: 100px;
+    margin: 150px auto;
 }
 
 /* 영화 포스터, 정보, 배우 목록이 들어가는 상단 섹션입니다. */

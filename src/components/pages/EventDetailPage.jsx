@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import baseApi from '/public/data/api/api';
-import { MovieDetailActorList } from '../common/MovieDetailPage';
 import './EventDetailPage.css';
 
 const EventDetailPage = () => {
@@ -125,6 +124,8 @@ const EventDetailPage = () => {
   const cutCast = cast.slice(0, 4);
   const people = [...director, ...cutCast];
 
+  // console.log(movie.genres[0].name)
+
   return (
     <div id="EventDetailPage">
       <div className="event-name">{eventTitleText}</div>
@@ -191,20 +192,38 @@ const EventDetailPage = () => {
         </div>
       </div>
       <div className="event-content">
-        <h3>시사회 내용</h3>
+        <h3>이벤트 내용</h3>
         <p>{foundData.subContent}</p>
         <p>{foundData.content}</p>
       </div>
       <div className="movie">
-        <h3>영화에 대한 정보</h3>
+        <h2>영화에 대한 정보</h2>
         <div className="movie-container">
-          <div className="movie-img">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-            />
+          <Link to={`/moviedetail/${movie.id}`}>
+            <div className="movie-img">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+            </div>
+          </Link>
+          <div className="movie-info">
+            <div>
+              <h3>장르</h3>
+              <span>{movie.genres && movie.genres[0].name}</span>
+            </div>
+            <div>
+              <h3>개봉일</h3>
+              <span>{movie.release_date}</span>
+            </div>
+            <div className='movie-content'>
+              <h3>줄거리</h3>
+              <span>{movie.overview ? movie.overview : '...'}</span>
+            </div>
+            <Link to={`/moviedetail/${movie.id}`}>
+              <button className="morebtn">영화 정보 더보기</button>
+            </Link>
           </div>
-          <div className="movie-info"></div>
         </div>
       </div>
       {isModalOpen && (

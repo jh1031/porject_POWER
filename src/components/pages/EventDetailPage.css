@@ -1,167 +1,211 @@
 /* EventDetailPage.css */
 
-#EventDetailPage{
-    width: 1600px;
-    margin: 100px auto;
-    color: #fff;
+#EventDetailPage {
+  width: 1600px;
+  margin: 100px auto;
+  color: #fff;
 }
-#EventDetailPage .event-name{
-    font-size: 25px;
-    font-weight: 777;
-    margin-bottom: 30px;
+#EventDetailPage .event-name {
+  font-size: 25px;
+  font-weight: 777;
+  margin-bottom: 30px;
 }
-#EventDetailPage .event-container{
-    display: flex;
-    gap: 40px;
+#EventDetailPage .event-container {
+  display: flex;
+  gap: 40px;
 }
 
 #EventDetailPage .event-img-gallery {
-    position: relative;
-    width: 700px;
-    height: 400px;
-    display: flex;
+  position: relative;
+  width: 700px;
+  height: 400px;
+  display: flex;
 }
 
 #EventDetailPage .event-img-gallery img {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
-
 #EventDetailPage .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
 }
 
 #EventDetailPage .nav-button.prev {
-    left: 20px;
+  left: 20px;
 }
 
 #EventDetailPage .nav-button.next {
-    right: 60px;
+  right: 60px;
 }
 
 #EventDetailPage .modal-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 #EventDetailPage .modal-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #EventDetailPage .modal-content img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
 }
 
 #EventDetailPage .modal-close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    font-family: sans-serif;
-    z-index: 1001;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  font-family: sans-serif;
+  z-index: 1001;
 }
 
 #EventDetailPage .modal-nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 1001;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1001;
 }
 
 #EventDetailPage .modal-nav-button.prev {
-    left: 20px;
+  left: 20px;
 }
 
 #EventDetailPage .modal-nav-button.next {
-    right: 20px;
+  right: 20px;
 }
 
-#EventDetailPage h3{
-    margin-bottom: 10px;
-    font-size: 22px;
-    font-weight: 666;
+#EventDetailPage h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 666;
 }
-#EventDetailPage .reference{
-    display: flex;
-    gap: 20px;
+#EventDetailPage .reference {
+  display: flex;
+  gap: 20px;
 }
-#EventDetailPage .event-date, #EventDetailPage .event-reference{
-    margin-bottom: 10px;
-    font-size: 20px;
+#EventDetailPage .event-date,
+#EventDetailPage .event-reference {
+  margin-bottom: 10px;
+  font-size: 20px;
 }
-#EventDetailPage .event-url{
-    color: #b10000;
-    font-size: 16px;
+#EventDetailPage .event-url {
+  color: #b10000;
+  font-size: 16px;
 }
-#EventDetailPage .event-content{
-    margin-top: 20px;
+#EventDetailPage .event-content {
+  margin-top: 20px;
 }
-#EventDetailPage .event-content p{
-    margin-top: 5px;
-    font-size: 20px;
+#EventDetailPage .event-content p {
+  margin-top: 5px;
+  font-size: 20px;
 }
 #EventDetailPage .event-people {
-    display: flex;
-    gap: 20px;
-    /* width: 860px;
+  display: flex;
+  gap: 20px;
+  /* width: 860px;
     justify-content: space-between; */
 }
 #EventDetailPage .detail-actor-img {
-    width: 100%;
-    height: 150px;
-    display: block;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 #EventDetailPage .detail-actor-name {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 10px 0 5px 0;
-    line-height: 1.5;
-    white-space: nowrap;     
-    overflow: hidden;        
-    text-overflow: ellipsis;  
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #EventDetailPage .detail-actor-job {
-    font-size: 12px;
-    color: #aaaaaa;
-    margin-bottom: 10px;
-    font-weight: 700;
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+#EventDetailPage .movie h2 {
+  margin: 70px 0 20px 0;
+  font-size: 25px;
+}
+#EventDetailPage .movie-container {
+  display: flex;
+  gap: 30px;
+}
+.movie-img img {
+  width: 300px;
+}
+#EventDetailPage .movie-info h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 666;
+}
+#EventDetailPage .movie-info span {
+  font-size: 20px;
+}
+#EventDetailPage .movie-content{
+  width: 850px;
+}
+#EventDetailPage .morebtn {
+  display: block;
+  margin: 50px auto;
+  width: 200px;
+  height: 50px;
+  line-height: 1.5;
+  padding: 12px 24px;
+  border-radius: 25px;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#EventDetailPage .morebtn:hover {
+  background-color: red;
+  border-color: red;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

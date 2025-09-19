@@ -1,10 +1,8 @@
 /* ReviewWritePage.css */
 #ReviewWritePage {
-  color: aliceblue;
-  /* width: 100%; */
-  min-width: 1200px;
-  margin: 0 auto;
-      padding-top: 70px;
+  color: #fff;
+  width: 1200px;
+  margin: 200px auto;
 }
 
 #ReviewWritePage .review-wrap {
@@ -12,9 +10,6 @@
   justify-content: center;
   gap: 100px;
   padding-top: 50px;
-}
-#ReviewWritePage .review-write > div {
-  margin-bottom: 15px;
 }
 
 #ReviewWritePage .review-poster {
@@ -31,68 +26,19 @@
   border-radius: 20px;
 }
 
-#ReviewWritePage .review-date input {
-  width: 220px;
-}
-
 #ReviewWritePage .review-write h1 {
   font-size: 48px;
   margin-bottom: 30px;
 }
 #ReviewWritePage .review-write h3 {
   font-size: 25px;
-}
-#ReviewWritePage .review-with button {
-  font-size: 22px;
-  color: #fff;
-}
-#ReviewWritePage .review-with {
-  margin-bottom: 20px;
+  margin: 10px 0;
 }
 
-#ReviewWritePage .review-with h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-#ReviewWritePage .review-with .categoryGroup {
-  background-color: #555;
-  color: #ccc;
-  border: 1px solid #777;
-  border-radius: 5px;
-  padding: 8px 15px;
-  margin-right: 10px;
-  cursor: pointer;
-  font-size: 22px;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-#ReviewWritePage .review-with .categoryGroup:last-child {
-  margin-right: 0;
-}
-
-#ReviewWritePage .review-with .categoryGroup.active {
-  background-color: #fff;
-  color: #000;
-  font-weight: bold;
-}
-
-#ReviewWritePage .review-with .categoryGroup:hover {
-  background-color: #777;
-  color: #fff;
-}
-
-#ReviewWritePage .review-write textarea {
-  font-size: 18px; /* 텍스트 입력창 폰트 사이즈 */
-  font-family: 'Pretendard Variable', Pretendard, sans-serif;
-  width: 500px;
-  height: 180px;
-  resize: none;
-}
 #ReviewWritePage .review-stars {
   display: flex;
   font-size: 2.4rem;
+  gap: 5px;
 }
 #ReviewWritePage .review-stars p {
   font-size: 1.2rem;
@@ -104,16 +50,51 @@
   cursor: pointer;
   color: white;
 }
-
 #ReviewWritePage .star.filled {
   color: yellow;
 }
 
+#ReviewWritePage .review-date input {
+  width: 200px;
+}
+
+#ReviewWritePage .review-with .categoryGroup {
+  border: 1px solid #606060;
+  border-radius: 6px;
+  padding: 8px 15px;
+  margin-right: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+#ReviewWritePage .review-with .categoryGroup:hover {
+    background-color: #3b3b3b;
+    color: #fff;
+}
+
+#ReviewWritePage .review-with .categoryGroup:last-child {
+  margin-right: 0;
+}
+
+#ReviewWritePage .review-with .categoryGroup.active {
+  background: #212121;
+    color: #fff;
+    border-color: #ffffff;
+}
+
+#ReviewWritePage .review-write textarea {
+  font-size: 18px; /* 텍스트 입력창 폰트 사이즈 */
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  width: 500px;
+  height: 180px;
+  resize: none;
+}
+
 #ReviewWritePage .review-done {
   display: block;
-  width: 100%;
-  max-width: 800px;
-  margin: 40px auto 0;
+  width: 500px;
+  margin: 50px auto 0;
   background-color: #333;
   color: #fff;
   font-size: 25px;
@@ -121,8 +102,12 @@
   padding: 15px 0;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
 }
 #ReviewWritePage .review-done:hover {
   background-color: red;
+  border-color: red;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
