@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './EventListItem.css'
 
-const EventListItem = ({ data, type }) => {
-  // const titleText = `${data.movieName} ${
-  //   type === 'movie' ? '시사회 이벤트' : '굿즈 이벤트'
-  // }`;
+const EventListItem = ({ data }) => {
   return (
     <li className="EventListItem">
       <Link to={`/eventdetail/${data.id}`}>

@@ -1,12 +1,12 @@
 /*MainPage.jsx*/
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './MainPage.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual } from 'swiper/modules';
 import baseApi from '/public/data/api/api';
 
+import './MainPage.css';
 import 'swiper/css';
 import 'swiper/css/virtual';
 
@@ -193,32 +193,41 @@ function MainPage() {
           <div className="section-header">
             <h2>지금 진행중인 이벤트</h2>
           </div>
-          <div className="event-list">
-            {/* [핵심 수정] ongoingEvents 상태를 기반으로 이벤트 목록을 동적으로 렌더링 */}
-            {ongoingEvents.length > 0 ? (
-              cutOnGoingEvent.map((event) => (
-                <div key={`${event.type}-${event.id}`} className="event-item">
-                  {/* 이벤트 타입에 따라 다른 링크 경로를 설정할 수 있습니다. */}
-                  <Link to={`/eventdetail/${event.id}`}>
-                    {/* imagePath가 배열이므로 첫 번째 이미지를 사용합니다. */}
-                    <img
-                      src={event.imagePath[0].replace('../public', '')}
-                      alt={event.title}
-                    />
-                    <p className="event-title">{event.title}</p>
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <p className="no-events">진행중인 이벤트가 없습니다.</p>
-            )}
+          <div className="event-container">
+            <div className="event-list">
+              {/* [핵심 수정] ongoingEvents 상태를 기반으로 이벤트 목록을 동적으로 렌더링 */}
+              {ongoingEvents.length > 0 ? (
+                cutOnGoingEvent.map((event) => (
+                  <div key={`${event.type}-${event.id}`} className="event-item">
+                    {/* 이벤트 타입에 따라 다른 링크 경로를 설정할 수 있습니다. */}
+                    <Link to={`/eventdetail/${event.id}`}>
+                      {/* imagePath가 배열이므로 첫 번째 이미지를 사용합니다. */}
+                      <img
+                        src={event.imagePath[0].replace('../public', '')}
+                        alt={event.title}
+                      />
+                      <p className="event-title">
+                        {event.movieName}
+                        {` - ${
+                          event.type === 'movie'
+                            ? '시사회 이벤트'
+                            : '굿즈 이벤트'
+                        }`}
+                      </p>
+                    </Link>
+                  </div>
+                ))
+              ) : (
+                <p className="no-events">진행중인 이벤트가 없습니다.</p>
+              )}
+            </div>
             <div className="event-plus">
               {/* <Link to="/eventlist">
                 <img src="/icon/plus_128px.png" alt="더보기 버튼" />
                 {cutOnGoingEvent.length === 4
-                  ? '진행중인 이벤트 더보기'
-                  : '이벤트 더보기'}
-              </Link> */}
+                ? '진행중인 이벤트 더보기'
+                : '이벤트 더보기'}
+                </Link> */}
               <button onClick={handleClickPlus}>
                 <img src="/icon/plus_128px.png" alt="해당 감독 더보기" />
                 <p>
