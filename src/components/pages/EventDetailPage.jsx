@@ -1,10 +1,9 @@
 // EventDetailPage.jsx
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import baseApi from '/public/data/api/api';
-import { MovieDetailActorList } from '../common/MovieDetailPage';
 import './EventDetailPage.css';
 
 const EventDetailPage = () => {
@@ -20,8 +19,8 @@ const EventDetailPage = () => {
   const [modalImgIdx, setModalImgIdx] = useState(0);
 
   const [movie, setMovie] = useState([]);
-  const [cast,setCast] = useState([]);
-  const [crew,setCrew] = useState([]);
+  const [cast, setCast] = useState([]);
+  const [crew, setCrew] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -31,11 +30,11 @@ const EventDetailPage = () => {
   const foundMd = evMd.find((item) => item.id === numId);
   const foundData = foundMovie || foundMd;
 
-   useEffect(() => {
-        if (foundData && foundData.movieId) {
+  useEffect(() => {
+    if (foundData && foundData.movieId) {
       fetchMovie();
     }
-    }, [foundData]);
+  }, [foundData]);
 
   const fetchData = async () => {
     try {
@@ -52,27 +51,26 @@ const EventDetailPage = () => {
   };
 
   const fetchMovie = async () => {
-        setIsReady(false);
-        try {
-            const res1 = await baseApi.get(`/movie/${foundData.movieId}`);
-            const data = await res1.data;
-            const res3 = await baseApi.get(`/movie/${foundData.movieId}/credits`);
-            
-            const castData = await res3.data.cast;
-            const crewData = await res3.data.crew;
+    setIsReady(false);
+    try {
+      const res1 = await baseApi.get(`/movie/${foundData.movieId}`);
+      const data = await res1.data;
+      const res3 = await baseApi.get(`/movie/${foundData.movieId}/credits`);
 
-            setMovie(data);
-            setCast(castData)
-            setCrew(crewData)
+      const castData = await res3.data.cast;
+      const crewData = await res3.data.crew;
 
-        } catch (e) {
-            console.error('데이터 로딩 실패 :', e);
-        }
-    };
+      setMovie(data);
+      setCast(castData);
+      setCrew(crewData);
+    } catch (e) {
+      console.error('데이터 로딩 실패 :', e);
+    }
+  };
 
-    const director = crew.filter(item => item.job === "Director")
+  const director = crew.filter((item) => item.job === 'Director');
 
-    if (!isReady) {
+  if (!isReady) {
     return <div>데이터 로딩 중,,,</div>;
   }
 
@@ -123,6 +121,11 @@ const EventDetailPage = () => {
     );
   };
 
+  const cutCast = cast.slice(0, 4);
+  const people = [...director, ...cutCast];
+
+  // console.log(movie.genres[0].name)
+
   return (
     <div id="EventDetailPage">
       <div className="event-name">{eventTitleText}</div>
@@ -143,8 +146,26 @@ const EventDetailPage = () => {
         <div className="event-information">
           <div className="event-actor">
             <h3>참여 출연진 및 MC</h3>
-            <div className="director">
-                
+            <div className="event-people">
+              {people.map((item, idx) => (
+                <li key={idx}>
+                  <Link to={`/actordetail/${item.id}`}>
+                    <img
+                      className="detail-actor-img"
+                      src={
+                        item.profile_path
+                          ? `https://image.tmdb.org/t/p/w185${item.profile_path}`
+                          : '/img/img_loading.png'
+                      }
+                      alt="배우사진"
+                    />
+                    <p className="detail-actor-name">{item.name}</p>
+                    <p className="detail-actor-job">
+                      {item.known_for_department}
+                    </p>
+                  </Link>
+                </li>
+              ))}
             </div>
           </div>
           <div className="event-date">
@@ -155,20 +176,55 @@ const EventDetailPage = () => {
           </div>
           <div className="event-reference">
             <h3>이벤트 참여 방법</h3>
-            <p>{foundData.reference}</p>
-            <a
-              className="event-url"
-              href={foundData.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            > {foundData.url}</a>
+            <div className="reference">
+              <p>{foundData.reference}</p>
+              <a
+                className="event-url"
+                href={foundData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {' '}
+                {foundData.url}
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div className="event-content">
-        <h3>시사회 내용</h3>
+        <h3>이벤트 내용</h3>
         <p>{foundData.subContent}</p>
         <p>{foundData.content}</p>
+      </div>
+      <div className="movie">
+        <h2>영화에 대한 정보</h2>
+        <div className="movie-container">
+          <Link to={`/moviedetail/${movie.id}`}>
+            <div className="movie-img">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+            </div>
+          </Link>
+          <div className="movie-info">
+            <div>
+              <h3>장르</h3>
+              <span>{movie.genres && movie.genres[0].name}</span>
+            </div>
+            <div>
+              <h3>개봉일</h3>
+              <span>{movie.release_date}</span>
+            </div>
+            <div className='movie-content'>
+              <h3>줄거리</h3>
+              <span>{movie.overview ? movie.overview : '...'}</span>
+            </div>
+            <Link to={`/moviedetail/${movie.id}`}>
+              <button className="morebtn">영화 정보 더보기</button>
+            </Link>
+          </div>
+        </div>
       </div>
       {isModalOpen && (
         <div className="modal-overlay">
